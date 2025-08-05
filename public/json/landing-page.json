@@ -1,0 +1,272 @@
+[
+    {
+      "type": "carousel",
+      "width": "50%",
+      "position": "center",
+      "title": "Voices of Change",
+      "slides": [
+        {
+          "header": "Empowering Educators in Uttar Pradesh",
+          "subHeader": "A Teacher's Story",
+          "description": "“The micro-improvement approach has transformed my classroom. I feel empowered to innovate and my students are more engaged than ever before.”"
+        },
+        {
+          "header": "Community-Led Action in Tamil Nadu",
+          "subHeader": "A Parent's Perspective",
+          "description": "“We are no longer just spectators. Shikshagraha has given us a voice to demand and co-create better schools for our children.”"
+        },
+        {
+          "header": "Systemic Transformation in Kerala",
+          "subHeader": "An Administrator's View",
+          "description": "“The network of leaders has been invaluable. We are sharing best practices and solving complex challenges together, leading to tangible improvements across the district.”"
+        },
+        {
+          "header": "Another Story from UP",
+          "subHeader": "Another Teacher",
+          "description": "“This is another great story about how things are changing for the better.”"
+        }
+      ],
+      "styles": {
+        "section": "carousel-section",
+        "title": "section-title",
+        "container": "carousel-container",
+        "track": "carousel-track",
+        "slide": "carousel-slide"
+      }
+    },
+    {
+      "type": "global-view",
+      "showVariations": true,
+      "width": "50%",
+      "position": "left",
+      "title": "",
+      "isPartnerShowable": false,
+      "showDetails": false,
+      "styles": {
+        "section": "partner-logos-section",
+        "title": "section-title",
+        "category": "partner-category",
+        "logosContainer": "logos-container",
+        "logo": "partner-logo"
+      }
+    },
+    {
+      "type": "data-indicators",
+      "width": "100%",
+      "position": "left",
+      "title": "Key Progress Indicators",
+      "indicators": [
+        {
+          "label": "Micro Improvements initiated\n\n",
+          "value": 600000,
+          "icon": ""
+        },
+        {
+          "label": "Leaders driving \nimprovements\n",
+          "value": 200000,
+          "icon": ""
+        },
+        {
+          "label": "Schools driving improvements",
+          "value": 150000,
+          "icon": ""
+        },
+        {
+          "label": "Community-Led Improvements",
+          "value": 4000,
+          "icon": ""
+        },
+        {
+          "label": "Momentum partners ",
+          "value": 25,
+          "icon": ""
+        },
+        {
+          "label": "Strategic partners",
+          "value": 5,
+          "icon": ""
+        },
+        {
+          "label": "Funds mobilised",
+          "value": "1crore",
+          "icon": ""
+        },
+        {
+          "label": "NAS Grade 3",
+          "value": 0.59,
+          "icon": ""
+        },
+        {
+          "label": "",
+          "value": "",
+          "icon": ""
+        }
+      ],
+      "styles": {
+        "section": "data-indicators-section",
+        "title": "section-title",
+        "grid": "data-indicators-grid"
+      }
+    },
+    {
+      "type": "country-view",
+      "showVariations": true,
+      "width": "100%",
+      "position": "left",
+      "title": "Our Network",
+      "selections": [
+        {
+          "label": "Micro Improvement Initiated",
+          "value": "improvements_activated",
+          "selected": true
+        },
+        {
+          "label": "Leaders Driving Improvements",
+          "value": "leaders_driving_improvements",
+          "selected": false
+        },
+        {
+          "label": "Schools Driving Improvements",
+          "value": "school_driving_improvements",
+          "selected": false
+        },
+        {
+          "label": "Community-Led Improvements",
+          "value": "community_improvements",
+          "selected": false
+        }
+      ],
+      "legends": [
+        {
+          "label": "Micro Improvement Initiated",
+          "color": "#6c757d"
+        },
+        {
+          "label": "Leaders Driving Improvements",
+          "color": "#6c757d"
+        },
+        {
+          "label": "Schools Driving Improvements",
+          "color": "#6c757d"
+        },
+        {
+          "label": "Community-Led Improvements",
+          "color": "#6c757d"
+        }
+      ],
+      "styles": {
+        "section": "partner-logos-section",
+        "title": "section-title",
+        "category": "partner-category",
+        "logosContainer": "logos-container",
+        "logo": "partner-logo"
+      }
+    },
+    {
+      "type": "partner-logos",
+      "width": "100%",
+      "position": "left",
+      "title": "Our Network",
+      "showFilters": false,
+      "partners": [
+        {
+          "category": "Strategic Partners",
+          "logos": [
+            {
+              "src": "assets/partners/alohomora.svg",
+              "alt": "alohomora",
+              "name": "alohomora"
+            },
+            {
+              "src": "assets/partners/amansa.svg",
+              "alt": "amansa",
+              "name": "amansa"
+            },
+            {
+              "src": "assets/partners/aws.svg",
+              "alt": "aws",
+              "name": "aws"
+            },
+            {
+              "src": "assets/partners/axisbank.svg",
+              "alt": "axisbank",
+              "name": "axisbank"
+            },
+            {
+              "src": "assets/partners/hdfc.svg",
+              "alt": "hdfc",
+              "name": "hdfc"
+            },
+            {
+              "src": "assets/partners/c4ec.svg",
+              "alt": "c4ec",
+              "name": "c4ec"
+            },
+            {
+              "src": "assets/partners/colab.svg",
+              "alt": "colab",
+              "name": "colab"
+            },
+            {
+              "src": "assets/partners/gnothi.svg",
+              "alt": "gnothi",
+              "name": "gnothi"
+            },
+            {
+              "src": "assets/partners/ifet.svg",
+              "alt": "ifet",
+              "name": "ifet"
+            },
+            {
+              "src": "assets/partners/mj.svg",
+              "alt": "mj",
+              "name": "mj"
+            }
+          ]
+        },
+        {
+          "category": "Collaborators",
+          "logos": [
+            {
+              "src": "assets/partners/orf.svg",
+              "alt": "orf",
+              "name": "orf"
+            },
+            {
+              "src": "assets/partners/paypal.svg",
+              "alt": "paypal",
+              "name": "paypal"
+            }
+          ]
+        },
+        {
+          "category": "Momentum Partners",
+          "logos": [
+            {
+              "src": "assets/partners/vv.svg",
+              "alt": "vv",
+              "name": "vv"
+            },
+            {
+              "src": "assets/partners/sms.svg",
+              "alt": "sms",
+              "name": "sms"
+            },
+            {
+              "src": "assets/partners/tekdi.svg",
+              "alt": "tekdi",
+              "name": "tekdi"
+            }
+          ]
+        }
+      ],
+      "styles": {
+        "section": "partner-logos-section",
+        "title": "section-title",
+        "category": "partner-category",
+        "logosContainer": "logos-container",
+        "logo": "partner-logo"
+      }
+    }
+  ]
+  
