@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd  # Needed if you're working with CSV or Excel
-from tab_scripts.key_progress_indicators import key_progress_indicators
+from tabs_scripts.key_progress_indicators import key_progress_indicators
 
 # Page setup
 st.set_page_config(page_title="File Upload App", page_icon=":page_facing_up:")

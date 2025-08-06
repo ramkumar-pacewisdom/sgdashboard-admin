@@ -93,11 +93,16 @@ def key_progress_indicators(excel_file):
 
         private_key_path = os.path.join(script_dir, "..", "private-key.json")
 
+        # folder_url = gcp_access.upload_file_to_gcs_and_get_directory(
+        #     bucket_name="dev-sg-dashboard",
+        #     source_file_path=json_path,
+        #     destination_blob_name="sg-dashboard/landing-page.json",
+        #     private_key_path=private_key_path
+        # )
         folder_url = gcp_access.upload_file_to_gcs_and_get_directory(
             bucket_name="dev-sg-dashboard",
             source_file_path=json_path,
-            destination_blob_name="sg-dashboard/landing-page.json",
-            private_key_path=private_key_path
+            destination_blob_name="sg-dashboard/landing-page.json"
         )
 
         if folder_url:
