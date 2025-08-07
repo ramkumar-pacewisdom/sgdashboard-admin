@@ -115,26 +115,26 @@
     "position": "left",
     "title": "Our Network",
     "selections": [
-        {
-            "label": "Micro Improvement Initiated",
-            "value": "Micro Improvements Initiated",
-            "selected": true
-        },
-        {
-            "label": "Leaders Driving Improvements",
-            "value": "Leaders Driving Improvements",
-            "selected": false
-        },
-        {
-            "label": "Schools Driving Improvements",
-            "value": "Schools Driving Improvements",
-            "selected": false
-        },
-        {
-            "label": "Community-Led Improvements",
-            "value": "Community Led Improvements",
-            "selected": false
-        }
+      {
+        "label": "Micro Improvement Initiated",
+        "value": "Micro Improvements Initiated",
+        "selected": true
+      },
+      {
+        "label": "Leaders Driving Improvements",
+        "value": "Leaders Driving Improvements",
+        "selected": false
+      },
+      {
+        "label": "Schools Driving Improvements",
+        "value": "Schools Driving Improvements",
+        "selected": false
+      },
+      {
+        "label": "Community-Led Improvements",
+        "value": "Community Led Improvements",
+        "selected": false
+      }
     ],
     "legends": [
       {
