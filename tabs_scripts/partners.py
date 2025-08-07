@@ -135,42 +135,31 @@ def get_partners(excel_file):
             json_data = [json_data]
 
         found = False
-        json_data = [obj for obj in json_data if not (
-                isinstance(obj, dict) and obj.get('type', '').strip().lower() == 'partner-logos'
-                   )]
+        for obj in json_data:
+            if isinstance(obj, dict) and obj.get('type', '').strip().lower() == 'partner-logos':
+                if 'partners' not in obj or not isinstance(obj['partners'], list):
+                    obj['partners'] = []
+                obj['partners'] = data
+                found = True
+                break
+            
 
-        json_data.append({
-             "type": "partner-logos",
-             "width": "100%",
-             "position": "left",
-             "title": "Our Network",
-             "showFilters": False,
-             "partners": data,  # assuming 'data' is already prepared
-             "styles": {
-                "section": "partner-logos-section",
-                "title": "section-title",
-                "category": "partner-category",
-                "logosContainer": "logos-container",
-                "logo": "partner-logo"
-            }
-        })
-
-        # if not found:
-        #     json_data.append({
-        #         "type": "partner-logos",
-        #         "width": "100%",
-        #         "position": "left",
-        #         "title": "Our Network",
-        #         "showFilters": False,
-        #         "partners": data,
-        #         "styles": {
-        #             "section": "partner-logos-section",
-        #             "title": "section-title",
-        #             "category": "partner-category",
-        #             "logosContainer": "logos-container",
-        #             "logo": "partner-logo"
-        #         }
-        #     })
+        if not found:
+            json_data.append({
+                "type": "partner-logos",
+                "width": "100%",
+                "position": "left",
+                "title": "Our Network",
+                "showFilters": False,
+                "partners": data,
+                "styles": {
+                    "section": "partner-logos-section",
+                    "title": "section-title",
+                    "category": "partner-category",
+                    "logosContainer": "logos-container",
+                    "logo": "partner-logo"
+                }
+            })
 
         with open(json_path, 'w', encoding='utf-8') as f:
             json.dump(json_data, f, indent=2, ensure_ascii=False)
