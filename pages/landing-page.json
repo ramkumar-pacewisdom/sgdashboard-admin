@@ -170,94 +170,31 @@
     "showFilters": false,
     "partners": [
       {
-        "category": "Strategic Partners",
-        "logos": [
-          {
-            "src": "assets/partners/alohomora.svg",
-            "alt": "alohomora",
-            "name": "alohomora"
-          },
-          {
-            "src": "assets/partners/amansa.svg",
-            "alt": "amansa",
-            "name": "amansa"
-          },
-          {
-            "src": "assets/partners/aws.svg",
-            "alt": "aws",
-            "name": "aws"
-          },
-          {
-            "src": "assets/partners/axisbank.svg",
-            "alt": "axisbank",
-            "name": "axisbank"
-          },
-          {
-            "src": "assets/partners/hdfc.svg",
-            "alt": "hdfc",
-            "name": "hdfc"
-          },
-          {
-            "src": "assets/partners/c4ec.svg",
-            "alt": "c4ec",
-            "name": "c4ec"
-          },
-          {
-            "src": "assets/partners/colab.svg",
-            "alt": "colab",
-            "name": "colab"
-          },
-          {
-            "src": "assets/partners/gnothi.svg",
-            "alt": "gnothi",
-            "name": "gnothi"
-          },
-          {
-            "src": "assets/partners/ifet.svg",
-            "alt": "ifet",
-            "name": "ifet"
-          },
-          {
-            "src": "assets/partners/mj.svg",
-            "alt": "mj",
-            "name": "mj"
-          }
-        ]
+        "id": "involve",
+        "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/involve.jpg",
+        "alt": "involve",
+        "name": "Involve",
+        "partnerState": "Uttar Pradesh",
+        "category": "Momentum ",
+        "website": "https://involveedu.com/"
       },
       {
-        "category": "Collaborators",
-        "logos": [
-          {
-            "src": "assets/partners/orf.svg",
-            "alt": "orf",
-            "name": "orf"
-          },
-          {
-            "src": "assets/partners/paypal.svg",
-            "alt": "paypal",
-            "name": "paypal"
-          }
-        ]
+        "id": "sanjhi_sikhiya",
+        "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/sanjhi_sikhiya.jpg",
+        "alt": "sanjhi_sikhiya",
+        "name": "Sanjhi Sikhiya",
+        "partnerState": "Punjab",
+        "category": "Momentum ",
+        "website": "https://sanjhi-sikhiya.danamojo.org/"
       },
       {
-        "category": "Momentum Partners",
-        "logos": [
-          {
-            "src": "assets/partners/vv.svg",
-            "alt": "vv",
-            "name": "vv"
-          },
-          {
-            "src": "assets/partners/sms.svg",
-            "alt": "sms",
-            "name": "sms"
-          },
-          {
-            "src": "assets/partners/tekdi.svg",
-            "alt": "tekdi",
-            "name": "tekdi"
-          }
-        ]
+        "id": "shiksharth",
+        "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/shiksharth.jpg",
+        "alt": "shiksharth",
+        "name": "Shiksharth",
+        "partnerState": "Chhattisgarh",
+        "category": "Momentum ",
+        "website": "https://shiksharth.in/"
       }
     ],
     "styles": {

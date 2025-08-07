@@ -1,0 +1,468 @@
+{
+  "impactData": [
+    {
+      "source": {
+        "partner_id": [
+          "alohomora"
+        ],
+        "icon": "strategic",
+        "stateName": "Tamil Nadu",
+        "coords": [
+          78.3665,
+          10.9094
+        ]
+      },
+      "target": {
+        "partner_id": [
+          "eduweave"
+        ],
+        "icon": "momentum",
+        "stateName": "Mizoram",
+        "coords": [
+          92.8688,
+          23.2146
+        ]
+      },
+      "lineType": "multi-dash",
+      "curvature": 0.3,
+      "color": "#34a541"
+    },
+    {
+      "source": {
+        "partner_id": [
+          "alohomora"
+        ],
+        "icon": "strategic",
+        "stateName": "Gujarat",
+        "coords": [
+          71.7453,
+          22.385
+        ]
+      },
+      "target": {
+        "partner_id": [
+          "alohomora"
+        ],
+        "icon": "momentum",
+        "stateName": "Madhya Pradesh",
+        "coords": [
+          77.5341,
+          23.8143
+        ]
+      },
+      "lineType": "multi-dash",
+      "curvature": 0.3,
+      "color": "#34a541"
+    },
+    {
+      "source": {
+        "partner_id": [
+          "hdfc"
+        ],
+        "icon": "strategic",
+        "countryName": "USA",
+        "coords": [
+          -100.4459,
+          39.7837
+        ]
+      },
+      "target": {
+        "partner_id": [
+          "mantra4change"
+        ],
+        "icon": "momentum",
+        "countryName": "India",
+        "coords": [
+          78.6677,
+          22.3511
+        ]
+      },
+      "lineType": "multi-dash",
+      "curvature": 0.3,
+      "color": "#34a541"
+    },
+    {
+      "source": {
+        "partner_id": [
+          "involve"
+        ],
+        "icon": "strategic",
+        "stateName": "Mizoram",
+        "coords": [
+          92.8688,
+          23.2146
+        ]
+      },
+      "target": {
+        "partner_id": [
+          "odhisha rising"
+        ],
+        "icon": "momentum",
+        "stateName": "Madhya Pradesh",
+        "coords": [
+          77.5341,
+          23.8143
+        ]
+      },
+      "lineType": "multi-dash",
+      "curvature": 0.3,
+      "color": "#34a541"
+    },
+    {
+      "source": {
+        "partner_id": [
+          "makkala jagriti"
+        ],
+        "icon": "strategic",
+        "countryName": "USA",
+        "coords": [
+          -100.4459,
+          39.7837
+        ]
+      },
+      "target": {
+        "partner_id": [
+          "neaid"
+        ],
+        "icon": "momentum",
+        "stateName": "Bihar",
+        "coords": [
+          85.9065,
+          25.6441
+        ]
+      },
+      "lineType": "multi-dash",
+      "curvature": 0.3,
+      "color": "#34a541"
+    }
+  ],
+  "partners": [
+    {
+      "id": "alohomora",
+      "src": "assets/partners/alohomora.svg",
+      "alt": "alohomora",
+      "name": "alohomora",
+      "type": "Strategic Partners",
+      "website": "https://www.alohomora.org"
+    },
+    {
+      "id": "amansa",
+      "src": "assets/partners/amansa.svg",
+      "alt": "amansa",
+      "name": "amansa",
+      "type": "Strategic Partners",
+      "website": "https://www.alohomora.org"
+    },
+    {
+      "id": "aws",
+      "src": "assets/partners/aws.svg",
+      "alt": "aws",
+      "name": "aws",
+      "type": "Strategic Partners",
+      "website": "https://www.alohomora.org"
+    },
+    {
+      "id": "axisbank",
+      "src": "assets/partners/axisbank.svg",
+      "alt": "axisbank",
+      "name": "axisbank",
+      "type": "Strategic Partners",
+      "website": "https://www.alohomora.org"
+    },
+    {
+      "id": "hdfc",
+      "src": "assets/partners/hdfc.svg",
+      "alt": "hdfc",
+      "name": "hdfc",
+      "type": "Strategic Partners",
+      "website": "https://www.alohomora.org"
+    },
+    {
+      "id": "c4ec",
+      "src": "assets/partners/c4ec.svg",
+      "alt": "c4ec",
+      "name": "c4ec",
+      "type": "Strategic Partners",
+      "website": "https://www.alohomora.org"
+    },
+    {
+      "id": "colab",
+      "src": "assets/partners/colab.svg",
+      "alt": "colab",
+      "name": "colab",
+      "type": "Strategic Partners",
+      "website": "https://www.alohomora.org"
+    },
+    {
+      "id": "gnothi",
+      "src": "assets/partners/gnothi.svg",
+      "alt": "gnothi",
+      "name": "gnothi",
+      "type": "Strategic Partners",
+      "website": "https://www.alohomora.org"
+    },
+    {
+      "id": "ifet",
+      "src": "assets/partners/ifet.svg",
+      "alt": "ifet",
+      "name": "ifet",
+      "type": "Strategic Partners",
+      "website": "https://www.alohomora.org"
+    },
+    {
+      "id": "mj",
+      "src": "assets/partners/mj.svg",
+      "alt": "mj",
+      "name": "mj",
+      "type": "Strategic Partners",
+      "website": "https://www.alohomora.org"
+    },
+    {
+      "id": "orf",
+      "src": "assets/partners/orf.svg",
+      "alt": "orf",
+      "name": "orf",
+      "type": "Collaborators",
+      "website": "https://www.alohomora.org"
+    },
+    {
+      "id": "paypal",
+      "src": "assets/partners/paypal.svg",
+      "alt": "paypal",
+      "name": "paypal",
+      "type": "Collaborators",
+      "website": "https://www.alohomora.org"
+    },
+    {
+      "id": "vv",
+      "src": "assets/partners/vv.svg",
+      "alt": "vv",
+      "name": "vv",
+      "type": "Momentum Partners",
+      "website": "https://www.alohomora.org"
+    },
+    {
+      "id": "sms",
+      "src": "assets/partners/sms.svg",
+      "alt": "sms",
+      "name": "sms",
+      "type": "Momentum Partners",
+      "website": "https://www.alohomora.org"
+    },
+    {
+      "id": "tekdi",
+      "src": "assets/partners/tekdi.svg",
+      "alt": "tekdi",
+      "name": "tekdi",
+      "type": "Momentum Partners",
+      "website": "https://www.alohomora.org"
+    },
+    {
+      "id": "alokit",
+      "src": "https://res.cloudinary.com/dfncm107l/image/upload/v1754371467/partners/alokit.png",
+      "alt": "alokit",
+      "name": "Alokit",
+      "partnerState": "Telangana",
+      "category": "Momentum ",
+      "website": "https://www.mantra4change.org/"
+    },
+    {
+      "id": "eduweave",
+      "src": "https://res.cloudinary.com/dfncm107l/image/upload/v1754371471/partners/eduweave.jpg",
+      "alt": "eduweave",
+      "name": "EduWeave",
+      "partnerState": "Chhattisgarh",
+      "category": "Momentum ",
+      "website": "https://eduweavefoundation.org/"
+    },
+    {
+      "id": "eduweave",
+      "src": "https://res.cloudinary.com/dfncm107l/image/upload/v1754371471/partners/eduweave.jpg",
+      "alt": "eduweave",
+      "name": "EduWeave",
+      "partnerState": "Jammu and Kashmir",
+      "category": "Momentum ",
+      "website": "https://eduweavefoundation.org/"
+    },
+    {
+      "id": "involve",
+      "src": "https://res.cloudinary.com/dfncm107l/image/upload/v1754371479/partners/involve.jpg",
+      "alt": "involve",
+      "name": "Involve",
+      "partnerState": "Uttar Pradesh",
+      "category": "Momentum ",
+      "website": "https://involveedu.com/"
+    },
+    {
+      "id": "involve",
+      "src": "https://res.cloudinary.com/dfncm107l/image/upload/v1754371479/partners/involve.jpg",
+      "alt": "involve",
+      "name": "Involve",
+      "partnerState": "Bihar",
+      "category": "Momentum ",
+      "website": "https://involveedu.com/"
+    },
+    {
+      "id": "involve",
+      "src": "https://res.cloudinary.com/dfncm107l/image/upload/v1754371479/partners/involve.jpg",
+      "alt": "involve",
+      "name": "Involve",
+      "partnerState": "Karnataka",
+      "category": "Momentum ",
+      "website": "https://involveedu.com/"
+    },
+    {
+      "id": "karunodaya",
+      "src": "https://res.cloudinary.com/dfncm107l/image/upload/v1754371487/partners/karunodaya.png",
+      "alt": "karunodaya",
+      "name": "Karunodaya",
+      "partnerState": "Bihar",
+      "category": "Momentum ",
+      "website": "https://karunodaya.in/"
+    },
+    {
+      "id": "makkala_jagriti",
+      "src": "https://res.cloudinary.com/dfncm107l/image/upload/v1754371491/partners/makkala_jagriti.png",
+      "alt": "makkala_jagriti",
+      "name": "Makkala Jagriti",
+      "partnerState": "Karnataka",
+      "category": "Momentum ",
+      "website": "https://makkalajagriti.org/"
+    },
+    {
+      "id": "mantra4change",
+      "src": "https://drive.google.com/uc?export=view&id=1v1l17-Vx5eKFXnyWzIfrC_lm_Jf_bHkL",
+      "alt": "mantra4change",
+      "name": "Mantra4Change",
+      "partnerState": "Karnataka",
+      "category": "Momentum ",
+      "website": "https://www.mantra4change.org/"
+    },
+    {
+      "id": "nagaed",
+      "src": "",
+      "alt": "nagaed",
+      "name": "NagaEd",
+      "partnerState": "Nagaland",
+      "category": "Momentum ",
+      "website": "https://www.nagaed.com/"
+    },
+    {
+      "id": "neaid",
+      "src": "https://res.cloudinary.com/dfncm107l/image/upload/v1754371500/partners/neaid.png",
+      "alt": "neaid",
+      "name": "NEAID",
+      "partnerState": "Assam",
+      "category": "Momentum ",
+      "website": "https://neaid.org/"
+    },
+    {
+      "id": "neaid",
+      "src": "https://res.cloudinary.com/dfncm107l/image/upload/v1754371500/partners/neaid.png",
+      "alt": "neaid",
+      "name": "NEAID",
+      "partnerState": "Meghalaya",
+      "category": "Momentum ",
+      "website": "https://neaid.org/"
+    },
+    {
+      "id": "odhisha_rising",
+      "src": "https://res.cloudinary.com/dfncm107l/image/upload/v1754371508/partners/odhisha_rising.png",
+      "alt": "odhisha_rising",
+      "name": "Odhisha Rising",
+      "partnerState": "Odisha",
+      "category": "Momentum ",
+      "website": "https://odisharising.in/"
+    },
+    {
+      "id": "prajayatna",
+      "src": "https://res.cloudinary.com/dfncm107l/image/upload/v1754371511/partners/prajayatna.jpg",
+      "alt": "prajayatna",
+      "name": "Prajayatna",
+      "partnerState": "Jharkhand",
+      "category": "Momentum ",
+      "website": "https://prajayatna.in/"
+    },
+    {
+      "id": "sanjhi_sikhiya",
+      "src": "https://res.cloudinary.com/dfncm107l/image/upload/v1754371514/partners/sanjhi_sikhiya.jpg",
+      "alt": "sanjhi_sikhiya",
+      "name": "Sanjhi Sikhiya",
+      "partnerState": "Punjab",
+      "category": "Momentum ",
+      "website": "https://sanjhi-sikhiya.danamojo.org/"
+    },
+    {
+      "id": "shiksharth",
+      "src": "https://res.cloudinary.com/dfncm107l/image/upload/v1754371517/partners/shiksharth.png",
+      "alt": "shiksharth",
+      "name": "Shiksharth",
+      "partnerState": "Chhattisgarh",
+      "category": "Momentum ",
+      "website": "https://shiksharth.in/"
+    },
+    {
+      "id": "slam_out_loud",
+      "src": "https://res.cloudinary.com/dfncm107l/image/upload/v1754371520/partners/slam_out_loud.png",
+      "alt": "slam_out_loud",
+      "name": "Slam Out Loud",
+      "partnerState": "Punjab",
+      "category": "Momentum ",
+      "website": "https://slamoutloud.org/"
+    },
+    {
+      "id": "vidhya_vidhai",
+      "src": "https://res.cloudinary.com/dfncm107l/image/upload/v1754371524/partners/vidhya_vidhai.png",
+      "alt": "vidhya_vidhai",
+      "name": "Vidhya Vidhai",
+      "partnerState": "Tamil Nadu",
+      "category": "Momentum ",
+      "website": "https://vidhyavidhai.org/"
+    },
+    {
+      "id": "jyoti_mahila_samakhya",
+      "src": "https://res.cloudinary.com/dfncm107l/image/upload/v1754371528/partners/jyoti_mahila_samakhya.png",
+      "alt": "jyoti_mahila_samakhya",
+      "name": "Jyoti Mahila Samakhya",
+      "partnerState": "Bihar",
+      "category": "Momentum ",
+      "website": ""
+    },
+    {
+      "id": "srishti_mahila_samakhya",
+      "src": "https://res.cloudinary.com/dfncm107l/image/upload/v1754371533/partners/srishti_mahila_samakhya.png",
+      "alt": "srishti_mahila_samakhya",
+      "name": "Srishti Mahila Samakhya",
+      "partnerState": "Bihar",
+      "category": "Momentum ",
+      "website": ""
+    },
+    {
+      "id": "bharat_dekho",
+      "src": "https://res.cloudinary.com/dfncm107l/image/upload/v1754371536/partners/bharat_dekho.jpg",
+      "alt": "bharat_dekho",
+      "name": "Bharat Dekho",
+      "partnerState": "Telangana",
+      "category": "Momentum ",
+      "website": "https://www.bharatdekho.org/"
+    },
+    {
+      "id": "ltts",
+      "src": "https://drive.google.com/uc?export=view&id=1lGgMxYYOs0ho41qZdmBmUC6y0o_G59aK",
+      "alt": "ltts",
+      "name": "LTTS",
+      "partnerState": "",
+      "category": "Stategic",
+      "website": "https://www.ltts.com/"
+    },
+    {
+      "id": "axis",
+      "src": "https://drive.google.com/uc?export=view&id=19rRyIA0UA6VPGX3XMKPwYhenkHpmTLLk",
+      "alt": "axis",
+      "name": "AXIS",
+      "partnerState": "",
+      "category": "Stategic",
+      "website": "https://www.axisbank.com/"
+    }
+  ]
+}
