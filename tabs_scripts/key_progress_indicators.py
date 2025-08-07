@@ -39,6 +39,9 @@ def key_progress_indicators(excel_file):
         data = []
         for row_idx, row in enumerate(sheet.iter_rows(min_row=2, values_only=True), start=2):
             try:
+
+                if not any(row):  # all values are None or empty
+                       continue
                 row_data = {
                     'label': row[cleaned_headers.index(TABS_METADATA["HOME_PAGE"][0])] or '',
                     'value': row[cleaned_headers.index(TABS_METADATA["HOME_PAGE"][2])] or '',
