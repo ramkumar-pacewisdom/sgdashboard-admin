@@ -97,7 +97,7 @@ def key_progress_indicators(excel_file):
                          spec.loader.exec_module(gcp_access)
 
                          folder_url = gcp_access.upload_file_to_gcs_and_get_directory(
-                            bucket_name="dev-sg-dashboard",
+                            bucket_name=os.environ.get("BUCKET_NAME"),
                             source_file_path=local_path,
                             destination_blob_name = f"sg-dashboard/partners/{local_filename}"
                          )
@@ -114,8 +114,8 @@ def key_progress_indicators(excel_file):
                     'value': row[cleaned_headers.index(TABS_METADATA["HOME_PAGE"][2])] or '',
                     'icon': final_src or ''
                 }
-                # if isinstance(row_data['value'], float) and row_data['value'].is_integer():
-                #     row_data['value'] = int(row_data['value'])
+                if isinstance(row_data['value'], float) and row_data['value'].is_integer():
+                    row_data['value'] = int(row_data['value'])
                 data.append(row_data)
             except Exception as e:
                 print(f"Error processing row {row_idx}: {str(e)}")
@@ -170,7 +170,7 @@ def key_progress_indicators(excel_file):
         #     private_key_path=private_key_path
         # )
         folder_url = gcp_access.upload_file_to_gcs_and_get_directory(
-            bucket_name="dev-sg-dashboard",
+            bucket_name=os.environ.get("BUCKET_NAME"),
             source_file_path=json_path,
             destination_blob_name="sg-dashboard/landing-page.json"
         )

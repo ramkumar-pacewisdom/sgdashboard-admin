@@ -192,7 +192,7 @@ def update_district_view_indicators(excel_file):
         private_key_path = os.path.join(script_dir, "..", "private-key.json")
 
         folder_url = gcp_access.upload_file_to_gcs_and_get_directory(
-            bucket_name="dev-sg-dashboard",
+            bucket_name=os.environ.get("BUCKET_NAME"),
             source_file_path=json_file_path,
             destination_blob_name="sg-dashboard/district-view-indicators.json"
         )

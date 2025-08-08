@@ -107,7 +107,7 @@ def state_code_generator(excel_file):
             private_key_path = os.path.join(script_dir, "..", "private-key.json")
 
             folder_url = gcp_access.upload_file_to_gcs_and_get_directory(
-                bucket_name="dev-sg-dashboard",
+                bucket_name=os.environ.get("BUCKET_NAME"),
                 source_file_path=output_file,
                 destination_blob_name="sg-dashboard/state_code_details.json"
             )
@@ -118,7 +118,7 @@ def state_code_generator(excel_file):
                 print("Failed to upload file to GCS. Check logs for details.")
 
             folder_url_for_india_json = gcp_access.upload_file_to_gcs_and_get_directory(
-                bucket_name="dev-sg-dashboard",
+                bucket_name=os.environ.get("BUCKET_NAME"),
                 source_file_path=india_json_file,
                 destination_blob_name="sg-dashboard/india.json"
             )
