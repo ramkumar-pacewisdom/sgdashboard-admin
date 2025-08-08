@@ -109,14 +109,20 @@ def get_partners(excel_file):
 
                 row_data = {
                     'id': name_clean,
-                    'src': final_src,
+                    'src': final_src if final_src else '/assets/partners/default-partner.svg',
                     'alt': name_clean,
                     'name': str(raw_name).strip(),
                     'partnerState': row[headers.index(expected_columns[2])] or '',
                     'category': row[headers.index(expected_columns[3])] or '',
                     'website': row[headers.index(expected_columns[4])] or ''
                 }
+
+                 # ✅ Skip if 'id' already exists
+                if any(p['id'] == name_clean for p in data):
+                      print(f"⚠️ Skipping duplicate partner with id: {name_clean}")
+                      continue
                 data.append(row_data)
+                final_src= ""
 
             except Exception as e:
                 print(f"⚠️ Error processing row {row_idx}: {e}")
