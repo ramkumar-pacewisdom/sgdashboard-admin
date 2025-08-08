@@ -51,3 +51,4 @@ typing_extensions
 tzdata
 urllib3
 xlrd
+geopy
