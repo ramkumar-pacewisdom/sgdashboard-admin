@@ -1,11 +1,15 @@
 PAGE_METADATA = {
     "HOME_PAGE": "Data on homepage",
     "PARTNERS":"Partners",
-    "NETWORK_MAP":"Network Map"
+    "NETWORK_MAP":"Network Map",
+    "STATE_DETAILS": "States details",
+    "STATE_DISTRICT_DETAILS": "State_district details"
 }
 
 TABS_METADATA = {
     "HOME_PAGE":['Indicator', 'Definition', 'Data', 'Icon link'],
     "PARTNERS":['Name of the Partner','Logo of the partner','State in which  the partner is present', 'Type of the Partner','Website','lattitude','longitude'],
-    "NETWORK_MAP":['Source Partner','Source Partner State','Source partner country','Target Partner','Target Partner state','Target partner country']
+    "NETWORK_MAP":['Source Partner','Source Partner State','Source partner country','Target Partner','Target Partner state','Target partner country'],
+    "STATE_DETAILS": ["State Name", "Indicator", "Definition", "Data"],
+    "STATE_DISTRICT_DETAILS": ["state name", "district name", "state code", "district code"]
 }

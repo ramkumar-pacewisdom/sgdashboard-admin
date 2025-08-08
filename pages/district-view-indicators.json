@@ -1,0 +1,150 @@
+{
+  "result": {
+    "states": {
+      "10": {
+        "label": "Bihar",
+        "type": "category_1",
+        "details": [
+          {
+            "value": 910000,
+            "code": "Micro Improvements initiated"
+          },
+          {
+            "value": 7,
+            "code": "Districts driving improvements"
+          },
+          {
+            "value": 70000,
+            "code": "Leaders driving improvements"
+          },
+          {
+            "value": 50000,
+            "code": "Schools driving improvements"
+          },
+          {
+            "value": 3,
+            "code": "Momentum partners"
+          },
+          {
+            "value": 0.4,
+            "code": "NAS Grade 3"
+          }
+        ]
+      },
+      "29": {
+        "label": "Karnataka",
+        "type": "category_1",
+        "details": [
+          {
+            "value": 150000,
+            "code": "Micro Improvements initiated"
+          },
+          {
+            "value": 4,
+            "code": "Districts driving improvements"
+          },
+          {
+            "value": 60000,
+            "code": "Leaders driving improvements"
+          },
+          {
+            "value": 45000,
+            "code": "Schools driving improvements"
+          },
+          {
+            "value": 8,
+            "code": "Momentum partners"
+          },
+          {
+            "value": 0.35,
+            "code": "NAS Grade 3"
+          }
+        ]
+      },
+      "36": {
+        "label": "Telangana",
+        "type": "category_3",
+        "details": [
+          {
+            "value": 666666,
+            "code": "Micro Improvements initiated"
+          },
+          {
+            "value": 20,
+            "code": "Districts driving improvements"
+          },
+          {
+            "value": 60000,
+            "code": "Leaders driving improvements"
+          },
+          {
+            "value": 99900,
+            "code": "Schools driving improvements"
+          },
+          {
+            "value": 99,
+            "code": "Momentum partners"
+          },
+          {
+            "value": 0.75,
+            "code": "NAS Grade 3"
+          }
+        ]
+      }
+    },
+    "overview": {
+      "label": "india",
+      "type": "category_4",
+      "details": [
+        {
+          "code": "Micro Improvements initiated",
+          "value": 1726666
+        },
+        {
+          "code": "Districts driving improvements",
+          "value": 31
+        },
+        {
+          "code": "Leaders driving improvements",
+          "value": 190000
+        },
+        {
+          "code": "Schools driving improvements",
+          "value": 194900
+        },
+        {
+          "code": "Momentum partners",
+          "value": 110
+        },
+        {
+          "code": "NAS Grade 3",
+          "value": 0
+        }
+      ]
+    },
+    "meta": {
+      "legends": {
+        "category_1": {
+          "label": "State and District led missions",
+          "color": "#5d35b0",
+          "show_details": true
+        },
+        "category_2": {
+          "label": "State led missions",
+          "color": "#8147e1",
+          "show_details": true
+        },
+        "category_3": {
+          "label": "District led missions",
+          "color": "#9675ce",
+          "show_details": true
+        },
+        "category_4": {
+          "label": "Yes to start",
+          "color": "#ffffff",
+          "show_details": false
+        }
+      }
+    }
+  }
+}

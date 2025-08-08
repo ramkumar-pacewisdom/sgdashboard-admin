@@ -3,6 +3,7 @@ import pandas as pd  # Needed if you're working with CSV or Excel
 from tabs_scripts.key_progress_indicators import key_progress_indicators
 from tabs_scripts.network_map_data import get_network_map_data
 from tabs_scripts.partners import get_partners
+from tabs_scripts.extract_state_details import update_district_view_indicators
 
 # Page setup
 st.set_page_config(page_title="File Upload App", page_icon=":page_facing_up:")
@@ -26,6 +27,7 @@ if uploaded_file is not None:
             key_progress_indicators(uploaded_file)
             get_network_map_data(uploaded_file)
             get_partners(uploaded_file)
+            update_district_view_indicators(uploaded_file)
             df = pd.read_excel(uploaded_file)
         elif uploaded_file.name.endswith('.txt'):
             df = pd.read_csv(uploaded_file, delimiter="	")
