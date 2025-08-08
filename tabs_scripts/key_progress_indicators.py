@@ -114,8 +114,8 @@ def key_progress_indicators(excel_file):
                     'value': row[cleaned_headers.index(TABS_METADATA["HOME_PAGE"][2])] or '',
                     'icon': final_src or ''
                 }
-                if isinstance(row_data['value'], float) and row_data['value'].is_integer():
-                    row_data['value'] = int(row_data['value'])
+                # if isinstance(row_data['value'], float) and row_data['value'].is_integer():
+                #     row_data['value'] = int(row_data['value'])
                 data.append(row_data)
             except Exception as e:
                 print(f"Error processing row {row_idx}: {str(e)}")
