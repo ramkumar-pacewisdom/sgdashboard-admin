@@ -96,8 +96,6 @@ def key_progress_indicators(excel_file):
                          gcp_access = importlib.util.module_from_spec(spec)
                          spec.loader.exec_module(gcp_access)
 
-                         private_key_path = os.path.join(script_dir, "..", "private-key.json")
-
                          folder_url = gcp_access.upload_file_to_gcs_and_get_directory(
                             bucket_name="dev-sg-dashboard",
                             source_file_path=local_path,
