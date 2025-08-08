@@ -2,9 +2,39 @@ import openpyxl
 import json
 import os
 import importlib.util
+import re
+import requests
 
 from constants import PAGE_METADATA,TABS_METADATA
 
+
+def convert_drive_link_to_direct_url(link):
+    if not isinstance(link, str):
+        return ''
+    match = re.search(r"/d/([a-zA-Z0-9_-]+)", link)
+    if not match:
+        match = re.search(r"id=([a-zA-Z0-9_-]+)", link)
+    if match:
+        file_id = match.group(1)
+        return f"https://drive.google.com/uc?export=view&id={file_id}"
+    return link.strip()
+
+
+def download_image(file_id, save_path):
+    url = f"https://drive.google.com/uc?export=download&id={file_id}"
+    try:
+        response = requests.get(url)
+        if response.status_code == 200:
+            with open(save_path, 'wb') as f:
+                f.write(response.content)
+            print(f"✅ Downloaded image to {save_path}")
+            return True
+        else:
+            print(f"❌ Failed to download image for file ID {file_id}")
+            return False
+    except Exception as e:
+        print(f"❌ Exception downloading image: {e}")
+        return False
 
 
 def key_progress_indicators(excel_file):
@@ -14,6 +44,8 @@ def key_progress_indicators(excel_file):
         print(script_dir)
         # Define the path to the JSON file
         json_path = os.path.join(script_dir, "..", "pages", "landing-page.json")
+        images_dir = os.path.join(script_dir, "temp_downloads")
+        os.makedirs(images_dir, exist_ok=True)
 
 
         # Open the Excel file
@@ -39,13 +71,48 @@ def key_progress_indicators(excel_file):
         data = []
         for row_idx, row in enumerate(sheet.iter_rows(min_row=2, values_only=True), start=2):
             try:
+                raw_name = row[cleaned_headers.index(TABS_METADATA["HOME_PAGE"][0])]
+                if not raw_name or not str(raw_name).strip():
+                    continue
 
-                if not any(row):  # all values are None or empty
-                       continue
+                raw_src = row[cleaned_headers.index(TABS_METADATA["HOME_PAGE"][3])] or ''
+                logo_url = convert_drive_link_to_direct_url(raw_src)
+
+                file_match = re.search(r"id=([a-zA-Z0-9_-]+)", logo_url)
+                if not file_match:
+                    file_match = re.search(r"/d/([a-zA-Z0-9_-]+)", raw_src)
+                file_id = file_match.group(1) if file_match else ''
+
+                name_clean = str(raw_name).strip().lower()
+                name_clean = re.sub(r'[^a-z0-9_-]', '', name_clean.replace(" ", "_"))
+                local_filename = f"{name_clean}.svg"
+                local_path = os.path.join(images_dir, local_filename)
+
+                if file_id:
+                    if download_image(file_id, local_path):
+
+                         gcp_access_path = os.path.join(script_dir, '..', 'cloud-scripts', 'gcp_access.py')
+                         spec = importlib.util.spec_from_file_location('gcp_access', gcp_access_path)
+                         gcp_access = importlib.util.module_from_spec(spec)
+                         spec.loader.exec_module(gcp_access)
+
+                         folder_url = gcp_access.upload_file_to_gcs_and_get_directory(
+                            bucket_name="dev-sg-dashboard",
+                            source_file_path=local_path,
+                            destination_blob_name = f"sg-dashboard/partners/{local_filename}"
+                         )
+
+                         if folder_url:
+                            os.remove(local_path)
+                            final_src = f"{folder_url.rstrip('/')}/{local_filename}"
+                            print(f"Successfully uploaded and got public folder URL: {folder_url}, {final_src}")
+                         else:
+                            print("Failed to upload file to GCS. Check logs for details.")
+
                 row_data = {
                     'label': row[cleaned_headers.index(TABS_METADATA["HOME_PAGE"][0])] or '',
                     'value': row[cleaned_headers.index(TABS_METADATA["HOME_PAGE"][2])] or '',
-                    'icon': row[cleaned_headers.index(TABS_METADATA["HOME_PAGE"][3])] or ''
+                    'icon': final_src or ''
                 }
                 if isinstance(row_data['value'], float) and row_data['value'].is_integer():
                     row_data['value'] = int(row_data['value'])
