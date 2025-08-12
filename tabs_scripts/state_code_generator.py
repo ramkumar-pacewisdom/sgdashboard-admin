@@ -70,7 +70,7 @@ def state_code_generator(excel_file):
             state_name = str(state_name_cell.value).strip()
             
             try:
-                state_code = int(state_code_cell.value)
+                state_code = state_code_cell.value
             except (ValueError, TypeError):
                 print(f"Warning: Invalid state code at row {row_num}: {state_code_cell.value}")
                 row_num += 1
