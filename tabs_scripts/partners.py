@@ -43,6 +43,7 @@ def get_partners(excel_file):
         script_dir = os.path.dirname(os.path.abspath(__file__))
         json_path = os.path.join(script_dir, "..", "pages", "landing-page.json")
         network_data_path  = os.path.join(script_dir, "..", "pages", "network-data.json")
+        network_health_json_path = os.path.join(script_dir, "..", "pages", "network-health.json")
         images_dir = os.path.join(script_dir, "temp_downloads")
         os.makedirs(images_dir, exist_ok=True)
 
@@ -192,19 +193,19 @@ def get_partners(excel_file):
         #     destination_blob_name="sg-dashboard/landing-page.json",
         #     private_key_path=private_key_path
         # )
-        # folder_url = gcp_access.upload_file_to_gcs_and_get_directory(
-        #     bucket_name=os.environ.get("BUCKET_NAME"),
-        #     source_file_path=json_path,
-        #     destination_blob_name="sg-dashboard/landing-page.json"
-        # )
+        folder_url = gcp_access.upload_file_to_gcs_and_get_directory(
+            bucket_name=os.environ.get("BUCKET_NAME"),
+            source_file_path=json_path,
+            destination_blob_name="sg-dashboard/landing-page.json"
+        )
 
-        # if folder_url:
-        #     print(f"Successfully uploaded and got public folder URL: {folder_url}")
-        # else:
-        #     print("Failed to upload file to GCS. Check logs for details.")
+        if folder_url:
+            print(f"Successfully uploaded and got public folder URL: {folder_url}")
+        else:
+            print("Failed to upload file to GCS. Check logs for details.")
 
-        # print("✅ landing-page.json updated.")
-        # print(f"ALL data: {allData}")
+        print("✅ landing-page.json updated.")
+        print(f"ALL data: {allData}")
 
 
         # Load existing network data
@@ -244,18 +245,99 @@ def get_partners(excel_file):
         #     private_key_path=private_key_path
         # )
 
+        folder_url = gcp_access.upload_file_to_gcs_and_get_directory(
+            bucket_name=os.environ.get("BUCKET_NAME"),
+            source_file_path=network_data_path,
+            destination_blob_name="sg-dashboard/network-data.json"
+        )
+
+        if folder_url:
+            print(f"Successfully uploaded and got public folder URL: {folder_url}")
+        else:
+            print("Failed to upload file to GCS. Check logs for details.")
+
+        print(f"✅ Added {len(allData)} partners to network-data.json (duplicates allowed).")
+        
+
+
+
+        if os.path.exists(network_health_json_path):
+            with open(network_health_json_path, 'r', encoding='utf-8') as f: 
+                try:
+                    network_health_data = json.load(f)
+                except json.JSONDecodeError:
+                    network_health_data = {}
+        else:
+            network_health_data = {}
+
+         # Ensure the 'sections' list exists
+        if not isinstance(network_health_data, dict):
+            network_health_data = {}
+
+        if "sections" not in network_health_data or not isinstance(network_health_data["sections"], list):
+            network_health_data["sections"] = []
+
+        sections = network_health_data["sections"]
+
+        found = False
+        for obj in sections:
+            if isinstance(obj, dict) and obj.get('type', '').strip().lower() == 'partner-logos':
+                if 'partners' not in obj or not isinstance(obj['partners'], list):
+                    obj['partners'] = []
+                obj['partners'] = data
+                found = True
+                break
+
+        if not found:
+            sections.append({
+                "type": "partner-logos",
+                "width": "100%",
+                "position": "left",
+                "title": "Our Network",
+                "showFilters": True,
+                "partners": data,
+                "styles": {
+                    "section": "partner-logos-section",
+                    "title": "section-title",
+                    "category": "partner-category",
+                    "logosContainer": "logos-container",
+                    "logo": "partner-logo"
+                    }
+          })
+
+        # Write back to file
+        with open(network_health_json_path, 'w', encoding='utf-8') as f:
+            json.dump(network_health_data, f, indent=2, ensure_ascii=False)
+
+
+
+                # Dynamically import gcp_access module and upload file
+        gcp_access_path = os.path.join(script_dir, '..', 'cloud-scripts', 'gcp_access.py')
+        spec = importlib.util.spec_from_file_location('gcp_access', gcp_access_path)
+        gcp_access = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(gcp_access)
+
         # folder_url = gcp_access.upload_file_to_gcs_and_get_directory(
-        #     bucket_name=os.environ.get("BUCKET_NAME"),
-        #     source_file_path=network_data_path,
-        #     destination_blob_name="sg-dashboard/network-data.json"
+        #     bucket_name="dev-sg-dashboard",
+        #     source_file_path=json_path,
+        #     destination_blob_name="sg-dashboard/landing-page.json",
+        #     private_key_path=private_key_path
+        # )
+        #     private_key_path=private_key_path
         # )
 
-        # if folder_url:
-        #     print(f"Successfully uploaded and got public folder URL: {folder_url}")
-        # else:
-        #     print("Failed to upload file to GCS. Check logs for details.")
+        folder_url = gcp_access.upload_file_to_gcs_and_get_directory(
+            bucket_name=os.environ.get("BUCKET_NAME"),
+            source_file_path=network_health_json_path,
+            destination_blob_name="sg-dashboard/network-health.json"
+        )
 
-        # print(f"✅ Added {len(allData)} partners to network-data.json (duplicates allowed).")
+        if folder_url:
+            print(f"Successfully uploaded and got public folder URL: {folder_url}")
+        else:
+            print("Failed to upload file to GCS. Check logs for details.")
+
+        print(f"✅ Added {len(allData)} partners to network-health.json.")
 
     except Exception as e:
         print(f"❌ Unexpected error: {e}")
