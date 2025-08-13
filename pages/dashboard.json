@@ -1,0 +1,134 @@
+[
+  {
+    "type": "dashboard-main",
+    "width": "50%",
+    "position": "left",
+    "header": "Enabling Leadership",
+    "subHeader": "Change begins when leadership is unlocked, not only in government offices or school corridors, but also in village meetings and community spaces.",
+    "description": "Shikshagraha supports both school leaders (headmasters, district, block and cluster level officials) and community leaders (SHG women, parents, youth) to design and lead local missions that solve real challenges. These micro-improvements form the foundation for sustained, scalable progress.",
+    "styles": {
+      "section": "dashboard-main-section",
+      "title": "dashboard-main-title",
+      "tagline": "dashboard-main-tagline",
+      "summary": "dashboard-main-summary"
+    }
+  },
+  {
+    "type": "dashboard-metrics",
+    "width": "50%",
+    "position": "left",
+    "header": "Our Goal",
+    "subHeader": "To impact 30% of India’s states and districts by 2030",
+    "indicators": [
+      {
+        "label": "States",
+        "value": 12
+      },
+      {
+        "label": "Districts",
+        "value": 250
+      },
+      {
+        "label": "Schools",
+        "value": 521415
+      }
+    ],
+    "styles": {
+      "section": "hero-section",
+      "title": "hero-title",
+      "tagline": "hero-tagline",
+      "summary": "hero-summary"
+    }
+  },
+  {
+    "type": "country-view",
+    "showVariations": false,
+    "showDetails": true,
+    "width": "100%",
+    "position": "left",
+    "title": "Our Network",
+    "selections": [
+      {
+        "label": "Micro Improvement Initiated",
+        "value": "Micro Improvement Initiated",
+        "selected": true
+      },
+      {
+        "label": "Leaders Driving Improvements",
+        "value": "Leaders Driving Improvements",
+        "selected": false
+      },
+      {
+        "label": "Schools Driving Improvements",
+        "value": "Schools Driving Improvements",
+        "selected": false
+      },
+      {
+        "label": "Community-Led Improvements",
+        "value": "Community Led Improvements",
+        "selected": false
+      }
+    ],
+    "legends": [
+      {
+        "label": "Micro Improvement Initiated",
+        "color": "#6c757d"
+      },
+      {
+        "label": "Leaders Driving Improvements",
+        "color": "#6c757d"
+      },
+      {
+        "label": "Schools Driving Improvements",
+        "color": "#6c757d"
+      },
+      {
+        "label": "Community-Led Improvements",
+        "color": "#6c757d"
+      }
+    ],
+    "styles": {
+      "section": "partner-logos-section",
+      "title": "section-title",
+      "category": "partner-category",
+      "logosContainer": "logos-container",
+      "logo": "partner-logo"
+    }
+  },
+  {
+    "type": "pie-chart",
+    "width": "50%",
+    "position": "center",
+    "title": "Monthly Progress",
+    "data": [
+      {
+        "name": "Infrastructure and resources",
+        "value": 0
+      },
+      {
+        "name": "School structure and practices",
+        "value": 14062
+      },
+      {
+        "name": "Leadership",
+        "value": 69348
+      },
+      {
+        "name": " Pedagogy ",
+        "value": 368382
+      },
+      {
+        "name": "Assessment and Evaluation",
+        "value": ""
+      },
+      {
+        "name": "Community Engagement",
+        "value": 186992
+      }
+    ],
+    "styles": {
+      "section": "line-chart-section",
+      "title": "section-title"
+    }
+  }
+]
