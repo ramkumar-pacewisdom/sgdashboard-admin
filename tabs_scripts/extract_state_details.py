@@ -51,11 +51,36 @@ def update_district_view_indicators(excel_file):
         script_dir = os.path.dirname(os.path.abspath(__file__))
         json_file_path = os.path.join(script_dir, "..", "pages", "district-view-indicators.json")
 
-        # if not os.path.exists(excel_file_path):
-        #     print(f"Error: Excel file not found at {excel_file_path}")
-        #     return
-
         workbook = openpyxl.load_workbook(excel_file, data_only=True)
+
+        # --- STEP 1: Extract special indicators from HOME_PAGE tab ---
+        try:
+            home_page_sheet = workbook[PAGE_METADATA["HOME_PAGE"]]
+        except KeyError:
+            print(f"Sheet not found: {PAGE_METADATA['HOME_PAGE']}")
+            return
+
+        home_expected_headers = TABS_METADATA["HOME_PAGE"]
+        home_col_indices = {}
+        for cell in home_page_sheet[1]:
+            if cell.value and cell.value.strip() in home_expected_headers:
+                home_col_indices[cell.value.strip()] = cell.column
+
+        special_keys_lower = ["momentum partners", "nas grade 3"]
+        special_indicators_map = {}
+
+        for row in home_page_sheet.iter_rows(min_row=2):
+            indicator_name = str(row[home_col_indices["Indicator"] - 1].value or "").strip()
+            if indicator_name.lower() in special_keys_lower:
+                data_val = row[home_col_indices["Data"] - 1].value
+                # Keep % values as-is
+                if isinstance(data_val, str) and "%" in data_val:
+                    processed_val = data_val.strip()
+                else:
+                    processed_val = data_val
+                special_indicators_map[indicator_name] = processed_val
+
+        # --- STEP 2: Process STATE_DETAILS tab ---
         try:
             sheet = workbook[PAGE_METADATA["STATE_DETAILS"]]
         except KeyError:
@@ -78,6 +103,7 @@ def update_district_view_indicators(excel_file):
         overview_aggregates = defaultdict(int)
 
         excluded_codes = ["categories", "state led missions", "district led missions", "community led missions"]
+        special_skip_codes = ["momentum partners", "nas grade 3"]
 
         row_num = 2
         while True:
@@ -90,9 +116,9 @@ def update_district_view_indicators(excel_file):
 
             indicator = str(indicator).strip()
             state_name = str(state_name).strip()
-            code = indicator.lower().strip()
+            code_lower = indicator.lower().strip()
 
-            if "categories" in code:
+            if "categories" in code_lower:
                 row_num += 1
                 continue
 
@@ -101,11 +127,14 @@ def update_district_view_indicators(excel_file):
                 continue
             state_code = state_codes[state_name]
 
+            # Keep percentage values as-is
             try:
-                if isinstance(data_value, (int, float)):
+                if isinstance(data_value, str) and "%" in data_value:
+                    processed_value = data_value.strip()
+                elif isinstance(data_value, (int, float)):
                     processed_value = int(data_value) if data_value == int(data_value) else data_value
                 elif isinstance(data_value, str):
-                    processed_value = int(float(data_value.strip('%'))) if '%' not in data_value else data_value
+                    processed_value = int(float(data_value)) if data_value.strip().isdigit() else data_value
                 else:
                     processed_value = 0
             except:
@@ -122,21 +151,22 @@ def update_district_view_indicators(excel_file):
                     "district_led_missions": 0
                 }
 
-            if code == "state led missions":
+            if code_lower == "state led missions":
                 states_mission_data[state_code]["state_led_missions"] = processed_value
-            elif code == "district led missions":
+            elif code_lower == "district led missions":
                 states_mission_data[state_code]["district_led_missions"] = processed_value
 
-            if code not in excluded_codes:
+            if code_lower not in excluded_codes and code_lower not in special_skip_codes:
                 states_data[state_code]["details"].append({
                     "value": processed_value,
                     "code": indicator
                 })
-                overview_aggregates[indicator] += processed_value if isinstance(processed_value, int) else 0
+                if isinstance(processed_value, int):
+                    overview_aggregates[indicator] += processed_value
 
             row_num += 1
 
-        # Determine categories
+        # --- STEP 3: Assign category types for states ---
         for code, data in states_data.items():
             state_led = states_mission_data[code]["state_led_missions"]
             district_led = states_mission_data[code]["district_led_missions"]
@@ -152,7 +182,7 @@ def update_district_view_indicators(excel_file):
 
         workbook.close()
 
-        # Load or create JSON
+        # --- STEP 4: Load or create JSON ---
         if os.path.exists(json_file_path):
             with open(json_file_path, 'r', encoding='utf-8') as f:
                 district_indicators = json.load(f)
@@ -169,18 +199,29 @@ def update_district_view_indicators(excel_file):
                 }
             }
 
-        # Update overview details
+        # --- STEP 5: Prepare overview details ---
         overview_details = [
             {"code": key, "value": value} for key, value in overview_aggregates.items()
         ]
+
+        # Append special indicators from HOME_PAGE
+        for special_key_lower in special_keys_lower:
+            for orig_key, val in special_indicators_map.items():
+                if orig_key.lower() == special_key_lower:
+                    overview_details.append({
+                        "code": orig_key,
+                        "value": val
+                    })
+
         district_indicators["result"]["overview"] = {
             "label": "india",
             "type": "category_4",
             "details": overview_details
         }
-
+        
         district_indicators["result"]["states"] = states_data
 
+        # --- STEP 6: Save JSON ---
         with open(json_file_path, 'w', encoding='utf-8') as f:
             json.dump(district_indicators, f, indent=2, ensure_ascii=False)
 
