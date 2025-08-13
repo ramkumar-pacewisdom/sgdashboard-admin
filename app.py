@@ -27,8 +27,8 @@ if uploaded_file is not None:
             df = pd.read_csv(uploaded_file)
         elif uploaded_file.name.endswith('.xlsx'):
             key_progress_indicators(uploaded_file)
-            get_network_map_data(uploaded_file)
             get_partners(uploaded_file)
+            get_network_map_data(uploaded_file)
             update_district_view_indicators(uploaded_file)
             goals(uploaded_file)
             pie_chart(uploaded_file)
