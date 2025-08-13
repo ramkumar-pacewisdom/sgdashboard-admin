@@ -10,8 +10,21 @@ import importlib.util
 geolocator = Nominatim(user_agent="sgdashboard_network_mapper_v1.0")
 location_cache = {}
 
-# Geocode helper
-def get_coordinates(state, country):
+
+# Geocode helper (first checks partner data)
+def get_coordinates(state, country, partner_id=None, partners_data=None):
+    # 1. Check partner's own coords if data is provided
+    if partner_id and state and partners_data:
+      for p in partners_data:
+         if (
+            p.get("partner_id", "").lower() == str(partner_id).lower()
+            and p.get("state", "").lower() == str(state).lower()
+         ):
+            coords = p.get("coords")
+            if isinstance(coords, list) and len(coords) == 2:
+                return coords
+
+    # 2. If no partner coords, fall back to geocoding
     queries = []
     if state and country:
         queries.append(f"{state}, {country}")
@@ -37,8 +50,18 @@ def get_coordinates(state, country):
 def get_network_map_data(excel_file):
     try:
         script_dir = os.path.dirname(os.path.abspath(__file__))
-        script_dir = os.path.dirname(os.path.abspath(__file__))
         json_path = os.path.join(script_dir, "..", "pages", "network-data.json")
+
+        # Load partner data first
+        partner_data = []
+        existing_data = {}
+        if os.path.exists(json_path):
+            with open(json_path, 'r', encoding='utf-8') as f:
+                try:
+                    existing_data = json.load(f)
+                    partner_data = existing_data.get("partners", [])
+                except json.JSONDecodeError:
+                    print("⚠️ Existing JSON is invalid. Proceeding clean.")
 
         workbook = openpyxl.load_workbook(excel_file, data_only=True)
         try:
@@ -74,7 +97,7 @@ def get_network_map_data(excel_file):
                 if source_country:
                     source["countryName"] = source_country
 
-                source_coords = get_coordinates(source_state, source_country)
+                source_coords = get_coordinates(source_state, source_country, [str(source_partner).lower()] if source_partner else [], partner_data)
                 if source_coords:
                     source["coords"] = source_coords
                 else:
@@ -95,14 +118,13 @@ def get_network_map_data(excel_file):
                 if target_country:
                     target["countryName"] = target_country
 
-                target_coords = get_coordinates(target_state, target_country)
+                target_coords = get_coordinates(target_state, target_country, target_partner, partner_data)
                 if target_coords:
                     target["coords"] = target_coords
                 else:
                     print(f"⚠️ Skipping row {row_idx} due to missing target coords.")
                     continue
 
-                # Add to impactData
                 impact_data.append({
                     "source": source,
                     "target": target,
@@ -115,29 +137,17 @@ def get_network_map_data(excel_file):
                 print(f"❌ Error in row {row_idx}: {e}")
                 continue
 
-        # Preserve other JSON fields (e.g., partners)
-        existing_data = {}
-        if os.path.exists(json_path):
-            with open(json_path, 'r', encoding='utf-8') as f:
-                try:
-                    existing_data = json.load(f)
-                except json.JSONDecodeError:
-                    print("⚠️ Existing JSON is invalid. Proceeding clean.")
-
         existing_data["impactData"] = impact_data
 
         os.makedirs(os.path.dirname(json_path), exist_ok=True)
         with open(json_path, 'w', encoding='utf-8') as f:
             json.dump(existing_data, f, indent=2, ensure_ascii=False)
 
-
-             # Dynamically import gcp_access module and upload file
+                     # Dynamically import gcp_access module and upload file
         gcp_access_path = os.path.join(script_dir, '..', 'cloud-scripts', 'gcp_access.py')
         spec = importlib.util.spec_from_file_location('gcp_access', gcp_access_path)
         gcp_access = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(gcp_access)
-
-        private_key_path = os.path.join(script_dir, "..", "private-key.json")
 
         # folder_url = gcp_access.upload_file_to_gcs_and_get_directory(
         #     bucket_name="dev-sg-dashboard",
@@ -146,7 +156,7 @@ def get_network_map_data(excel_file):
         #     private_key_path=private_key_path
         # )
         #     private_key_path=private_key_path
-    # )
+        # )
 
         folder_url = gcp_access.upload_file_to_gcs_and_get_directory(
             bucket_name=os.environ.get("BUCKET_NAME"),
