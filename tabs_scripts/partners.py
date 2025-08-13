@@ -42,7 +42,7 @@ def get_partners(excel_file):
     try:
         script_dir = os.path.dirname(os.path.abspath(__file__))
         json_path = os.path.join(script_dir, "..", "pages", "landing-page.json")
-        network_data_path = os.path.join(script_dir, "..", "pages", "network-data.json")
+        network_data_path  = os.path.join(script_dir, "..", "pages", "network-data.json")
         images_dir = os.path.join(script_dir, "temp_downloads")
         os.makedirs(images_dir, exist_ok=True)
 
@@ -64,6 +64,7 @@ def get_partners(excel_file):
             return
 
         data = []
+        allData = []
         for row_idx, row in enumerate(sheet.iter_rows(min_row=2, values_only=True), start=2):
             try:
                 raw_name = row[headers.index(expected_columns[0])]
@@ -114,8 +115,15 @@ def get_partners(excel_file):
                     'name': str(raw_name).strip(),
                     'partnerState': row[headers.index(expected_columns[2])] or '',
                     'category': row[headers.index(expected_columns[3])] or '',
-                    'website': row[headers.index(expected_columns[4])] or ''
+                    'website': row[headers.index(expected_columns[4])] or '',
+                    'coordinates': [
+                        row[headers.index(expected_columns[5])] or '',
+                        row[headers.index(expected_columns[6])] or ''
+                    ]
                 }
+
+
+                allData.append(row_data)
 
                  # ✅ Skip if 'id' already exists
                 if any(p['id'] == name_clean for p in data):
@@ -184,41 +192,70 @@ def get_partners(excel_file):
         #     destination_blob_name="sg-dashboard/landing-page.json",
         #     private_key_path=private_key_path
         # )
-        folder_url = gcp_access.upload_file_to_gcs_and_get_directory(
-            bucket_name=os.environ.get("BUCKET_NAME"),
-            source_file_path=json_path,
-            destination_blob_name="sg-dashboard/landing-page.json"
-        )
+        # folder_url = gcp_access.upload_file_to_gcs_and_get_directory(
+        #     bucket_name=os.environ.get("BUCKET_NAME"),
+        #     source_file_path=json_path,
+        #     destination_blob_name="sg-dashboard/landing-page.json"
+        # )
 
-        if folder_url:
-            print(f"Successfully uploaded and got public folder URL: {folder_url}")
+        # if folder_url:
+        #     print(f"Successfully uploaded and got public folder URL: {folder_url}")
+        # else:
+        #     print("Failed to upload file to GCS. Check logs for details.")
+
+        # print("✅ landing-page.json updated.")
+        # print(f"ALL data: {allData}")
+
+
+        # Load existing network data
+        if os.path.exists(network_data_path):
+            with open(network_data_path, 'r', encoding='utf-8') as f:
+                try:
+                   network_data = json.load(f)
+                except json.JSONDecodeError:
+                   network_data = {}
         else:
-            print("Failed to upload file to GCS. Check logs for details.")
+            network_data = {}
 
-        print("✅ landing-page.json updated.")
+        # Ensure 'partners' exists
+        if 'partners' not in network_data or not isinstance(network_data['partners'], list):
+            network_data['partners'] = []
 
-        # if os.path.exists(network_data_path):
-        #     with open(network_data_path, 'r', encoding='utf-8') as f:
-        #         try:
-        #             network_data = json.load(f)
-        #         except json.JSONDecodeError:
-        #             network_data = {}
+        # Append all new data
+        network_data['partners'] = allData
+
+        # Save updated file
+        with open(network_data_path, 'w', encoding='utf-8') as f:
+            json.dump(network_data, f, indent=2, ensure_ascii=False)
+
+
+                # Dynamically import gcp_access module and upload file
+        gcp_access_path = os.path.join(script_dir, '..', 'cloud-scripts', 'gcp_access.py')
+        spec = importlib.util.spec_from_file_location('gcp_access', gcp_access_path)
+        gcp_access = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(gcp_access)
+
+        # folder_url = gcp_access.upload_file_to_gcs_and_get_directory(
+        #     bucket_name="dev-sg-dashboard",
+        #     source_file_path=json_path,
+        #     destination_blob_name="sg-dashboard/landing-page.json",
+        #     private_key_path=private_key_path
+        # )
+        #     private_key_path=private_key_path
+        # )
+
+        # folder_url = gcp_access.upload_file_to_gcs_and_get_directory(
+        #     bucket_name=os.environ.get("BUCKET_NAME"),
+        #     source_file_path=network_data_path,
+        #     destination_blob_name="sg-dashboard/network-data.json"
+        # )
+
+        # if folder_url:
+        #     print(f"Successfully uploaded and got public folder URL: {folder_url}")
         # else:
-        #     network_data = {}
+        #     print("Failed to upload file to GCS. Check logs for details.")
 
-        # if 'partners' not in network_data or not isinstance(network_data['partners'], list):
-        #     network_data['partners'] = []
-
-        # existing_ids = {p['id'] for p in network_data['partners'] if 'id' in p}
-        # new_partners = [p for p in data if p['id'] not in existing_ids]
-
-        # if new_partners:
-        #     network_data['partners'].extend(new_partners)
-        #     with open(network_data_path, 'w', encoding='utf-8') as f:
-        #         json.dump(network_data, f, indent=2, ensure_ascii=False)
-        #     print(f"✅ {len(new_partners)} new partners added to network-data.json.")
-        # else:
-        #     print("ℹ️ No new partners to add to network-data.json.")
+        # print(f"✅ Added {len(allData)} partners to network-data.json (duplicates allowed).")
 
     except Exception as e:
         print(f"❌ Unexpected error: {e}")
