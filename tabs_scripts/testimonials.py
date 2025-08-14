@@ -90,7 +90,7 @@ def testimonials(excel_file):
 
         folder_url = gcp_access.upload_file_to_gcs_and_get_directory(
             bucket_name=os.environ.get("BUCKET_NAME"),
-            source_file_path=network_health_json_path,
+            source_file_path=json_path,
             destination_blob_name="sg-dashboard/network-health.json"
         )
 
