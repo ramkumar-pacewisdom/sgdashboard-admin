@@ -16,7 +16,7 @@
   {
     "type": "dashboard-metrics",
     "width": "50%",
-    "position": "left",
+    "position": "center",
     "header": "Our Goal",
     "subHeader": "To impact 30% of India’s states and districts by 2030",
     "indicators": [
@@ -97,13 +97,13 @@
   },
   {
     "type": "pie-chart",
-    "width": "50%",
+    "width": "100%",
     "position": "center",
     "title": "Monthly Progress",
     "data": [
       {
         "name": "Infrastructure and resources",
-        "value": 0
+        "value": ""
       },
       {
         "name": "School structure and practices",

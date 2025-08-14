@@ -6,7 +6,7 @@
       "position": "left",
       "header": "Shikshagraha Network",
       "subHeader": "Shikshagraha is about people - partners, leaders, coming together to make school better.",
-      "description":"Across states, momentum partners drive on-ground action while strategic partners offer policy support, tools, and resourcesDialogues like Shiksha Samvaad help connect these efforts, creating spaces for shared learning and collective problem-solving..",
+      "description": "Across states, momentum partners drive on-ground action while strategic partners offer policy support, tools, and resourcesDialogues like Shiksha Samvaad help connect these efforts, creating spaces for shared learning and collective problem-solving..",
       "styles": {
         "section": "hero-section",
         "title": "hero-title",
@@ -16,12 +16,12 @@
     },
     {
       "type": "global-view",
-      "showVariations":true,
+      "showVariations": true,
       "width": "100%",
       "position": "left",
       "title": "",
       "isPartnerShowable": true,
-      "showDetails":true,
+      "showDetails": true,
       "styles": {
         "section": "partner-logos-section",
         "title": "section-title",
@@ -39,123 +39,510 @@
       "partners": [
         {
           "id": "alohomora",
-          "src": "assets/partners/alohomora.svg",
+          "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/alohomora.jpg",
           "alt": "alohomora",
-          "name": "alohomora",
-          "category": "Strategic Partners",
-          "website": "https://www.alohomora.org"
+          "name": "Alohomora",
+          "partnerState": "Haryana",
+          "category": "Momentum ",
+          "website": "https://www.alohomora.org/",
+          "coordinates": [
+            "",
+            ""
+          ]
         },
         {
-          "id": "amansa",
-          "src": "assets/partners/amansa.svg",
-          "alt": "amansa",
-          "name": "amansa",
-          "category": "Strategic Partners",
-          "website": "https://www.alohomora.org"
+          "id": "alokit",
+          "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/alokit.jpg",
+          "alt": "alokit",
+          "name": "Alokit",
+          "partnerState": "Telangana",
+          "category": "Momentum ",
+          "website": "https://alokit.org/",
+          "coordinates": [
+            "",
+            ""
+          ]
         },
         {
-          "id": "aws",
-          "src": "assets/partners/aws.svg",
-          "alt": "aws",
-          "name": "aws",
-          "category": "Strategic Partners",
-          "website": "https://www.alohomora.org"
-        },
-        {
-          "id": "axisbank",
-          "src": "assets/partners/axisbank.svg",
-          "alt": "axisbank",
-          "name": "axisbank",
-          "category": "Strategic Partners",
-          "website": "https://www.alohomora.org"
-        },
-        {
-          "id": "hdfc",
-          "src": "assets/partners/hdfc.svg",
-          "alt": "hdfc",
-          "name": "hdfc",
-          "category": "Strategic Partners",
-          "website": "https://www.alohomora.org"
-        },
-        {
-          "id": "c4ec",
-          "src": "assets/partners/c4ec.svg",
-          "alt": "c4ec",
-          "name": "c4ec",
-          "category": "Strategic Partners",
-          "website": "https://www.alohomora.org"
-        },
-        {
-          "id": "colab",
-          "src": "assets/partners/colab.svg",
-          "alt": "colab",
-          "name": "colab",
-          "category": "Strategic Partners",
-          "website": "https://www.alohomora.org"
-        },
-        {
-          "id": "gnothi",
-          "src": "assets/partners/gnothi.svg",
-          "alt": "gnothi",
-          "name": "gnothi",
-          "category": "Strategic Partners",
-          "website": "https://www.alohomora.org"
+          "id": "eduweave",
+          "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/eduweave.jpg",
+          "alt": "eduweave",
+          "name": "EduWeave",
+          "partnerState": "Chhattisgarh",
+          "category": "Momentum ",
+          "website": "https://eduweavefoundation.org/",
+          "coordinates": [
+            "",
+            ""
+          ]
         },
         {
           "id": "ifet",
-          "src": "assets/partners/ifet.svg",
+          "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/ifet.jpg",
           "alt": "ifet",
-          "name": "ifet",
-          "category": "Strategic Partners",
-          "website": "https://www.alohomora.org"
+          "name": "IFET",
+          "partnerState": "Arunachal Pradesh",
+          "category": "Momentum ",
+          "website": "https://www.ifet.org.in/",
+          "coordinates": [
+            "",
+            ""
+          ]
         },
         {
-          "id": "mj",
-          "src": "assets/partners/mj.svg",
-          "alt": "mj",
-          "name": "mj",
-          "category": "Strategic Partners",
-          "website": "https://www.alohomora.org"
+          "id": "involve",
+          "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/involve.jpg",
+          "alt": "involve",
+          "name": "Involve",
+          "partnerState": "Uttar Pradesh",
+          "category": "Momentum ",
+          "website": "https://involveedu.com/",
+          "coordinates": [
+            "",
+            ""
+          ]
         },
         {
-          "id": "orf",
-          "src": "assets/partners/orf.svg",
-          "alt": "orf",
-          "name": "orf",
-          "category": "Collaborators",
-          "website": "https://www.alohomora.org"
+          "id": "karunodaya",
+          "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/karunodaya.jpg",
+          "alt": "karunodaya",
+          "name": "Karunodaya",
+          "partnerState": "Bihar",
+          "category": "Momentum ",
+          "website": "https://karunodaya.in/",
+          "coordinates": [
+            "",
+            ""
+          ]
+        },
+        {
+          "id": "makkala_jagriti",
+          "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/makkala_jagriti.jpg",
+          "alt": "makkala_jagriti",
+          "name": "Makkala Jagriti",
+          "partnerState": "Karnataka",
+          "category": "Momentum ",
+          "website": "https://makkalajagriti.org/",
+          "coordinates": [
+            "",
+            ""
+          ]
+        },
+        {
+          "id": "mantra4change",
+          "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/mantra4change.jpg",
+          "alt": "mantra4change",
+          "name": "Mantra4Change",
+          "partnerState": "Karnataka",
+          "category": "Momentum ",
+          "website": "https://www.mantra4change.org/",
+          "coordinates": [
+            "",
+            ""
+          ]
+        },
+        {
+          "id": "nagaed",
+          "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/nagaed.jpg",
+          "alt": "nagaed",
+          "name": "NagaED",
+          "partnerState": "Nagaland",
+          "category": "Momentum ",
+          "website": "https://www.nagaed.com/",
+          "coordinates": [
+            "",
+            ""
+          ]
+        },
+        {
+          "id": "neaid",
+          "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/neaid.jpg",
+          "alt": "neaid",
+          "name": "NEAID",
+          "partnerState": "Assam",
+          "category": "Momentum ",
+          "website": "https://neaid.org/",
+          "coordinates": [
+            "",
+            ""
+          ]
+        },
+        {
+          "id": "odhisha_rising",
+          "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/odhisha_rising.jpg",
+          "alt": "odhisha_rising",
+          "name": "Odhisha Rising",
+          "partnerState": "Odisha",
+          "category": "Momentum ",
+          "website": "https://odisharising.in/",
+          "coordinates": [
+            "",
+            ""
+          ]
+        },
+        {
+          "id": "prajayatna",
+          "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/prajayatna.jpg",
+          "alt": "prajayatna",
+          "name": "Prajayatna",
+          "partnerState": "Jharkhand",
+          "category": "Momentum ",
+          "website": "https://prajayatna.in/",
+          "coordinates": [
+            "",
+            ""
+          ]
+        },
+        {
+          "id": "sanjhi_sikhiya",
+          "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/sanjhi_sikhiya.jpg",
+          "alt": "sanjhi_sikhiya",
+          "name": "Sanjhi Sikhiya",
+          "partnerState": "Punjab",
+          "category": "Momentum ",
+          "website": "https://sanjhi-sikhiya.danamojo.org/",
+          "coordinates": [
+            "",
+            ""
+          ]
+        },
+        {
+          "id": "shiksharth",
+          "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/shiksharth.jpg",
+          "alt": "shiksharth",
+          "name": "Shiksharth",
+          "partnerState": "Chhattisgarh",
+          "category": "Momentum ",
+          "website": "https://shiksharth.in/",
+          "coordinates": [
+            "",
+            ""
+          ]
+        },
+        {
+          "id": "slam_out_loud",
+          "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/slam_out_loud.jpg",
+          "alt": "slam_out_loud",
+          "name": "Slam Out Loud",
+          "partnerState": "Punjab",
+          "category": "Momentum ",
+          "website": "https://slamoutloud.org/",
+          "coordinates": [
+            "",
+            ""
+          ]
+        },
+        {
+          "id": "vidhya_vidhai",
+          "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/vidhya_vidhai.jpg",
+          "alt": "vidhya_vidhai",
+          "name": "Vidhya Vidhai",
+          "partnerState": "Tamil Nadu",
+          "category": "Momentum ",
+          "website": "https://vidhyavidhai.org/",
+          "coordinates": [
+            "",
+            ""
+          ]
+        },
+        {
+          "id": "jyoti_mahila_samakhya",
+          "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/jyoti_mahila_samakhya.jpg",
+          "alt": "jyoti_mahila_samakhya",
+          "name": "Jyoti Mahila Samakhya",
+          "partnerState": "Bihar",
+          "category": "Momentum ",
+          "website": "",
+          "coordinates": [
+            "",
+            ""
+          ]
+        },
+        {
+          "id": "srishti_mahila_samakhya",
+          "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/srishti_mahila_samakhya.jpg",
+          "alt": "srishti_mahila_samakhya",
+          "name": "Srishti Mahila Samakhya",
+          "partnerState": "Bihar",
+          "category": "Momentum ",
+          "website": "",
+          "coordinates": [
+            "",
+            ""
+          ]
+        },
+        {
+          "id": "deepmala_sanstha",
+          "src": "/assets/partners/default-partner.svg",
+          "alt": "deepmala_sanstha",
+          "name": "Deepmala Sanstha",
+          "partnerState": "Bihar",
+          "category": "Momentum ",
+          "website": "",
+          "coordinates": [
+            "",
+            ""
+          ]
+        },
+        {
+          "id": "samriddhi_sanstha",
+          "src": "/assets/partners/default-partner.svg",
+          "alt": "samriddhi_sanstha",
+          "name": "Samriddhi Sanstha",
+          "partnerState": "Bihar",
+          "category": "Momentum ",
+          "website": "",
+          "coordinates": [
+            "",
+            ""
+          ]
+        },
+        {
+          "id": "hamari_drishti",
+          "src": "/assets/partners/default-partner.svg",
+          "alt": "hamari_drishti",
+          "name": "Hamari Drishti",
+          "partnerState": "Bihar",
+          "category": "Momentum ",
+          "website": "",
+          "coordinates": [
+            "",
+            ""
+          ]
+        },
+        {
+          "id": "pragati_ek_prayas",
+          "src": "/assets/partners/default-partner.svg",
+          "alt": "pragati_ek_prayas",
+          "name": "Pragati Ek Prayas",
+          "partnerState": "Bihar",
+          "category": "Momentum ",
+          "website": "",
+          "coordinates": [
+            "",
+            ""
+          ]
+        },
+        {
+          "id": "swadha_mahila_samakhya",
+          "src": "/assets/partners/default-partner.svg",
+          "alt": "swadha_mahila_samakhya",
+          "name": "Swadha Mahila Samakhya",
+          "partnerState": "Bihar",
+          "category": "Momentum ",
+          "website": "",
+          "coordinates": [
+            "",
+            ""
+          ]
+        },
+        {
+          "id": "bharat_dekho",
+          "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/bharat_dekho.jpg",
+          "alt": "bharat_dekho",
+          "name": "Bharat Dekho",
+          "partnerState": "Telangana",
+          "category": "Momentum ",
+          "website": "https://www.bharatdekho.org/",
+          "coordinates": [
+            "",
+            ""
+          ]
+        },
+        {
+          "id": "ltts",
+          "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/ltts.jpg",
+          "alt": "ltts",
+          "name": "LTTS",
+          "partnerState": "",
+          "category": "Stategic",
+          "website": "https://www.ltts.com/",
+          "coordinates": [
+            31.544833,
+            64.895631
+          ]
+        },
+        {
+          "id": "hdfc",
+          "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/hdfc.jpg",
+          "alt": "hdfc",
+          "name": "HDFC",
+          "partnerState": "",
+          "category": "Stategic",
+          "website": "https://www.hdfcbank.com/",
+          "coordinates": [
+            35.21331,
+            83.337619
+          ]
+        },
+        {
+          "id": "axis",
+          "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/axis.jpg",
+          "alt": "axis",
+          "name": "AXIS",
+          "partnerState": "",
+          "category": "Stategic",
+          "website": "https://www.axisbank.com/",
+          "coordinates": [
+            23.769257,
+            61.03919
+          ]
+        },
+        {
+          "id": "caring_friends",
+          "src": "/assets/partners/default-partner.svg",
+          "alt": "caring_friends",
+          "name": "Caring Friends",
+          "partnerState": "",
+          "category": "Stategic",
+          "website": "",
+          "coordinates": [
+            32.58755,
+            86.857972
+          ]
+        },
+        {
+          "id": "motivation_for_excellence",
+          "src": "/assets/partners/default-partner.svg",
+          "alt": "motivation_for_excellence",
+          "name": "Motivation for Excellence",
+          "partnerState": "",
+          "category": "Stategic",
+          "website": "",
+          "coordinates": [
+            12.25842,
+            89.66818
+          ]
         },
         {
           "id": "paypal",
-          "src": "assets/partners/paypal.svg",
+          "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/paypal.jpg",
           "alt": "paypal",
-          "name": "paypal",
-          "category": "Collaborators",
-          "website": "https://www.alohomora.org"
+          "name": "PayPal",
+          "partnerState": "",
+          "category": "Stategic",
+          "website": "https://www.paypal.com/in/home",
+          "coordinates": [
+            17.857471,
+            62.444293
+          ]
         },
         {
-          "id": "vv",
-          "src": "assets/partners/vv.svg",
-          "alt": "vv",
-          "name": "vv",
-          "category": "Momentum Partners",
-          "website": "https://www.alohomora.org"
+          "id": "amansa_capital",
+          "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/amansa_capital.jpg",
+          "alt": "amansa_capital",
+          "name": "Amansa Capital",
+          "partnerState": "",
+          "category": "Stategic",
+          "website": "https://www.amansacapital.com/#/",
+          "coordinates": [
+            9.323324,
+            73.853168
+          ]
         },
         {
-          "id": "sms",
-          "src": "assets/partners/sms.svg",
-          "alt": "sms",
-          "name": "sms",
-          "category": "Momentum Partners",
-          "website": "https://www.alohomora.org"
+          "id": "salesforce",
+          "src": "/assets/partners/default-partner.svg",
+          "alt": "salesforce",
+          "name": "Salesforce",
+          "partnerState": "",
+          "category": "Stategic",
+          "website": "https://www.salesforce.com/in/",
+          "coordinates": [
+            7.933025,
+            75.960824
+          ]
         },
         {
-          "id": "tekdi",
-          "src": "assets/partners/tekdi.svg",
-          "alt": "tekdi",
-          "name": "tekdi",
-          "category": "Momentum Partners",
-          "website": "https://www.alohomora.org"
+          "id": "arpan_foundation",
+          "src": "/assets/partners/default-partner.svg",
+          "alt": "arpan_foundation",
+          "name": "Arpan Foundation",
+          "partnerState": "",
+          "category": "Stategic",
+          "website": "",
+          "coordinates": [
+            19.522515,
+            88.606758
+          ]
+        },
+        {
+          "id": "aws",
+          "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/aws.jpg",
+          "alt": "aws",
+          "name": "AWS",
+          "partnerState": "",
+          "category": "Stategic",
+          "website": "https://aws.amazon.com/",
+          "coordinates": [
+            17.69008,
+            90.1875
+          ]
+        },
+        {
+          "id": "rotary_club_of_queens_necklace_mumbai",
+          "src": "/assets/partners/default-partner.svg",
+          "alt": "rotary_club_of_queens_necklace_mumbai",
+          "name": "Rotary club of Queens necklace mumbai",
+          "partnerState": "",
+          "category": "Stategic",
+          "website": "https://www.rotaryqueensnecklace.org/",
+          "coordinates": [
+            16.514044,
+            63.490528
+          ]
+        },
+        {
+          "id": "wells_fargo",
+          "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/wells_fargo.jpg",
+          "alt": "wells_fargo",
+          "name": "Wells Fargo",
+          "partnerState": "",
+          "category": "Stategic",
+          "website": "https://www.wellsfargo.com/",
+          "coordinates": [
+            16.6825,
+            68.584029
+          ]
+        },
+        {
+          "id": "c4ec",
+          "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/c4ec.jpg",
+          "alt": "c4ec",
+          "name": "C4EC",
+          "partnerState": "",
+          "category": "Stategic",
+          "website": "https://centreforexponentialchange.org/",
+          "coordinates": [
+            30.490336,
+            87.201654
+          ]
+        },
+        {
+          "id": "think_tac",
+          "src": "/assets/partners/default-partner.svg",
+          "alt": "think_tac",
+          "name": "Think Tac",
+          "partnerState": "",
+          "category": "Momentum ",
+          "website": "",
+          "coordinates": [
+            "",
+            ""
+          ]
+        },
+        {
+          "id": "1m1b",
+          "src": "/assets/partners/default-partner.svg",
+          "alt": "1m1b",
+          "name": "1M1B",
+          "partnerState": "Karnataka",
+          "category": "Momentum ",
+          "website": "",
+          "coordinates": [
+            "",
+            ""
+          ]
         }
       ],
       "styles": {
@@ -166,5 +553,42 @@
         "logo": "partner-logo"
       }
     }
-  ]
+  ],
+  "testimonials": {
+    "type": "testimonials",
+    "width": "100%",
+    "position": "left",
+    "title": "Testimonials",
+    "showFilters": true,
+    "slides": [
+      {
+        "org": "Alokit",
+        "message": "Organisational identities are barriers to children's outcomes. Shikshagraha embodies the power of collective identity in public education reform. No single organisation can address every need of a child, but together we can. Like a garland woven from diverse flowers, our combined strengths can create lasting impact—transforming schools and communities for better learning.  ",
+        "name": "Sai Pramod Bathena",
+        "designation": " Co-Founder",
+        "image": ""
+      },
+      {
+        "org": "Makkala Jagriti",
+        "message": "Shikshagraha aligns deeply with Makkala Jagriti’s vision of collective action for public education reform. By bringing diverse expertise together and co-creating with the system, it offers scalable, practical solutions. The movement inspires ideas—from data refinement to micro-improvements—that help us strengthen our work and amplify impact for every child.",
+        "name": "Rohit Shetti",
+        "designation": " Director – Programs",
+        "image": ""
+      },
+      {
+        "org": "EduWeave Foundation",
+        "message": "I believe in the collective power of educators, communities, and changemakers to reimagine public education. Shikshagraha bridges grassroots realities with systemic decisions, amplifying stories of hope and reinforcing that transformation is a national responsibility—built on trust, dignity, and shared ownership for every child’s joyful, equitable learning.",
+        "name": "Amita Kaushik",
+        "designation": "Co-Founder & Director",
+        "image": ""
+      },
+      {
+        "org": "Odisha Rising Foundation",
+        "message": "I’m part of Shikshagraha because I believe lasting change in public education begins locally. In Kalahandi, it means empowering teachers, fostering STEM and language learning, and creating space for innovation—small, impactful steps that can grow into a connected network inspiring transformation across the district and beyond.",
+        "name": "Sagarika Ray",
+        "designation": " Head - Program",
+        "image": ""
+      }
+    ]
+  }
 }
