@@ -85,10 +85,10 @@ def goals(excel_file):
             json.dump(json_data, json_file, indent=2, ensure_ascii=False)
 
         # Dynamically import gcp_access module and upload file
-        # gcp_access_path = os.path.join(script_dir, '..', 'cloud-scripts', 'gcp_access.py')
-        # spec = importlib.util.spec_from_file_location('gcp_access', gcp_access_path)
-        # gcp_access = importlib.util.module_from_spec(spec)
-        # spec.loader.exec_module(gcp_access)
+        gcp_access_path = os.path.join(script_dir, '..', 'cloud-scripts', 'gcp_access.py')
+        spec = importlib.util.spec_from_file_location('gcp_access', gcp_access_path)
+        gcp_access = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(gcp_access)
 
         # private_key_path = os.path.join(script_dir, "..", "private-key.json")
 
