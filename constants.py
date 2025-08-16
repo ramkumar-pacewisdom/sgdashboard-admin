@@ -5,8 +5,7 @@ PAGE_METADATA = {
     "STATE_DETAILS": "States details",
     "STATE_DISTRICT_DETAILS": "State_district details",
     "GOALS":"Goals",
-    "DASHBOARD_FIRST_PAGE":"Dashboard first page",
-    "COMMUNITY_LED_PROGRAMS":"Community Led Programs"
+    "DASHBOARD_FIRST_PAGE":"Dashboard first page"
 }
 
 TABS_METADATA = {
@@ -16,6 +15,5 @@ TABS_METADATA = {
     "STATE_DETAILS": ["State Name", "Indicator", "Definition", "Data"],
     "STATE_DISTRICT_DETAILS": ["state name", "district name", "state code", "district code"],
     "GOALS":["Indicator","Data"],
-    "PIE_CHART":["Indicator","Definition","Data"],
-    "COMMUNITY_LEAD_PROGRAM":["Name of the State ","Name of the District","No. of community leaders engaged","Community led improvements","Challenges shared","Solutions shared","Infrastructure and resources","School structure and practices","Leadership"," Pedagogy","Assessment and Evaluation","Community Engagement","Districts initiated"]
+    "PIE_CHART":["Indicator","Definition","Data"]
 }
