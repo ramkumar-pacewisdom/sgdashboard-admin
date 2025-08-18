@@ -43,52 +43,46 @@ def state_code_generator(excel_file):
         print(f"Found column indices: {column_indices}")
         
         # Verify we have the required columns
-        required_columns = ["state name", "state code"]
+        required_columns = TABS_METADATA["STATE_DISTRICT_DETAILS"]
         missing_columns = [col for col in required_columns if col not in column_indices]
         
         if missing_columns:
             print(f"Error: Missing required columns: {missing_columns}")
             return
         
-        # Use a dictionary to store unique state name and code pairs
-        # This automatically handles duplicates efficiently
-        unique_states = {}
+        # Final JSON structure
+        json_data = {}
         
         # Start from row 2 (assuming row 1 has headers)
         row_num = 2
         processed_count = 0
         
         while True:
-            # Get state name and state code from current row
             state_name_cell = sheet.cell(row=row_num, column=column_indices["state name"])
+            district_name_cell = sheet.cell(row=row_num, column=column_indices["district name"])
             state_code_cell = sheet.cell(row=row_num, column=column_indices["state code"])
+            district_code_cell = sheet.cell(row=row_num, column=column_indices["district code"])
             
             # Check if we've reached the end of data
             if not state_name_cell.value:
                 break
             
             state_name = str(state_name_cell.value).strip()
+            district_name = str(district_name_cell.value).strip() if district_name_cell.value else None
+            state_code = str(state_code_cell.value).strip() if state_code_cell.value else None
+            district_code = str(district_code_cell.value).strip() if district_code_cell.value else None
             
-            try:
-                state_code = state_code_cell.value
-            except (ValueError, TypeError):
-                print(f"Warning: Invalid state code at row {row_num}: {state_code_cell.value}")
-                row_num += 1
-                continue
-            
-            # Add to unique_states dictionary (automatically handles duplicates)
-            if state_name not in unique_states:
-                unique_states[state_name] = state_code
+            if state_name not in json_data:
+                json_data[state_name] = {"id": state_code}
+
+            # Add district info if available
+            if district_name and district_code:
+                json_data[state_name][district_name] = district_code
             
             processed_count += 1
             row_num += 1
         
-        print(f"Processed {processed_count} rows, found {len(unique_states)} unique states")
-        
-        # Format the data according to the required JSON structure
-        json_data = {}
-        for state_name, state_code in unique_states.items():
-            json_data[state_name] = state_code
+        print(f"Processed {processed_count} rows, found {len(json_data)} states")
         
         # Define output file path
         output_file = os.path.join(script_dir, "..", "pages", "state_code_details.json")
