@@ -130,7 +130,7 @@ def get_network_map_data(excel_file):
                     "target": target,
                     "lineType": "multi-dash",
                     "curvature": 0.3,
-                    "color": "#34a541"
+                    "color": "#9D6B99"
                 })
 
             except Exception as e:
