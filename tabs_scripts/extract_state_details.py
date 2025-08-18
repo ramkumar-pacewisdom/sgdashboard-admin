@@ -125,7 +125,7 @@ def update_district_view_indicators(excel_file):
             if state_name not in state_codes:
                 row_num += 1
                 continue
-            state_code = state_codes[state_name]
+            state_code = state_codes[state_name]["id"]
 
             # Keep percentage values as-is
             try:
