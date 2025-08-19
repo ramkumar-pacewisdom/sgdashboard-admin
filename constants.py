@@ -6,7 +6,8 @@ PAGE_METADATA = {
     "STATE_DISTRICT_DETAILS": "State_district details",
     "GOALS":"Goals",
     "DASHBOARD_FIRST_PAGE":"Dashboard first page",
-    "TESTIMONIALS":"Testimonials"
+    "TESTIMONIALS":"Testimonials",
+    "PROGRAMS":"Programs"
 }
 
 TABS_METADATA = {
@@ -17,6 +18,7 @@ TABS_METADATA = {
     "STATE_DISTRICT_DETAILS": ["state name", "district name", "state code", "district code"],
     "GOALS":["Indicator","Data"],
     "PIE_CHART":["Indicator","Definition","Data"],
-    "TESTIMONIALS":['Name of the Partner', 'Testimonial ( waht partners have to say about the movement, network, etc.)', 'Name of the person', 'Designation', 'Image of the person']
+    "TESTIMONIALS":['Name of the Partner', 'Testimonial ( waht partners have to say about the movement, network, etc.)', 'Name of the person', 'Designation', 'Image of the person'],
+    "PROGRAMS":['State Name','District Name','Program Type','Name of the Program',	'About the Program/ Objective',	  'Impact of the program',	'Stakeholders doing the program','Pictures from the program','MI inititated from the program ( Total no. of MI started+inprogress+submitted OR if done via google form then no. of responses submitted)','Status of the program','Name of the Partner leading the program',	'Report Link']
     
 }
