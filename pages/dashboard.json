@@ -130,5 +130,34 @@
       "section": "line-chart-section",
       "title": "section-title"
     }
+  },
+  {
+    "type": "pie-chart-community-led",
+    "data": [
+      {
+        "name": "Infrastructure and resources",
+        "value": 0
+      },
+      {
+        "name": "School structure and practices",
+        "value": 0
+      },
+      {
+        "name": "Leadership",
+        "value": 0
+      },
+      {
+        "name": "Pedagogy",
+        "value": 0
+      },
+      {
+        "name": "Assessment and Evaluation",
+        "value": 0
+      },
+      {
+        "name": "Community Engagement",
+        "value": 3044
+      }
+    ]
   }
 ]

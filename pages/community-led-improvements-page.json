@@ -5,7 +5,7 @@
     "position": "left",
     "header": "Community Led Improvements",
     "subHeader": "Change begins when leadership is unlocked, not only in government offices or school corridors, but also in village meetings and community spaces.",
-    "description":"Shikshagraha supports both school leaders (headmasters, district, block and cluster level officials) and community leaders (SHG women, parents, youth) to design and lead local missions that solve real challenges. These micro-improvements form the foundation for sustained, scalable progress.",
+    "description": "Shikshagraha supports both school leaders (headmasters, district, block and cluster level officials) and community leaders (SHG women, parents, youth) to design and lead local missions that solve real challenges. These micro-improvements form the foundation for sustained, scalable progress.",
     "styles": {
       "section": "dashboard-main-section",
       "title": "dashboard-main-title",
@@ -15,49 +15,49 @@
   },
   {
     "type": "country-view",
-    "showVariations":false,
-    "showDetails":true,
+    "showVariations": false,
+    "showDetails": true,
     "width": "100%",
     "position": "left",
     "title": "Our Network",
-    "selections":[
+    "selections": [
       {
-        "label":"Micro Improvement Initiated",
-        "value":"Micro Improvement Initiated",
-        "selected":true
+        "label": "Micro Improvement Initiated",
+        "value": "Micro Improvement Initiated",
+        "selected": true
       },
       {
-        "label":"Leaders Driving Improvements",
-        "value":"Leaders Driving Improvements",
-        "selected":false
+        "label": "Leaders Driving Improvements",
+        "value": "Leaders Driving Improvements",
+        "selected": false
       },
       {
-        "label":"Schools Driving Improvements",
-        "value":"Schools Driving Improvements",
-        "selected":false
+        "label": "Schools Driving Improvements",
+        "value": "Schools Driving Improvements",
+        "selected": false
       },
       {
-        "label":"Community-Led Improvements",
-        "value":"Community-Led Improvements",
-        "selected":false
+        "label": "Community-Led Improvements",
+        "value": "Community-Led Improvements",
+        "selected": false
       }
     ],
-    "legends":[
+    "legends": [
       {
-        "label":"Micro Improvement Initiated",
-        "color":"#6c757d"
+        "label": "Micro Improvement Initiated",
+        "color": "#6c757d"
       },
       {
-        "label":"Leaders Driving Improvements",
-        "color":"#6c757d"
+        "label": "Leaders Driving Improvements",
+        "color": "#6c757d"
       },
       {
-        "label":"Schools Driving Improvements",
-        "color":"#6c757d"
+        "label": "Schools Driving Improvements",
+        "color": "#6c757d"
       },
       {
-        "label":"Community-Led Improvements",
-        "color":"#6c757d"
+        "label": "Community-Led Improvements",
+        "color": "#6c757d"
       }
     ],
     "styles": {
@@ -66,7 +66,53 @@
       "category": "partner-category",
       "logosContainer": "logos-container",
       "logo": "partner-logo"
-    }
+    },
+    "data": [
+      {
+        "label": "Bihar",
+        "type": "community_led_programs",
+        "details": [
+          {
+            "code": "No. of community leaders engaged",
+            "value": 61603
+          },
+          {
+            "code": "Community led improvements",
+            "value": 2752
+          },
+          {
+            "code": "Challenges shared",
+            "value": 5991
+          },
+          {
+            "code": "Solutions shared",
+            "value": 5442
+          }
+        ]
+      },
+      {
+        "label": "Karnataka",
+        "type": "community_led_programs",
+        "details": [
+          {
+            "code": "No. of community leaders engaged",
+            "value": 9264
+          },
+          {
+            "code": "Community led improvements",
+            "value": 292
+          },
+          {
+            "code": "Challenges shared",
+            "value": 816
+          },
+          {
+            "code": "Solutions shared",
+            "value": 757
+          }
+        ]
+      }
+    ]
   },
   {
     "type": "pie-chart",
@@ -74,15 +120,83 @@
     "position": "center",
     "title": "Monthly Progress",
     "data": [
-      { "name": "Curriculam and pedagogy", "value": 35 },
-      { "name": "Leadership", "value": 25 },
-      { "name": "Community Engagement", "value": 20 },
-      { "name": "Infrastructure", "value": 10 },
-      { "name": "Inclusive practices", "value": 10 }
+      {
+        "name": "Infrastructure and resources",
+        "value": 0
+      },
+      {
+        "name": "School structure and practices",
+        "value": 0
+      },
+      {
+        "name": "Leadership",
+        "value": 0
+      },
+      {
+        "name": "Pedagogy",
+        "value": 0
+      },
+      {
+        "name": "Assessment and Evaluation",
+        "value": 0
+      },
+      {
+        "name": "Community Engagement",
+        "value": 3044
+      }
     ],
     "styles": {
       "section": "line-chart-section",
       "title": "section-title"
     }
+  },
+  {
+    "type": "community-led-programs",
+    "data": [
+      {
+        "label": "Bihar",
+        "type": "community_led_programs",
+        "details": [
+          {
+            "code": "No. of community leaders engaged",
+            "value": 61603
+          },
+          {
+            "code": "Community led improvements",
+            "value": 2752
+          },
+          {
+            "code": "Challenges shared",
+            "value": 5991
+          },
+          {
+            "code": "Solutions shared",
+            "value": 5442
+          }
+        ]
+      },
+      {
+        "label": "Karnataka",
+        "type": "community_led_programs",
+        "details": [
+          {
+            "code": "No. of community leaders engaged",
+            "value": 9264
+          },
+          {
+            "code": "Community led improvements",
+            "value": 292
+          },
+          {
+            "code": "Challenges shared",
+            "value": 816
+          },
+          {
+            "code": "Solutions shared",
+            "value": 757
+          }
+        ]
+      }
+    ]
   }
 ]
