@@ -217,6 +217,7 @@ def community_led_programs_sum_with_codes(excel_file):
             state_codes.get(state, "unknown"): {
                 "id": state_codes.get(state, "unknown"),
                 "label": state,
+                "type": "category_1",
                 "details": [
                     {"code": col_name, "value": int(val) if isinstance(val, float) and val.is_integer() else val}
                     for col_name, val in sums.items()
