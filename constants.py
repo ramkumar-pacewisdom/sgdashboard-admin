@@ -7,7 +7,8 @@ PAGE_METADATA = {
     "GOALS":"Goals",
     "DASHBOARD_FIRST_PAGE":"Dashboard first page",
     "TESTIMONIALS":"Testimonials",
-    "COMMUNITY_LED_PROGRAMS":"Community Led Programs"
+    "COMMUNITY_LED_PROGRAMS":"Community Led Programs",
+    "DISTRICT_DETAILS": "District Details"
 }
 
 TABS_METADATA = {
@@ -19,5 +20,6 @@ TABS_METADATA = {
     "GOALS":["Indicator","Data"],
     "PIE_CHART":["Indicator","Definition","Data"],
     "TESTIMONIALS":['Name of the Partner', 'Testimonial ( waht partners have to say about the movement, network, etc.)', 'Name of the person', 'Designation', 'Image of the person'],
-    "COMMUNITY_LEAD_PROGRAMS":["Name of the State ","Name of the District","No. of community leaders engaged","Community led improvements","Challenges shared","Solutions shared","Infrastructure and resources","School structure and practices","Leadership"," Pedagogy","Assessment and Evaluation","Community Engagement","Districts initiated"]
+    "COMMUNITY_LEAD_PROGRAMS":["Name of the State ","Name of the District","No. of community leaders engaged","Community led improvements","Challenges shared","Solutions shared","Infrastructure and resources","School structure and practices","Leadership"," Pedagogy","Assessment and Evaluation","Community Engagement","Districts initiated"],
+    "DISTRICT_DETAILS": ["State Name", "District Name", "Indicator", "Definition", "Data"]
 }
