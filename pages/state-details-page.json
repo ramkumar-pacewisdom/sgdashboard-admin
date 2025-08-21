@@ -1,0 +1,130 @@
+{
+    "sections": [
+      {
+        "type":"state-metrics",
+        "width":"100%",
+        "data": [
+          {
+            "label": "State led program",
+            "value": "",
+            "description": "Shikshagraha is a people-led movement to improve learning in India's public schools by unloacking leadership at every level",
+            "linkText":"Click to learn more about the state programs",
+            "redirectionLink":"",
+            "identifier": "slm",
+            "icon": "/assets/icons/clipboard.svg"
+          },
+          {
+            "label": "District led program",
+            "value": "",
+            "description": "Shikshagraha is a people-led movement to improve learning in India's public schools by unloacking leadership at every level",
+            "linkText":"Click on districts to explore district programs",
+            "redirectionLink":"",
+            "identifier": "dlm",
+            "icon": "/assets/icons/guide.svg"
+          },
+          {
+            "label": "Community led Initiative",
+            "value": "",
+            "description": "Shikshagraha is a people-led movement to improve learning in India's public schools by unloacking leadership at every level",
+            "linkText":"Click to learn more about the community led improvements",
+            "redirectionLink":"",
+            "identifier": "clm",
+            "icon": "/assets/icons/folder.svg"
+          }
+        ],
+        "path":"/states/{code}/metrics.json"
+      },
+      {
+        "type": "state-view",
+        "showVariations":false,
+        "showDetails":true,
+        "width": "100%",
+        "position": "left",
+        "title": "",
+        "selections":[
+          {
+            "label":"Micro Improvement Initiated",
+            "value":"Micro Improvement Initiated",
+            "selected":true
+          },
+          {
+            "label":"Leaders Driving Improvements",
+            "value":"Leaders Driving Improvements",
+            "selected":false
+          },
+          {
+            "label":"Schools Driving Improvements",
+            "value":"Schools Driving Improvements",
+            "selected":false
+          },
+          {
+            "label":"Community-Led Improvements",
+            "value":"Community-Led Improvements",
+            "selected":false
+          }
+        ],
+        "legends":{
+          "category_1": {
+            "label": "State and District led missions",
+            "color": "#5d35b0",
+            "show_details": true
+          },
+          "category_2": {
+            "label": "State led missions",
+            "color": "#8147e1",
+            "show_details": true
+          },
+          "category_3": {
+            "label": "District led missions",
+            "color": "#9675ce",
+            "show_details": true
+          },
+          "category_4": {
+            "label": "Yes to start",
+            "color": "#ffffff",
+            "show_details": false
+          }
+        },
+        "path":"/states/{code}/map.json",
+        "styles": {
+          "section": "partner-logos-section",
+          "title": "section-title",
+          "category": "partner-category",
+          "logosContainer": "logos-container",
+          "logo": "partner-logo"
+        }
+      },
+      {
+        "type": "pie-chart",
+        "width": "100%",
+        "position": "center",
+        "title": "Monthly Progress",
+        "data": [],
+        "styles": {
+          "section": "line-chart-section",
+          "title": "section-title"
+        },
+        "path":"/states/{code}/pie-chart.json"
+      },
+      {
+        "type": "programs-list",
+        "width": "50%",
+        "position": "center",
+        "title": "Ongoing Community Led State Missions",
+        "data": [
+            {
+                "title":"program 1",
+                "status":"In Progress",
+                "gallery":[
+                    "link","link"
+                ],
+                "partners":[]
+            }
+        ],
+        "styles": {
+          "section": "line-chart-section",
+          "title": "section-title"
+        }
+      }
+    ]
+  }

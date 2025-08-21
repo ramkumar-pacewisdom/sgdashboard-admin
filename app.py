@@ -8,6 +8,7 @@ from tabs_scripts.partners import get_partners
 from tabs_scripts.extract_state_details import update_district_view_indicators
 from tabs_scripts.pie_chart import pie_chart
 from tabs_scripts.testimonials import testimonials
+from tabs_scripts.extract_district_details import extract_district_details
 
 # Page setup
 st.set_page_config(page_title="File Upload App", page_icon=":page_facing_up:")
@@ -32,6 +33,7 @@ if uploaded_file is not None:
             get_partners(uploaded_file)
             get_network_map_data(uploaded_file)
             update_district_view_indicators(uploaded_file)
+            extract_district_details(uploaded_file)
             goals(uploaded_file)
             pie_chart(uploaded_file)
             testimonials(uploaded_file)
