@@ -221,16 +221,16 @@ def generate_program_reports(excel_file):
                     json.dump(programs, f, indent=2, ensure_ascii=False)
                 print(f"✅ Saved {category_name}.json for district {district_code} at {out_file}")
 
-                # gcs_path = f"sg-dashboard/districts/{district_code}/{category_name}.json"
-                # folder_url = gcp_access.upload_file_to_gcs_and_get_directory(
-                #     bucket_name=bucket_name,
-                #     source_file_path=out_file,
-                #     destination_blob_name=gcs_path
-                # )
-                # if folder_url:
-                #     print(f"✅ Uploaded {category_name}.json for district {district_code} to {folder_url}")
-                # else:
-                #     print(f"❌ Failed to upload {category_name}.json for district {district_code}")
+                gcs_path = f"sg-dashboard/districts/{district_code}/{category_name}.json"
+                folder_url = gcp_access.upload_file_to_gcs_and_get_directory(
+                    bucket_name=bucket_name,
+                    source_file_path=out_file,
+                    destination_blob_name=gcs_path
+                )
+                if folder_url:
+                    print(f"✅ Uploaded {category_name}.json for district {district_code} to {folder_url}")
+                else:
+                    print(f"❌ Failed to upload {category_name}.json for district {district_code}")
 
         # -----------------------------
         # State-level JSONs
@@ -246,16 +246,16 @@ def generate_program_reports(excel_file):
                 json.dump(programs, f, indent=2, ensure_ascii=False)
             print(f"✅ Saved state.json for state {state_code} at {out_file}")
 
-            # gcs_path = f"sg-dashboard/states/{state_code}/state.json"
-            # folder_url = gcp_access.upload_file_to_gcs_and_get_directory(
-            #     bucket_name=bucket_name,
-            #     source_file_path=out_file,
-            #     destination_blob_name=gcs_path
-            # )
-            # if folder_url:
-            #     print(f"✅ Uploaded state.json for state {state_code} to {folder_url}")
-            # else:
-            #     print(f"❌ Failed to upload state.json for state {state_code}")
+            gcs_path = f"sg-dashboard/states/{state_code}/state.json"
+            folder_url = gcp_access.upload_file_to_gcs_and_get_directory(
+                bucket_name=bucket_name,
+                source_file_path=out_file,
+                destination_blob_name=gcs_path
+            )
+            if folder_url:
+                print(f"✅ Uploaded state.json for state {state_code} to {folder_url}")
+            else:
+                print(f"❌ Failed to upload state.json for state {state_code}")
 
         print("✅ Program reports generated successfully.")
 
