@@ -1,9 +1,9 @@
 [
   {
     "type": "dashboard-main",
-    "width": "50%",
+    "width": "100%",
     "position": "left",
-    "header": "Enabling Leadership",
+    "header": "Community Led Improvements",
     "subHeader": "Change begins when leadership is unlocked, not only in government offices or school corridors, but also in village meetings and community spaces.",
     "description": "Shikshagraha supports both school leaders (headmasters, district, block and cluster level officials) and community leaders (SHG women, parents, youth) to design and lead local missions that solve real challenges. These micro-improvements form the foundation for sustained, scalable progress.",
     "styles": {
@@ -14,38 +14,12 @@
     }
   },
   {
-    "type": "dashboard-metrics",
-    "width": "50%",
-    "position": "center",
-    "header": "Our Goal",
-    "subHeader": "To impact 30% of India’s states and districts by 2030",
-    "indicators": [
-      {
-        "label": "States",
-        "value": 12
-      },
-      {
-        "label": "Districts",
-        "value": 250
-      },
-      {
-        "label": "Schools",
-        "value": 521415
-      }
-    ],
-    "styles": {
-      "section": "hero-section",
-      "title": "hero-title",
-      "tagline": "hero-tagline",
-      "summary": "hero-summary"
-    }
-  },
-  {
     "type": "country-view",
     "showVariations": false,
     "showDetails": true,
     "width": "100%",
     "position": "left",
+    "path": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/community-country-view.json",
     "title": "Our Network",
     "selections": [
       {
@@ -65,7 +39,7 @@
       },
       {
         "label": "Community-Led Improvements",
-        "value": "Community Led Improvements",
+        "value": "Community-Led Improvements",
         "selected": false
       }
     ],
@@ -103,39 +77,6 @@
     "data": [
       {
         "name": "Infrastructure and resources",
-        "value": ""
-      },
-      {
-        "name": "School structure and practices",
-        "value": 14062
-      },
-      {
-        "name": "Leadership",
-        "value": 69348
-      },
-      {
-        "name": " Pedagogy ",
-        "value": 368382
-      },
-      {
-        "name": "Assessment and Evaluation",
-        "value": ""
-      },
-      {
-        "name": "Community Engagement",
-        "value": 186992
-      }
-    ],
-    "styles": {
-      "section": "line-chart-section",
-      "title": "section-title"
-    }
-  },
-  {
-    "type": "pie-chart-community-led",
-    "data": [
-      {
-        "name": "Infrastructure and resources",
         "value": 0
       },
       {
@@ -158,6 +99,10 @@
         "name": "Community Engagement",
         "value": 3044
       }
-    ]
+    ],
+    "styles": {
+      "section": "line-chart-section",
+      "title": "section-title"
+    }
   }
 ]
