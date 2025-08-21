@@ -8,6 +8,7 @@ from tabs_scripts.partners import get_partners
 from tabs_scripts.extract_state_details import update_district_view_indicators
 from tabs_scripts.pie_chart import pie_chart
 from tabs_scripts.testimonials import testimonials
+from tabs_scripts.programs import generate_program_reports
 from tabs_scripts.extract_district_details import extract_district_details
 
 # Page setup
@@ -39,6 +40,7 @@ if uploaded_file is not None:
             testimonials(uploaded_file)
             pie_chart_community_led(uploaded_file)
             community_led_programs_sum_with_codes(uploaded_file)
+            generate_program_reports(uploaded_file)
             df = pd.read_excel(uploaded_file)
         elif uploaded_file.name.endswith('.txt'):
             df = pd.read_csv(uploaded_file, delimiter="	")
