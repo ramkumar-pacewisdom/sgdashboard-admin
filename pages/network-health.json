@@ -337,6 +337,19 @@
           ]
         },
         {
+          "id": "sahyogi_sanstha",
+          "src": "/assets/partners/default-partner.svg",
+          "alt": "sahyogi_sanstha",
+          "name": "Sahyogi Sanstha",
+          "partnerState": "Bihar",
+          "category": "Momentum ",
+          "website": "",
+          "coordinates": [
+            "",
+            ""
+          ]
+        },
+        {
           "id": "bharat_dekho",
           "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/bharat_dekho.jpg",
           "alt": "bharat_dekho",
@@ -350,180 +363,37 @@
           ]
         },
         {
-          "id": "ltts",
-          "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/ltts.jpg",
-          "alt": "ltts",
-          "name": "LTTS",
-          "partnerState": "",
-          "category": "Stategic",
-          "website": "https://www.ltts.com/",
-          "coordinates": [
-            31.544833,
-            64.895631
-          ]
-        },
-        {
-          "id": "hdfc",
-          "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/hdfc.jpg",
-          "alt": "hdfc",
-          "name": "HDFC",
-          "partnerState": "",
-          "category": "Stategic",
-          "website": "https://www.hdfcbank.com/",
-          "coordinates": [
-            35.21331,
-            83.337619
-          ]
-        },
-        {
-          "id": "axis",
-          "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/axis.jpg",
-          "alt": "axis",
-          "name": "AXIS",
-          "partnerState": "",
-          "category": "Stategic",
-          "website": "https://www.axisbank.com/",
-          "coordinates": [
-            23.769257,
-            61.03919
-          ]
-        },
-        {
-          "id": "caring_friends",
-          "src": "/assets/partners/default-partner.svg",
-          "alt": "caring_friends",
-          "name": "Caring Friends",
-          "partnerState": "",
-          "category": "Stategic",
-          "website": "",
-          "coordinates": [
-            32.58755,
-            86.857972
-          ]
-        },
-        {
-          "id": "motivation_for_excellence",
-          "src": "/assets/partners/default-partner.svg",
-          "alt": "motivation_for_excellence",
-          "name": "Motivation for Excellence",
-          "partnerState": "",
-          "category": "Stategic",
-          "website": "",
-          "coordinates": [
-            12.25842,
-            89.66818
-          ]
-        },
-        {
-          "id": "paypal",
-          "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/paypal.jpg",
-          "alt": "paypal",
-          "name": "PayPal",
-          "partnerState": "",
-          "category": "Stategic",
-          "website": "https://www.paypal.com/in/home",
-          "coordinates": [
-            17.857471,
-            62.444293
-          ]
-        },
-        {
-          "id": "amansa_capital",
-          "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/amansa_capital.jpg",
-          "alt": "amansa_capital",
-          "name": "Amansa Capital",
-          "partnerState": "",
-          "category": "Stategic",
-          "website": "https://www.amansacapital.com/#/",
-          "coordinates": [
-            9.323324,
-            73.853168
-          ]
-        },
-        {
-          "id": "salesforce",
-          "src": "/assets/partners/default-partner.svg",
-          "alt": "salesforce",
-          "name": "Salesforce",
-          "partnerState": "",
-          "category": "Stategic",
-          "website": "https://www.salesforce.com/in/",
-          "coordinates": [
-            7.933025,
-            75.960824
-          ]
-        },
-        {
-          "id": "arpan_foundation",
-          "src": "/assets/partners/default-partner.svg",
-          "alt": "arpan_foundation",
-          "name": "Arpan Foundation",
-          "partnerState": "",
-          "category": "Stategic",
-          "website": "",
-          "coordinates": [
-            19.522515,
-            88.606758
-          ]
-        },
-        {
-          "id": "aws",
-          "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/aws.jpg",
-          "alt": "aws",
-          "name": "AWS",
-          "partnerState": "",
-          "category": "Stategic",
-          "website": "https://aws.amazon.com/",
-          "coordinates": [
-            17.69008,
-            90.1875
-          ]
-        },
-        {
-          "id": "rotary_club_of_queens_necklace_mumbai",
-          "src": "/assets/partners/default-partner.svg",
-          "alt": "rotary_club_of_queens_necklace_mumbai",
-          "name": "Rotary club of Queens necklace mumbai",
-          "partnerState": "",
-          "category": "Stategic",
-          "website": "https://www.rotaryqueensnecklace.org/",
-          "coordinates": [
-            16.514044,
-            63.490528
-          ]
-        },
-        {
-          "id": "wells_fargo",
-          "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/wells_fargo.jpg",
-          "alt": "wells_fargo",
-          "name": "Wells Fargo",
-          "partnerState": "",
-          "category": "Stategic",
-          "website": "https://www.wellsfargo.com/",
-          "coordinates": [
-            16.6825,
-            68.584029
-          ]
-        },
-        {
-          "id": "c4ec",
-          "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/c4ec.jpg",
-          "alt": "c4ec",
-          "name": "C4EC",
-          "partnerState": "",
-          "category": "Stategic",
-          "website": "https://centreforexponentialchange.org/",
-          "coordinates": [
-            30.490336,
-            87.201654
-          ]
-        },
-        {
           "id": "think_tac",
           "src": "/assets/partners/default-partner.svg",
           "alt": "think_tac",
           "name": "Think Tac",
-          "partnerState": "",
+          "partnerState": "Haryana",
+          "category": "Momentum ",
+          "website": "",
+          "coordinates": [
+            "",
+            ""
+          ]
+        },
+        {
+          "id": "padi",
+          "src": "/assets/partners/default-partner.svg",
+          "alt": "padi",
+          "name": "Padi",
+          "partnerState": "Karnataka",
+          "category": "Momentum ",
+          "website": "",
+          "coordinates": [
+            "",
+            ""
+          ]
+        },
+        {
+          "id": "initiative_for_people_empowerment_in_india_foundationipei",
+          "src": "/assets/partners/default-partner.svg",
+          "alt": "initiative_for_people_empowerment_in_india_foundationipei",
+          "name": "Initiative for People Empowerment in India Foundation(IPEI)",
+          "partnerState": "Karnataka",
           "category": "Momentum ",
           "website": "",
           "coordinates": [
@@ -538,6 +408,253 @@
           "name": "1M1B",
           "partnerState": "Karnataka",
           "category": "Momentum ",
+          "website": "",
+          "coordinates": [
+            "",
+            ""
+          ]
+        },
+        {
+          "id": "ltts",
+          "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/ltts.jpg",
+          "alt": "ltts",
+          "name": "LTTS",
+          "partnerState": "",
+          "category": "Stategic",
+          "website": "https://www.ltts.com/",
+          "coordinates": [
+            30.632004,
+            63.667108
+          ]
+        },
+        {
+          "id": "hdfc",
+          "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/hdfc.jpg",
+          "alt": "hdfc",
+          "name": "HDFC",
+          "partnerState": "",
+          "category": "Stategic",
+          "website": "https://www.hdfcbank.com/",
+          "coordinates": [
+            32.726065,
+            101.172051
+          ]
+        },
+        {
+          "id": "axis",
+          "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/axis.jpg",
+          "alt": "axis",
+          "name": "AXIS",
+          "partnerState": "",
+          "category": "Stategic",
+          "website": "https://www.axisbank.com/",
+          "coordinates": [
+            30.622787,
+            67.804686
+          ]
+        },
+        {
+          "id": "caring_friends",
+          "src": "/assets/partners/default-partner.svg",
+          "alt": "caring_friends",
+          "name": "Caring Friends",
+          "partnerState": "",
+          "category": "Stategic",
+          "website": "",
+          "coordinates": [
+            35.347616,
+            86.94549
+          ]
+        },
+        {
+          "id": "motivation_for_excellence",
+          "src": "/assets/partners/default-partner.svg",
+          "alt": "motivation_for_excellence",
+          "name": "Motivation for Excellence",
+          "partnerState": "",
+          "category": "Stategic",
+          "website": "",
+          "coordinates": [
+            12.065107,
+            85.719759
+          ]
+        },
+        {
+          "id": "paypal",
+          "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/paypal.jpg",
+          "alt": "paypal",
+          "name": "PayPal",
+          "partnerState": "",
+          "category": "Stategic",
+          "website": "https://www.paypal.com/in/home",
+          "coordinates": [
+            14.129917,
+            65.250613
+          ]
+        },
+        {
+          "id": "amansa_capital",
+          "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/amansa_capital.jpg",
+          "alt": "amansa_capital",
+          "name": "Amansa Capital",
+          "partnerState": "",
+          "category": "Stategic",
+          "website": "https://www.amansacapital.com/#/",
+          "coordinates": [
+            33.094993,
+            88.163467
+          ]
+        },
+        {
+          "id": "salesforce",
+          "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/salesforce.jpg",
+          "alt": "salesforce",
+          "name": "Salesforce",
+          "partnerState": "",
+          "category": "Stategic",
+          "website": "https://www.salesforce.com/in/",
+          "coordinates": [
+            7.224887,
+            64.899261
+          ]
+        },
+        {
+          "id": "arpan_foundation",
+          "src": "/assets/partners/default-partner.svg",
+          "alt": "arpan_foundation",
+          "name": "Arpan Foundation",
+          "partnerState": "",
+          "category": "Stategic",
+          "website": "",
+          "coordinates": [
+            15.259676,
+            101.954727
+          ]
+        },
+        {
+          "id": "aws",
+          "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/aws.jpg",
+          "alt": "aws",
+          "name": "AWS",
+          "partnerState": "",
+          "category": "Stategic",
+          "website": "https://aws.amazon.com/",
+          "coordinates": [
+            14.895686,
+            82.907154
+          ]
+        },
+        {
+          "id": "rotary_club_of_queens_necklace_mumbai",
+          "src": "/assets/partners/default-partner.svg",
+          "alt": "rotary_club_of_queens_necklace_mumbai",
+          "name": "Rotary club of Queens necklace mumbai",
+          "partnerState": "Maharashtra",
+          "category": "Stategic",
+          "website": "https://www.rotaryqueensnecklace.org/",
+          "coordinates": [
+            22.303073,
+            66.040997
+          ]
+        },
+        {
+          "id": "wells_fargo",
+          "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/wells_fargo.jpg",
+          "alt": "wells_fargo",
+          "name": "Wells Fargo",
+          "partnerState": "",
+          "category": "Stategic",
+          "website": "https://www.wellsfargo.com/",
+          "coordinates": [
+            15.996975,
+            66.302914
+          ]
+        },
+        {
+          "id": "c4ec",
+          "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/c4ec.jpg",
+          "alt": "c4ec",
+          "name": "C4EC",
+          "partnerState": "Karnataka",
+          "category": "Stategic",
+          "website": "https://centreforexponentialchange.org/",
+          "coordinates": [
+            29.720259,
+            88.439842
+          ]
+        },
+        {
+          "id": "shikshalokam",
+          "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/shikshalokam.jpg",
+          "alt": "shikshalokam",
+          "name": "ShikshaLokam",
+          "partnerState": "Karnataka",
+          "category": "Stategic",
+          "website": "https://shikshalokam.org/",
+          "coordinates": [
+            "",
+            ""
+          ]
+        },
+        {
+          "id": "tekdi_technology_pvt_limited",
+          "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/tekdi_technology_pvt_limited.jpg",
+          "alt": "tekdi_technology_pvt_limited",
+          "name": "Tekdi technology pvt. limited",
+          "partnerState": "Karnataka",
+          "category": "Collaborator",
+          "website": "",
+          "coordinates": [
+            "",
+            ""
+          ]
+        },
+        {
+          "id": "gritworks",
+          "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/gritworks.jpg",
+          "alt": "gritworks",
+          "name": "GritWorks",
+          "partnerState": "Karnataka",
+          "category": "Collaborator",
+          "website": "",
+          "coordinates": [
+            "",
+            ""
+          ]
+        },
+        {
+          "id": "colab",
+          "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/colab.jpg",
+          "alt": "colab",
+          "name": "Colab",
+          "partnerState": "Karnataka",
+          "category": "Collaborator",
+          "website": "",
+          "coordinates": [
+            "",
+            ""
+          ]
+        },
+        {
+          "id": "gnothi_seauton",
+          "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/gnothi_seauton.jpg",
+          "alt": "gnothi_seauton",
+          "name": "Gnothi Seauton",
+          "partnerState": "Delhi",
+          "category": "Collaborator",
+          "website": "",
+          "coordinates": [
+            "",
+            ""
+          ]
+        },
+        {
+          "id": "blavatnik_school_of_government",
+          "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/blavatnik_school_of_government.jpg",
+          "alt": "blavatnik_school_of_government",
+          "name": "Blavatnik School of Government",
+          "partnerState": "",
+          "category": "Collaborator",
           "website": "",
           "coordinates": [
             "",
