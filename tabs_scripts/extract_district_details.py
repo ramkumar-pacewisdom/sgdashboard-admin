@@ -13,6 +13,16 @@ def load_state_codes():
     with open(state_codes_file, "r", encoding="utf-8") as f:
         return json.load(f)
 
+def format_metric_value(val):
+    """Ensure clean string values without unnecessary .0"""
+    if isinstance(val, (int, float)):
+        if float(val).is_integer():
+            return str(int(val))
+        else:
+            return f"{val:.2f}".rstrip("0").rstrip(".")
+    return str(val).strip()
+
+
 def extract_district_details(excel_file):
     try:
         state_codes = load_state_codes()
@@ -40,9 +50,13 @@ def extract_district_details(excel_file):
 
         # Exclusions
         excluded_codes = ["categories", "active missions", "community led initiative", "state led program", "district led program" ]
+        excluded_for_metrics = ["categories", "community led initiative", "state led program", "district led program"]
 
         # State-level container
         states_map = {}
+
+        # ✅ District-level containers
+        district_files_map = {}
 
         row_num = 2
         while True:
@@ -52,6 +66,7 @@ def extract_district_details(excel_file):
 
             district_name = sheet.cell(row=row_num, column=column_indices["District Name"]).value
             indicator = sheet.cell(row=row_num, column=column_indices["Indicator"]).value or ""
+            definition = sheet.cell(row=row_num, column=column_indices["Definition"]).value or ""
             data_value = sheet.cell(row=row_num, column=column_indices["Data"]).value
 
             state_name = str(state_name).strip()
@@ -102,14 +117,35 @@ def extract_district_details(excel_file):
 
             district_entry = states_map[state_id]["districts"][district_id]
 
+            # ✅ Init district metrics/pie storage
+            if district_id not in district_files_map:
+                district_files_map[district_id] = {
+                    "district_name": district_name,
+                    "metrics": [],
+                    "pie": []
+                }
+
             # Track for category calculation
             if code_lower == "state led program":
                 district_entry["state_led"] = processed_value
             elif code_lower == "district led program":
                 district_entry["district_led"] = processed_value
 
-            # ✅ Skip unwanted indicators
+            # ✅ Add to metrics (excluding categories/state/district/community led)
+            if code_lower not in excluded_for_metrics:
+                district_files_map[district_id]["metrics"].append({
+                    "label": indicator.replace("\n", " ").strip(),
+                    "value": format_metric_value(data_value)
+                })
+
+            # Skip unwanted indicators from details
             if code_lower in excluded_codes:
+                # ✅ For pie-chart we still need categories
+                if code_lower == "categories":
+                    district_files_map[district_id]["pie"].append({
+                        "name": str(definition).strip(),
+                        "value": processed_value
+                    })
                 row_num += 1
                 continue
 
@@ -140,41 +176,50 @@ def extract_district_details(excel_file):
                 dist_data.pop("state_led", None)
                 dist_data.pop("district_led", None)
 
-                # ✅ Always append "Districts driving improvements" with '-'
+                # Always append "Districts driving improvements" with '-'
                 dist_data["details"].insert(1,{
                     "value": "-",
                     "code": "Districts driving improvements"
                 })
 
-        # Save per-state map.json
+        # ✅ Save per-district metrics.json & pie-chart.json
         script_dir = os.path.dirname(os.path.abspath(__file__))
+        for dist_id, dist_files in district_files_map.items():
+            dist_dir = os.path.join(script_dir, "..", "districts", str(dist_id))
+            os.makedirs(dist_dir, exist_ok=True)
+
+            metrics_path = os.path.join(dist_dir, "metrics.json")
+            with open(metrics_path, "w", encoding="utf-8") as f:
+                json.dump({"metrics": dist_files["metrics"]}, f, indent=2, ensure_ascii=False)
+
+            pie_path = os.path.join(dist_dir, "pie-chart.json")
+            with open(pie_path, "w", encoding="utf-8") as f:
+                json.dump({"data": dist_files["pie"]}, f, indent=2, ensure_ascii=False)
+
+        # ✅ Upload everything (states + districts)
+        gcp_access_path = os.path.join(script_dir, '..', 'cloud-scripts', 'gcp_access.py')
+        spec = importlib.util.spec_from_file_location('gcp_access', gcp_access_path)
+        gcp_access = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(gcp_access)
+
+        # Upload state map.json
         for state_id, state_data in states_map.items():
             json_file_path = os.path.join(script_dir, "..", "states", state_id, "map.json")
             os.makedirs(os.path.dirname(json_file_path), exist_ok=True)
 
-            # ✅ Load existing map.json if it exists
             if os.path.exists(json_file_path):
                 with open(json_file_path, "r", encoding="utf-8") as f:
                     existing_json = json.load(f)
             else:
                 existing_json = {"result": {}}
 
-            # ✅ Update only districts
             existing_json.setdefault("result", {})
             existing_json["result"]["districts"] = {
                 k: v for k, v in state_data["districts"].items()
             }
 
-            # ✅ Save back
             with open(json_file_path, "w", encoding="utf-8") as f:
                 json.dump(existing_json, f, indent=2, ensure_ascii=False)
-
-            # Upload to GCS
-            gcp_access_path = os.path.join(script_dir, '..', 'cloud-scripts', 'gcp_access.py')
-            spec = importlib.util.spec_from_file_location('gcp_access', gcp_access_path)
-            gcp_access = importlib.util.module_from_spec(spec)
-            spec.loader.exec_module(gcp_access)
-
             folder_url = gcp_access.upload_file_to_gcs_and_get_directory(
                 bucket_name=os.environ.get("BUCKET_NAME"),
                 source_file_path=json_file_path,
@@ -186,9 +231,25 @@ def extract_district_details(excel_file):
             else:
                 print(f"❌ Failed to upload map.json for {state_data['state_name']}")
 
-        # Finally upload state-details-page.json (placeholder)
-        state_details_path = os.path.join(script_dir, "..", "pages", "state-details-page.json")
+        # ✅ Upload district files
+        for dist_id in district_files_map.keys():
+            dist_dir = os.path.join(script_dir, "..", "districts", str(dist_id))
 
+            for filename in ["metrics.json", "pie-chart.json"]:
+                file_path = os.path.join(dist_dir, filename)
+                folder_url = gcp_access.upload_file_to_gcs_and_get_directory(
+                    bucket_name=os.environ.get("BUCKET_NAME"),
+                    source_file_path=file_path,
+                    destination_blob_name=f"sg-dashboard/districts/{dist_id}/{filename}"
+                )
+                if folder_url:
+                    print(f"✅ Uploaded {filename} for district {dist_id} to {folder_url}")
+                else:
+                    print(f"❌ Failed to upload {filename} for district {dist_id}")
+
+        # Upload state-details-page.json
+        state_details_path = os.path.join(script_dir, "..", "pages", "state-details-page.json")
+        
         folder_url = gcp_access.upload_file_to_gcs_and_get_directory(
             bucket_name=os.environ.get("BUCKET_NAME"),
             source_file_path=state_details_path,
