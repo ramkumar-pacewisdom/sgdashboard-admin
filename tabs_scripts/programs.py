@@ -52,28 +52,6 @@ def download_file(file_id, output_dir):
         return None
 
 
-# def download_folder_images(folder_id, output_dir):
-#     """List all files in a Google Drive folder and download them"""
-#     logo_urls = []
-#     page_token = None
-#     while True:
-#         response = drive_service.files().list(
-#             q=f"'{folder_id}' in parents and mimeType contains 'image/'",
-#             spaces='drive',
-#             fields='nextPageToken, files(id, name)',
-#             pageToken=page_token
-#         ).execute()
-#         for file in response.get('files', []):
-#             file_id = file['id']
-#             local_file = download_file(file_id, output_dir)
-#             if local_file:
-#                 logo_urls.append(local_file)
-#         page_token = response.get('nextPageToken', None)
-#         if page_token is None:
-#             break
-#     return logo_urls
-
-
 def download_folder_images(folder_id, output_dir, program_type):
     """
     List all files in a Google Drive folder, download them locally,
@@ -128,25 +106,17 @@ def download_folder_images(folder_id, output_dir, program_type):
 
     return logo_urls
 
+
 def build_lookup(state_code_map):
     """
     Build lookup: (norm_state, norm_district) → (state_code, district_code)
-    JSON structure is:
-    {
-        "Bihar": {
-            "id": "10",
-            "Banka": "225",
-            "Bhagalpur": "224",
-            "Gaya": "236"
-        }
-    }
     """
     lookup = {}
-    district_index = {}  # for fuzzy fallback
+    district_index = {}
     for state_name, state_info in state_code_map.items():
         state_code = str(state_info.get("id", "")).strip()
         for key, value in state_info.items():
-            if key == "id":  # skip state id
+            if key == "id":
                 continue
             norm_key = (normalize(state_name), normalize(key))
             district_code = str(value).strip()
@@ -161,7 +131,6 @@ def resolve_codes(state, district, lookup, district_index):
     if norm_key in lookup:
         return lookup[norm_key]
 
-    # fuzzy search within state
     state_key = normalize(state)
     if state_key in district_index:
         possible_districts = list(district_index[state_key].keys())
@@ -241,19 +210,42 @@ def generate_program_reports(excel_file):
             state_dict = target_dict.setdefault(str(state_code), {})
             state_dict.setdefault(str(district_code), {}).setdefault(str(program), []).append(row_dict)
 
-        # === Save inside states/<state_code>/ as SLC.json and WLC.json ===
+        # === Save SLC.json and WLC.json per state and upload to GCS ===
         states_dir = os.path.join(script_dir, '..', 'states')
         os.makedirs(states_dir, exist_ok=True)
+
+        # Import gcp_access dynamically
+        gcp_access_path = os.path.join(script_dir, '..', 'cloud-scripts', 'gcp_access.py')
+        spec = importlib.util.spec_from_file_location('gcp_access', gcp_access_path)
+        gcp_access = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(gcp_access)
+
+        bucket_name = os.environ.get("BUCKET_NAME")
 
         for category_name, data_dict in [('SLC', slc_data), ('WLC', wlc_data)]:
             for state_code, districts in data_dict.items():
                 state_folder = os.path.join(states_dir, str(state_code))
                 os.makedirs(state_folder, exist_ok=True)
                 out_file = os.path.join(state_folder, f"{category_name}.json")
+                
+                # Save locally
                 with open(out_file, 'w', encoding='utf-8') as f:
                     json.dump(districts, f, indent=2, ensure_ascii=False)
+                print(f"✅ Saved {category_name}.json for state {state_code} at {out_file}")
 
-        print("✅ Program reports generated successfully into states/<state_id>/ folders.")
+                # Upload to GCS
+                gcs_path = f"sg-dashboard/states/{state_code}/{category_name}.json"
+                folder_url = gcp_access.upload_file_to_gcs_and_get_directory(
+                    bucket_name=bucket_name,
+                    source_file_path=out_file,
+                    destination_blob_name=gcs_path
+                )
+                if folder_url:
+                    print(f"✅ Uploaded {category_name}.json for state {state_code} to {folder_url}")
+                else:
+                    print(f"❌ Failed to upload {category_name}.json for state {state_code}")
+
+        print("✅ Program reports generated and uploaded successfully.")
 
     except Exception as e:
         print(f"❌ Fatal Error: {e}")
