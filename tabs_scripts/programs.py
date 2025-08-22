@@ -167,6 +167,7 @@ def generate_program_reports(excel_file):
 
         district_data = {'SLC': {}, 'WLC': {}}
         state_data = {}
+        state_wlc_data = {}  # <-- NEW
 
         gcp_access_path = os.path.join(script_dir, '..', 'cloud-scripts', 'gcp_access.py')
         spec = importlib.util.spec_from_file_location('gcp_access', gcp_access_path)
@@ -219,10 +220,10 @@ def generate_program_reports(excel_file):
                 state_data.setdefault(str(state_code), []).append(row_dict)
             else:
                 district_data[program_type].setdefault(str(district_code), {}).setdefault(str(program), []).append(row_dict)
+                if program_type == "WLC":
+                    state_wlc_data.setdefault(str(state_code), []).append(row_dict)  # <-- Collect WLC per state
 
-        # -----------------------------
         # District-level JSONs
-        # -----------------------------
         districts_dir = os.path.join(script_dir, '..', 'districts')
         os.makedirs(districts_dir, exist_ok=True)
 
@@ -235,41 +236,59 @@ def generate_program_reports(excel_file):
                     json.dump(programs, f, indent=2, ensure_ascii=False)
                 print(f"✅ Saved {category_name}.json for district {district_code} at {out_file}")
 
-                gcs_path = f"sg-dashboard/districts/{district_code}/{category_name}.json"
-                folder_url = gcp_access.upload_file_to_gcs_and_get_directory(
-                    bucket_name=bucket_name,
-                    source_file_path=out_file,
-                    destination_blob_name=gcs_path
-                )
-                if folder_url:
-                    print(f"✅ Uploaded {category_name}.json for district {district_code} to {folder_url}")
-                else:
-                    print(f"❌ Failed to upload {category_name}.json for district {district_code}")
+                # gcs_path = f"sg-dashboard/districts/{district_code}/{category_name}.json"
+                # folder_url = gcp_access.upload_file_to_gcs_and_get_directory(
+                #     bucket_name=bucket_name,
+                #     source_file_path=out_file,
+                #     destination_blob_name=gcs_path
+                # )
+                # if folder_url:
+                #     print(f"✅ Uploaded {category_name}.json for district {district_code} to {folder_url}")
+                # else:
+                #     print(f"❌ Failed to upload {category_name}.json for district {district_code}")
 
-        # -----------------------------
         # State-level JSONs
-        # -----------------------------
         states_dir = os.path.join(script_dir, '..', 'states')
         os.makedirs(states_dir, exist_ok=True)
 
         for state_code, programs in state_data.items():
             state_folder = os.path.join(states_dir, str(state_code))
             os.makedirs(state_folder, exist_ok=True)
-            out_file = os.path.join(state_folder, "state.json")
+            out_file = os.path.join(state_folder, "state-program.json")
             with open(out_file, 'w', encoding='utf-8') as f:
                 json.dump(programs, f, indent=2, ensure_ascii=False)
-            print(f"✅ Saved state.json for state {state_code} at {out_file}")
+            print(f"✅ Saved state-program.json for state {state_code} at {out_file}")
 
-            gcs_path = f"sg-dashboard/states/{state_code}/state.json"
+            gcs_path = f"sg-dashboard/states/{state_code}/state-program.json"
             folder_url = gcp_access.upload_file_to_gcs_and_get_directory(
                 bucket_name=bucket_name,
                 source_file_path=out_file,
                 destination_blob_name=gcs_path
             )
             if folder_url:
-                print(f"✅ Uploaded state.json for state {state_code} to {folder_url}")
+                print(f"✅ Uploaded state-program.json for state {state_code} to {folder_url}")
             else:
-                print(f"❌ Failed to upload state.json for state {state_code}")
+                print(f"❌ Failed to upload state-program.json for state {state_code}")
+
+        # NEW: State-level WLC.json
+        for state_code, wlc_programs in state_wlc_data.items():
+            state_folder = os.path.join(states_dir, str(state_code))
+            os.makedirs(state_folder, exist_ok=True)
+            out_file = os.path.join(state_folder, "WLC.json")
+            with open(out_file, 'w', encoding='utf-8') as f:
+                json.dump(wlc_programs, f, indent=2, ensure_ascii=False)
+            print(f"✅ Saved WLC.json for state {state_code} at {out_file}")
+
+            gcs_path = f"sg-dashboard/states/{state_code}/WLC.json"
+            folder_url = gcp_access.upload_file_to_gcs_and_get_directory(
+                bucket_name=bucket_name,
+                source_file_path=out_file,
+                destination_blob_name=gcs_path
+            )
+            if folder_url:
+                print(f"✅ Uploaded WLC.json for state {state_code} to {folder_url}")
+            else:
+                print(f"❌ Failed to upload WLC.json for state {state_code}")
 
         print("✅ Program reports generated successfully.")
 
