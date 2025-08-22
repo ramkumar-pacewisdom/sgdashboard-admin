@@ -236,16 +236,16 @@ def generate_program_reports(excel_file):
                     json.dump(programs, f, indent=2, ensure_ascii=False)
                 print(f"✅ Saved {category_name}.json for district {district_code} at {out_file}")
 
-                # gcs_path = f"sg-dashboard/districts/{district_code}/{category_name}.json"
-                # folder_url = gcp_access.upload_file_to_gcs_and_get_directory(
-                #     bucket_name=bucket_name,
-                #     source_file_path=out_file,
-                #     destination_blob_name=gcs_path
-                # )
-                # if folder_url:
-                #     print(f"✅ Uploaded {category_name}.json for district {district_code} to {folder_url}")
-                # else:
-                #     print(f"❌ Failed to upload {category_name}.json for district {district_code}")
+                gcs_path = f"sg-dashboard/districts/{district_code}/{category_name}.json"
+                folder_url = gcp_access.upload_file_to_gcs_and_get_directory(
+                    bucket_name=bucket_name,
+                    source_file_path=out_file,
+                    destination_blob_name=gcs_path
+                )
+                if folder_url:
+                    print(f"✅ Uploaded {category_name}.json for district {district_code} to {folder_url}")
+                else:
+                    print(f"❌ Failed to upload {category_name}.json for district {district_code}")
 
         # State-level JSONs
         states_dir = os.path.join(script_dir, '..', 'states')
