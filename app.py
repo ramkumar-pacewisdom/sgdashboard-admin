@@ -10,6 +10,7 @@ from tabs_scripts.pie_chart import pie_chart
 from tabs_scripts.testimonials import testimonials
 from tabs_scripts.programs import generate_program_reports
 from tabs_scripts.extract_district_details import extract_district_details
+from tabs_scripts.extract_community_details import extract_community_details
 
 # Page setup
 st.set_page_config(page_title="File Upload App", page_icon=":page_facing_up:")
@@ -41,6 +42,7 @@ if uploaded_file is not None:
             pie_chart_community_led(uploaded_file)
             community_led_programs_sum_with_codes(uploaded_file)
             generate_program_reports(uploaded_file)
+            extract_community_details(uploaded_file)
             df = pd.read_excel(uploaded_file)
         elif uploaded_file.name.endswith('.txt'):
             df = pd.read_csv(uploaded_file, delimiter="	")
