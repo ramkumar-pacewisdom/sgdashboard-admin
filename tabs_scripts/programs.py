@@ -9,13 +9,27 @@ from googleapiclient.discovery import build
 from googleapiclient.http import MediaIoBaseDownload
 from constants import PAGE_METADATA, TABS_METADATA
 import importlib.util
+from dotenv import load_dotenv
 
-# === Google Drive API Setup ===
-SERVICE_ACCOUNT_FILE = 'service_account.json'
+load_dotenv()
+
 SCOPES = ['https://www.googleapis.com/auth/drive.readonly']
 
-credentials = service_account.Credentials.from_service_account_file(
-    SERVICE_ACCOUNT_FILE, scopes=SCOPES
+service_account_info = {
+    "type": os.getenv("TYPE"),
+    "project_id": os.getenv("PROJECT_ID"),
+    "private_key_id": os.getenv("PRIVATE_KEY_ID"),
+    "private_key": os.getenv("PRIVATE_KEY").replace('\\n', '\n'),
+    "client_email": os.getenv("CLIENT_EMAIL"),
+    "auth_uri": os.getenv("AUTH_URI"),
+    "token_uri": os.getenv("TOKEN_URI"),
+    "auth_provider_x509_cert_url": os.getenv("AUTH_PROVIDER_X509_CERT_URL"),
+    "client_x509_cert_url": os.getenv("CLIENT_X509_CERT_URL"),
+    "universe_domain": os.getenv("UNIVERSE_DOMAIN"),
+}
+
+credentials = service_account.Credentials.from_service_account_info(
+    service_account_info, scopes=SCOPES
 )
 drive_service = build('drive', 'v3', credentials=credentials)
 
