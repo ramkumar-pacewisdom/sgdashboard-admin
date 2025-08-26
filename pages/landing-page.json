@@ -6,24 +6,7 @@
     "title": "Voices of Change testing GCP update",
     "slides": [
       {
-        "header": "Empowering Educators in Uttar Pradesh",
-        "subHeader": "A Teacher's Story",
-        "description": "“The micro-improvement approach has transformed my classroom. I feel empowered to innovate and my students are more engaged than ever before.”"
-      },
-      {
-        "header": "Community-Led Action in Tamil Nadu",
-        "subHeader": "A Parent's Perspective",
-        "description": "“We are no longer just spectators. Shikshagraha has given us a voice to demand and co-create better schools for our children.”"
-      },
-      {
-        "header": "Systemic Transformation in Kerala",
-        "subHeader": "An Administrator's View",
-        "description": "“The network of leaders has been invaluable. We are sharing best practices and solving complex challenges together, leading to tangible improvements across the district.”"
-      },
-      {
-        "header": "Another Story from UP",
-        "subHeader": "Another Teacher",
-        "description": "“This is another great story about how things are changing for the better.”"
+        "description": "India has one of the world's largest education systems with 1 million public schools. Through the leadership of government, civil society, and market actors, Indian public schools are steadily improving. This dashboard tracks that journey of continuous improvements."
       }
     ],
     "styles": {

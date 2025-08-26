@@ -7,17 +7,17 @@
           {
             "label": "State led program",
             "value": "",
-            "description": "Shikshagraha is a people-led movement to improve learning in India's public schools by unloacking leadership at every level",
-            "linkText":"Click to learn more about the state programs",
+            "description": "Programs co-created and implemented by department of school education in the state in collaboration with civil society organisations",
+            "linkText":"*Click to learn more about the state programs",
             "redirectionLink":"",
             "identifier": "slm",
             "icon": "/assets/icons/clipboard.svg"
           },
           {
-            "label": "District led program",
+            "label": "District led Program",
             "value": "",
-            "description": "Shikshagraha is a people-led movement to improve learning in India's public schools by unloacking leadership at every level",
-            "linkText":"Click on districts to explore district programs",
+            "description": "Programs co-created and implemented by education department in districts in partnership with civil society organisations",
+            "linkText":"*Click on districts to explore district programs",
             "redirectionLink":"",
             "identifier": "dlm",
             "icon": "/assets/icons/guide.svg"
@@ -25,8 +25,8 @@
           {
             "label": "Community led Initiative",
             "value": "",
-            "description": "Shikshagraha is a people-led movement to improve learning in India's public schools by unloacking leadership at every level",
-            "linkText":"Click to learn more about the community led improvements",
+            "description": "Initiatives implemented by women leaders or youth leaders in their communities",
+            "linkText":"*Click to learn more about the community led initiatives",
             "redirectionLink":"",
             "identifier": "clm",
             "icon": "/assets/icons/folder.svg"
