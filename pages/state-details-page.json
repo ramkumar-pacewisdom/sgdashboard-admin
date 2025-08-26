@@ -93,7 +93,7 @@
           "logosContainer": "logos-container",
           "logo": "partner-logo"
         },
-        "notes":["Click on the map to access the main dashboard", "Data shared by our Partners"]
+        "notes":["Click on a district to view detailed insights", "Data as shared by the partners"]
       },
       {
         "type": "pie-chart",

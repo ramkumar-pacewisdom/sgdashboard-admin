@@ -25,7 +25,7 @@
     "title": "",
     "isPartnerShowable": false,
     "showDetails": false,
-    "iconSize":10,
+    "iconSize": 10,
     "styles": {
       "section": "partner-logos-section",
       "title": "section-title",
@@ -42,42 +42,42 @@
     "indicators": [
       {
         "label": "Micro Improvements initiated\n\n",
-        "value": 123456,
+        "value": 765996,
         "icon": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/micro_improvements_initiated.svg"
       },
       {
-        "label": "Leaders driving \nimprovements School\n",
-        "value": 654321,
-        "icon": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/leaders_driving_improvements_school.svg"
+        "label": "Leaders driving \nimprovements\n",
+        "value": 359508,
+        "icon": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/leaders_driving_improvements.svg"
       },
       {
-        "label": "Schools driving improvements MITRA",
-        "value": 966687,
-        "icon": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/schools_driving_improvements_mitra.svg"
+        "label": "Schools driving improvements",
+        "value": 117527,
+        "icon": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/schools_driving_improvements.svg"
       },
       {
         "label": "Community-Led Improvements",
-        "value": 2,
+        "value": 3500,
         "icon": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/community-led_improvements.svg"
       },
       {
         "label": "Momentum partners ",
-        "value": "",
+        "value": 24,
         "icon": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/momentum_partners.svg"
       },
       {
         "label": "Strategic partners",
-        "value": 23,
+        "value": 14,
         "icon": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/strategic_partners.svg"
       },
       {
         "label": "Funds mobilised",
-        "value": "25 thousand",
+        "value": "25 Crore",
         "icon": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/funds_mobilised.svg"
       },
       {
         "label": "NAS Grade 3",
-        "value": 0.005,
+        "value": 0.59,
         "icon": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/nas_grade_3.svg"
       }
     ],
@@ -93,6 +93,9 @@
     "width": "100%",
     "position": "left",
     "title": "Our Network",
+    "notes": [
+      "Click on the map to access the main dashboard"
+    ],
     "selections": [
       {
         "label": "Micro Improvement Initiated",
