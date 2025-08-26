@@ -3,9 +3,9 @@
     "type": "dashboard-main",
     "width": "50%",
     "position": "left",
-    "header": "Enabling Leadership",
-    "subHeader": "Change begins when leadership is unlocked, not only in government offices or school corridors, but also in village meetings and community spaces.",
-    "description": "Shikshagraha supports both school leaders (headmasters, district, block and cluster level officials) and community leaders (SHG women, parents, youth) to design and lead local missions that solve real challenges. These micro-improvements form the foundation for sustained, scalable progress.",
+    "header": "Leadership Enabling Continuous Improvements",
+    "subHeader": "",
+    "description": "Change begins when leadership is unlocked beyond government offices and school corridors—in village meetings and community spaces. This improvement journey is driven by leaders across government, civil society, and market sectors. Shikshagraha is fueled by such leadership.",
     "styles": {
       "section": "dashboard-main-section",
       "title": "dashboard-main-title",
@@ -18,7 +18,7 @@
     "width": "50%",
     "position": "center",
     "header": "Our Goal",
-    "subHeader": "To impact 30% of India’s states and districts by 2030",
+    "subHeader": "To impact atleast 30% of India's states and districts by 2030",
     "indicators": [
       {
         "label": "States",
@@ -47,6 +47,10 @@
     "width": "100%",
     "position": "left",
     "title": "Our Network",
+    "notes": [
+      "Click on a state to view detailed insights",
+      "Data as shared by the partners"
+    ],
     "selections": [
       {
         "label": "Micro Improvement Initiated",
@@ -107,15 +111,15 @@
       },
       {
         "name": "School structure and practices",
-        "value": 14062
+        "value": 35671
       },
       {
         "name": "Leadership",
-        "value": 69348
+        "value": 79676
       },
       {
         "name": " Pedagogy ",
-        "value": 368382
+        "value": 374119
       },
       {
         "name": "Assessment and Evaluation",
@@ -123,7 +127,7 @@
       },
       {
         "name": "Community Engagement",
-        "value": 186992
+        "value": 273799
       }
     ],
     "styles": {
