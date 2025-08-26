@@ -167,7 +167,7 @@ def generate_program_reports(excel_file):
 
         district_data = {'SLC': {}, 'WLC': {}}
         state_data = {}
-        state_wlc_data = {}  # <-- NEW
+        state_wlc_data = {} 
 
         gcp_access_path = os.path.join(script_dir, '..', 'cloud-scripts', 'gcp_access.py')
         spec = importlib.util.spec_from_file_location('gcp_access', gcp_access_path)
@@ -219,7 +219,7 @@ def generate_program_reports(excel_file):
             if is_state_level or not district_code:
                 state_data.setdefault(str(state_code), []).append(row_dict)
             else:
-                district_data[program_type].setdefault(str(district_code), {}).setdefault(str(program), []).append(row_dict)
+                district_data[program_type].setdefault(str(district_code), []).append(row_dict)
                 if program_type == "WLC":
                     state_wlc_data.setdefault(str(state_code), []).append(row_dict)  # <-- Collect WLC per state
 
