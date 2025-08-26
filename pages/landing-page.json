@@ -6,24 +6,7 @@
     "title": "Voices of Change testing GCP update",
     "slides": [
       {
-        "header": "Empowering Educators in Uttar Pradesh",
-        "subHeader": "A Teacher's Story",
-        "description": "“The micro-improvement approach has transformed my classroom. I feel empowered to innovate and my students are more engaged than ever before.”"
-      },
-      {
-        "header": "Community-Led Action in Tamil Nadu",
-        "subHeader": "A Parent's Perspective",
-        "description": "“We are no longer just spectators. Shikshagraha has given us a voice to demand and co-create better schools for our children.”"
-      },
-      {
-        "header": "Systemic Transformation in Kerala",
-        "subHeader": "An Administrator's View",
-        "description": "“The network of leaders has been invaluable. We are sharing best practices and solving complex challenges together, leading to tangible improvements across the district.”"
-      },
-      {
-        "header": "Another Story from UP",
-        "subHeader": "Another Teacher",
-        "description": "“This is another great story about how things are changing for the better.”"
+        "description": "India has one of the world's largest education systems with 1 million public schools. Through the leadership of government, civil society, and market actors, Indian public schools are steadily improving. This dashboard tracks that journey of continuous improvements."
       }
     ],
     "styles": {
@@ -56,7 +39,48 @@
     "width": "100%",
     "position": "left",
     "title": "Key Progress Indicators",
-    "indicators": [],
+    "indicators": [
+      {
+        "label": "Micro Improvements initiated\n\n",
+        "value": 765996,
+        "icon": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/micro_improvements_initiated.svg"
+      },
+      {
+        "label": "Leaders driving \nimprovements\n",
+        "value": 359508,
+        "icon": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/leaders_driving_improvements.svg"
+      },
+      {
+        "label": "Schools driving improvements",
+        "value": 117527,
+        "icon": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/schools_driving_improvements.svg"
+      },
+      {
+        "label": "Community-Led Improvements",
+        "value": 3500,
+        "icon": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/community-led_improvements.svg"
+      },
+      {
+        "label": "Momentum partners ",
+        "value": 24,
+        "icon": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/momentum_partners.svg"
+      },
+      {
+        "label": "Strategic partners",
+        "value": 14,
+        "icon": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/strategic_partners.svg"
+      },
+      {
+        "label": "Funds mobilised",
+        "value": "25 Crore",
+        "icon": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/funds_mobilised.svg"
+      },
+      {
+        "label": "NAS Grade 3",
+        "value": 0.59,
+        "icon": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/nas_grade_3.svg"
+      }
+    ],
     "styles": {
       "section": "data-indicators-section",
       "title": "section-title",
@@ -69,6 +93,9 @@
     "width": "100%",
     "position": "left",
     "title": "Our Network",
+    "notes": [
+      "Click on the map to access the main dashboard"
+    ],
     "selections": [
       {
         "label": "Micro Improvement Initiated",
@@ -339,7 +366,7 @@
         "name": "Jyoti Mahila Samakhya",
         "partnerState": "Bihar",
         "category": "Momentum ",
-        "website": "",
+        "website": "No website available",
         "coordinates": [
           "",
           ""
@@ -352,7 +379,7 @@
         "name": "Srishti Mahila Samakhya",
         "partnerState": "Bihar",
         "category": "Momentum ",
-        "website": "",
+        "website": "No website available",
         "coordinates": [
           "",
           ""
@@ -365,7 +392,7 @@
         "name": "Deepmala Sanstha",
         "partnerState": "Bihar",
         "category": "Momentum ",
-        "website": "",
+        "website": "No website available",
         "coordinates": [
           "",
           ""
@@ -378,7 +405,7 @@
         "name": "Samriddhi Sanstha",
         "partnerState": "Bihar",
         "category": "Momentum ",
-        "website": "",
+        "website": "No website available",
         "coordinates": [
           "",
           ""
@@ -391,7 +418,7 @@
         "name": "Hamari Drishti",
         "partnerState": "Bihar",
         "category": "Momentum ",
-        "website": "",
+        "website": "No website available",
         "coordinates": [
           "",
           ""
@@ -404,7 +431,7 @@
         "name": "Pragati Ek Prayas",
         "partnerState": "Bihar",
         "category": "Momentum ",
-        "website": "",
+        "website": "No website available",
         "coordinates": [
           "",
           ""
@@ -417,7 +444,20 @@
         "name": "Swadha Mahila Samakhya",
         "partnerState": "Bihar",
         "category": "Momentum ",
-        "website": "",
+        "website": "No website available",
+        "coordinates": [
+          "",
+          ""
+        ]
+      },
+      {
+        "id": "sahyogi_sanstha",
+        "src": "/assets/partners/default-partner.svg",
+        "alt": "sahyogi_sanstha",
+        "name": "Sahyogi Sanstha",
+        "partnerState": "Bihar",
+        "category": "Momentum ",
+        "website": "No website available",
         "coordinates": [
           "",
           ""
@@ -463,10 +503,10 @@
         ]
       },
       {
-        "id": "padi",
-        "src": "/assets/partners/default-partner.svg",
-        "alt": "padi",
-        "name": "Padi",
+        "id": "v_help",
+        "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/v_help.jpg",
+        "alt": "v_help",
+        "name": "V Help",
         "partnerState": "Karnataka",
         "category": "Momentum ",
         "website": "",
@@ -477,7 +517,7 @@
       },
       {
         "id": "initiative_for_people_empowerment_in_india_foundationipei",
-        "src": "/assets/partners/default-partner.svg",
+        "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/initiative_for_people_empowerment_in_india_foundationipei.jpg",
         "alt": "initiative_for_people_empowerment_in_india_foundationipei",
         "name": "Initiative for People Empowerment in India Foundation(IPEI)",
         "partnerState": "Karnataka",
@@ -506,7 +546,7 @@
         "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/ltts.jpg",
         "alt": "ltts",
         "name": "LTTS",
-        "partnerState": "",
+        "partnerState": "Karnataka",
         "category": "Stategic",
         "website": "https://www.ltts.com/",
         "coordinates": [
@@ -519,7 +559,7 @@
         "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/hdfc.jpg",
         "alt": "hdfc",
         "name": "HDFC",
-        "partnerState": "",
+        "partnerState": "Maharashtra",
         "category": "Stategic",
         "website": "https://www.hdfcbank.com/",
         "coordinates": [
@@ -532,7 +572,7 @@
         "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/axis.jpg",
         "alt": "axis",
         "name": "AXIS",
-        "partnerState": "",
+        "partnerState": "Maharashtra",
         "category": "Stategic",
         "website": "https://www.axisbank.com/",
         "coordinates": [
@@ -545,9 +585,9 @@
         "src": "/assets/partners/default-partner.svg",
         "alt": "caring_friends",
         "name": "Caring Friends",
-        "partnerState": "",
+        "partnerState": "Maharashtra",
         "category": "Stategic",
-        "website": "",
+        "website": "No website available",
         "coordinates": [
           35.347616,
           86.94549
@@ -555,12 +595,12 @@
       },
       {
         "id": "motivation_for_excellence",
-        "src": "/assets/partners/default-partner.svg",
+        "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/motivation_for_excellence.jpg",
         "alt": "motivation_for_excellence",
         "name": "Motivation for Excellence",
-        "partnerState": "",
+        "partnerState": "Maharashtra",
         "category": "Stategic",
-        "website": "",
+        "website": "https://motivationforexcellence.org/",
         "coordinates": [
           12.065107,
           85.719759
@@ -571,7 +611,7 @@
         "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/paypal.jpg",
         "alt": "paypal",
         "name": "PayPal",
-        "partnerState": "",
+        "partnerState": "Karnataka",
         "category": "Stategic",
         "website": "https://www.paypal.com/in/home",
         "coordinates": [
@@ -597,7 +637,7 @@
         "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/salesforce.jpg",
         "alt": "salesforce",
         "name": "Salesforce",
-        "partnerState": "",
+        "partnerState": "Karnataka",
         "category": "Stategic",
         "website": "https://www.salesforce.com/in/",
         "coordinates": [
@@ -623,7 +663,7 @@
         "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/aws.jpg",
         "alt": "aws",
         "name": "AWS",
-        "partnerState": "",
+        "partnerState": "Delhi",
         "category": "Stategic",
         "website": "https://aws.amazon.com/",
         "coordinates": [
@@ -633,7 +673,7 @@
       },
       {
         "id": "rotary_club_of_queens_necklace_mumbai",
-        "src": "/assets/partners/default-partner.svg",
+        "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/rotary_club_of_queens_necklace_mumbai.jpg",
         "alt": "rotary_club_of_queens_necklace_mumbai",
         "name": "Rotary club of Queens necklace mumbai",
         "partnerState": "Maharashtra",
@@ -649,7 +689,7 @@
         "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/wells_fargo.jpg",
         "alt": "wells_fargo",
         "name": "Wells Fargo",
-        "partnerState": "",
+        "partnerState": "Karnataka",
         "category": "Stategic",
         "website": "https://www.wellsfargo.com/",
         "coordinates": [
@@ -690,7 +730,7 @@
         "name": "Tekdi technology pvt. limited",
         "partnerState": "Karnataka",
         "category": "Collaborator",
-        "website": "",
+        "website": "https://www.tekdi.net/",
         "coordinates": [
           "",
           ""
@@ -703,7 +743,7 @@
         "name": "GritWorks",
         "partnerState": "Karnataka",
         "category": "Collaborator",
-        "website": "",
+        "website": "https://gritworks.ai/",
         "coordinates": [
           "",
           ""
@@ -716,7 +756,7 @@
         "name": "Colab",
         "partnerState": "Karnataka",
         "category": "Collaborator",
-        "website": "",
+        "website": "No website available",
         "coordinates": [
           "",
           ""
@@ -729,7 +769,7 @@
         "name": "Gnothi Seauton",
         "partnerState": "Delhi",
         "category": "Collaborator",
-        "website": "",
+        "website": "https://www.gnothiseauton.co/",
         "coordinates": [
           "",
           ""
@@ -742,7 +782,7 @@
         "name": "Blavatnik School of Government",
         "partnerState": "",
         "category": "Collaborator",
-        "website": "",
+        "website": "https://www.bsg.ox.ac.uk/",
         "coordinates": [
           "",
           ""
