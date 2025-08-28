@@ -3,8 +3,8 @@
     "type": "dashboard-main",
     "width": "100%",
     "position": "left",
-    "header": "Community Led Improvements",
-    "subHeader": "Change begins when leadership is unlocked, not only in government offices or school corridors, but also in village meetings and community spaces.",
+    "header": "Community led Initiatives",
+    "subHeader": "",
     "description": "Initiatives implemented by women leaders or youth leaders in their communities",
     "styles": {
       "section": "dashboard-main-section",
@@ -22,21 +22,6 @@
     "path": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/community-country-view.json",
     "title": "Our Network",
     "selections": [
-      {
-        "label": "Micro Improvement Initiated",
-        "value": "Micro Improvement Initiated",
-        "selected": true
-      },
-      {
-        "label": "Leaders Driving Improvements",
-        "value": "Leaders Driving Improvements",
-        "selected": false
-      },
-      {
-        "label": "Schools Driving Improvements",
-        "value": "Schools Driving Improvements",
-        "selected": false
-      },
       {
         "label": "Community-Led Improvements",
         "value": "Community-Led Improvements",
@@ -60,6 +45,10 @@
         "label": "Community-Led Improvements",
         "color": "#6c757d"
       }
+    ],
+    "notes": [
+      "Click on the state to explore further",
+      "Data shared by our Partners"
     ],
     "styles": {
       "section": "partner-logos-section",

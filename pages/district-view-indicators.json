@@ -125,18 +125,18 @@
     "meta": {
       "legends": {
         "category_1": {
-          "label": "State and District led missions",
-          "color": "#5d35b0",
+          "label": "State and District led programs",
+          "color": "#5F1160",
           "show_details": true
         },
         "category_2": {
-          "label": "State led missions",
-          "color": "#8147e1",
+          "label": "State led programs",
+          "color": "#954696",
           "show_details": true
         },
         "category_3": {
-          "label": "District led missions",
-          "color": "#9675ce",
+          "label": "District led programs",
+          "color": "#B485B4",
           "show_details": true
         },
         "category_4": {
