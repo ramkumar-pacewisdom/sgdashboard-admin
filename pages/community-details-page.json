@@ -4,8 +4,8 @@
           "type": "dashboard-main",
           "width": "100%",
           "position": "left",
-          "header": "Community Led Improvements",
-          "subHeader": "Change begins when leadership is unlocked, not only in government offices or school corridors, but also in village meetings and community spaces.",
+          "header": "Community led Initiatives",
+          "subHeader": "",
           "description": "Initiatives implemented by women leaders or youth leaders in their communities",
           "styles": {
             "section": "dashboard-main-section",
@@ -25,7 +25,7 @@
             "legends":{
               "category_1": {
                 "label": "Districts with Community led Initiatives",
-                "color": "#4b2e83",
+                "color": "#5F1160",
                 "show_details": true
               },
               "category_2": {
