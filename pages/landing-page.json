@@ -244,7 +244,7 @@
       },
       {
         "id": "mantra4change",
-        "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/mantra4change.jpg",
+        "src": "/assets/partners/default-partner.svg",
         "alt": "mantra4change",
         "name": "Mantra4Change",
         "partnerState": "Karnataka",
@@ -458,19 +458,6 @@
         "partnerState": "Bihar",
         "category": "Momentum ",
         "website": "No website available",
-        "coordinates": [
-          "",
-          ""
-        ]
-      },
-      {
-        "id": "sahyogi_sanstha",
-        "src": "/assets/partners/default-partner.svg",
-        "alt": "sahyogi_sanstha",
-        "name": "Sahyogi Sanstha",
-        "partnerState": "Bihar",
-        "category": "Momentum ",
-        "website": "",
         "coordinates": [
           "",
           ""

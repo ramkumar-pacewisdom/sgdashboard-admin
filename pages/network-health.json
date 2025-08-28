@@ -130,7 +130,7 @@
         },
         {
           "id": "mantra4change",
-          "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/mantra4change.jpg",
+          "src": "/assets/partners/default-partner.svg",
           "alt": "mantra4change",
           "name": "Mantra4Change",
           "partnerState": "Karnataka",
@@ -252,7 +252,7 @@
           "name": "Jyoti Mahila Samakhya",
           "partnerState": "Bihar",
           "category": "Momentum ",
-          "website": "",
+          "website": "No website available",
           "coordinates": [
             "",
             ""
@@ -265,7 +265,7 @@
           "name": "Srishti Mahila Samakhya",
           "partnerState": "Bihar",
           "category": "Momentum ",
-          "website": "",
+          "website": "No website available",
           "coordinates": [
             "",
             ""
@@ -278,7 +278,7 @@
           "name": "Deepmala Sanstha",
           "partnerState": "Bihar",
           "category": "Momentum ",
-          "website": "",
+          "website": "No website available",
           "coordinates": [
             "",
             ""
@@ -291,7 +291,7 @@
           "name": "Samriddhi Sanstha",
           "partnerState": "Bihar",
           "category": "Momentum ",
-          "website": "",
+          "website": "No website available",
           "coordinates": [
             "",
             ""
@@ -304,7 +304,7 @@
           "name": "Hamari Drishti",
           "partnerState": "Bihar",
           "category": "Momentum ",
-          "website": "",
+          "website": "No website available",
           "coordinates": [
             "",
             ""
@@ -317,7 +317,7 @@
           "name": "Pragati Ek Prayas",
           "partnerState": "Bihar",
           "category": "Momentum ",
-          "website": "",
+          "website": "No website available",
           "coordinates": [
             "",
             ""
@@ -330,7 +330,7 @@
           "name": "Swadha Mahila Samakhya",
           "partnerState": "Bihar",
           "category": "Momentum ",
-          "website": "",
+          "website": "No website available",
           "coordinates": [
             "",
             ""
@@ -343,7 +343,7 @@
           "name": "Sahyogi Sanstha",
           "partnerState": "Bihar",
           "category": "Momentum ",
-          "website": "",
+          "website": "No website available",
           "coordinates": [
             "",
             ""
@@ -376,10 +376,10 @@
           ]
         },
         {
-          "id": "padi",
-          "src": "/assets/partners/default-partner.svg",
-          "alt": "padi",
-          "name": "Padi",
+          "id": "v_help",
+          "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/v_help.jpg",
+          "alt": "v_help",
+          "name": "V Help",
           "partnerState": "Karnataka",
           "category": "Momentum ",
           "website": "",
@@ -390,7 +390,7 @@
         },
         {
           "id": "initiative_for_people_empowerment_in_india_foundationipei",
-          "src": "/assets/partners/default-partner.svg",
+          "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/initiative_for_people_empowerment_in_india_foundationipei.jpg",
           "alt": "initiative_for_people_empowerment_in_india_foundationipei",
           "name": "Initiative for People Empowerment in India Foundation(IPEI)",
           "partnerState": "Karnataka",
@@ -419,7 +419,7 @@
           "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/ltts.jpg",
           "alt": "ltts",
           "name": "LTTS",
-          "partnerState": "",
+          "partnerState": "Karnataka",
           "category": "Stategic",
           "website": "https://www.ltts.com/",
           "coordinates": [
@@ -432,7 +432,7 @@
           "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/hdfc.jpg",
           "alt": "hdfc",
           "name": "HDFC",
-          "partnerState": "",
+          "partnerState": "Maharashtra",
           "category": "Stategic",
           "website": "https://www.hdfcbank.com/",
           "coordinates": [
@@ -445,7 +445,7 @@
           "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/axis.jpg",
           "alt": "axis",
           "name": "AXIS",
-          "partnerState": "",
+          "partnerState": "Maharashtra",
           "category": "Stategic",
           "website": "https://www.axisbank.com/",
           "coordinates": [
@@ -458,9 +458,9 @@
           "src": "/assets/partners/default-partner.svg",
           "alt": "caring_friends",
           "name": "Caring Friends",
-          "partnerState": "",
+          "partnerState": "Maharashtra",
           "category": "Stategic",
-          "website": "",
+          "website": "No website available",
           "coordinates": [
             35.347616,
             86.94549
@@ -468,12 +468,12 @@
         },
         {
           "id": "motivation_for_excellence",
-          "src": "/assets/partners/default-partner.svg",
+          "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/motivation_for_excellence.jpg",
           "alt": "motivation_for_excellence",
           "name": "Motivation for Excellence",
-          "partnerState": "",
+          "partnerState": "Maharashtra",
           "category": "Stategic",
-          "website": "",
+          "website": "https://motivationforexcellence.org/",
           "coordinates": [
             12.065107,
             85.719759
@@ -484,7 +484,7 @@
           "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/paypal.jpg",
           "alt": "paypal",
           "name": "PayPal",
-          "partnerState": "",
+          "partnerState": "Karnataka",
           "category": "Stategic",
           "website": "https://www.paypal.com/in/home",
           "coordinates": [
@@ -510,7 +510,7 @@
           "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/salesforce.jpg",
           "alt": "salesforce",
           "name": "Salesforce",
-          "partnerState": "",
+          "partnerState": "Karnataka",
           "category": "Stategic",
           "website": "https://www.salesforce.com/in/",
           "coordinates": [
@@ -536,7 +536,7 @@
           "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/aws.jpg",
           "alt": "aws",
           "name": "AWS",
-          "partnerState": "",
+          "partnerState": "Delhi",
           "category": "Stategic",
           "website": "https://aws.amazon.com/",
           "coordinates": [
@@ -546,7 +546,7 @@
         },
         {
           "id": "rotary_club_of_queens_necklace_mumbai",
-          "src": "/assets/partners/default-partner.svg",
+          "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/rotary_club_of_queens_necklace_mumbai.jpg",
           "alt": "rotary_club_of_queens_necklace_mumbai",
           "name": "Rotary club of Queens necklace mumbai",
           "partnerState": "Maharashtra",
@@ -562,7 +562,7 @@
           "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/wells_fargo.jpg",
           "alt": "wells_fargo",
           "name": "Wells Fargo",
-          "partnerState": "",
+          "partnerState": "Karnataka",
           "category": "Stategic",
           "website": "https://www.wellsfargo.com/",
           "coordinates": [
@@ -603,7 +603,7 @@
           "name": "Tekdi technology pvt. limited",
           "partnerState": "Karnataka",
           "category": "Collaborator",
-          "website": "",
+          "website": "https://www.tekdi.net/",
           "coordinates": [
             "",
             ""
@@ -616,7 +616,7 @@
           "name": "GritWorks",
           "partnerState": "Karnataka",
           "category": "Collaborator",
-          "website": "",
+          "website": "https://gritworks.ai/",
           "coordinates": [
             "",
             ""
@@ -629,7 +629,7 @@
           "name": "Colab",
           "partnerState": "Karnataka",
           "category": "Collaborator",
-          "website": "",
+          "website": "No website available",
           "coordinates": [
             "",
             ""
@@ -642,7 +642,7 @@
           "name": "Gnothi Seauton",
           "partnerState": "Delhi",
           "category": "Collaborator",
-          "website": "",
+          "website": "https://www.gnothiseauton.co/",
           "coordinates": [
             "",
             ""
@@ -655,7 +655,7 @@
           "name": "Blavatnik School of Government",
           "partnerState": "",
           "category": "Collaborator",
-          "website": "",
+          "website": "https://www.bsg.ox.ac.uk/",
           "coordinates": [
             "",
             ""

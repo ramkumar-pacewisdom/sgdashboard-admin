@@ -112,13 +112,6 @@ def pie_chart_community_led(excel_file):
     except Exception as e:
         print(f"Error: {str(e)}")
 
-import openpyxl
-import json
-import os
-import importlib.util
-
-from constants import PAGE_METADATA, TABS_METADATA
-
 def community_led_programs_sum_with_codes(excel_file):
     try:
         # Get the directory of the current script
@@ -151,6 +144,7 @@ def community_led_programs_sum_with_codes(excel_file):
         community_cleaned_headers = [str(cell).strip() if cell is not None else '' for cell in community_headers]
         expected_community_columns = [
             "Name of the State",
+            "Name of the District",  # Added district column
             "No. of community leaders engaged",
             "Community led improvements",
             "Challenges shared",
@@ -182,14 +176,15 @@ def community_led_programs_sum_with_codes(excel_file):
                 print(f"Error processing state code row: {str(e)}")
                 continue
 
-        # Initialize dictionary to store sums by state
+        # Initialize dictionary to store sums and district counts by state
         state_sums = {}
 
-        # Extract and sum data for specified columns from Community Led Programs
+        # Extract and sum data for specified columns and count unique districts
         for row in community_sheet.iter_rows(min_row=2, max_col=len(community_headers), values_only=True):
             try:
                 state_name = row[community_cleaned_headers.index("Name of the State")] or ''
-                if not state_name:
+                district_name = row[community_cleaned_headers.index("Name of the District")] or ''
+                if not state_name or not district_name:
                     continue
 
                 # Initialize state entry if not exists
@@ -198,11 +193,15 @@ def community_led_programs_sum_with_codes(excel_file):
                         "No. of community leaders engaged": 0,
                         "Community led improvements": 0,
                         "Challenges shared": 0,
-                        "Solutions shared": 0
+                        "Solutions shared": 0,
+                        "Districts Activated": set()  # Use a set to store unique district names
                     }
 
+                # Add district to the set
+                state_sums[state_name]["Districts Activated"].add(district_name)
+
                 # Sum values for specified columns
-                for col_name in expected_community_columns[1:]:  # Skip State Name
+                for col_name in expected_community_columns[2:]:  # Skip State Name and District
                     col_index = community_cleaned_headers.index(col_name)
                     value = row[col_index]
                     if isinstance(value, (int, float)) and value is not None:
@@ -220,8 +219,8 @@ def community_led_programs_sum_with_codes(excel_file):
                 "type": "category_1",
                 "details": [
                     {"code": col_name, "value": int(val) if isinstance(val, float) and val.is_integer() else val}
-                    for col_name, val in sums.items()
-                ]
+                    for col_name, val in sums.items() if col_name != "Districts Activated"  # Exclude Districts Activated temporarily
+                ] + [{"code": "Districts Activated", "value": len(sums["Districts Activated"])}]  # Add district count
             }
             for state, sums in state_sums.items()
         }
@@ -278,8 +277,110 @@ def community_led_programs_sum_with_codes(excel_file):
 
         if folder_url:
             print(f"Successfully uploaded and got public folder URL: {folder_url}")
+            updateOverviewValues()
         else:
             print("Failed to upload file to GCS. Check logs for details.")
 
     except Exception as e:
         print(f"Error: {str(e)}")
+
+def updateOverviewValues():
+    # Get the directory of the script
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+
+    # Construct the JSON file path
+    json_path = os.path.join(script_dir, "..", "pages", "community-country-view.json")
+
+    # Read JSON data from file with detailed error handling
+    try:
+        with open(json_path, 'r', encoding='utf-8') as f:
+            file_content = f.read()
+            if not file_content.strip():
+                print(f"Error: The file {json_path} is empty.")
+                exit(1)
+            data = json.loads(file_content)
+    except FileNotFoundError:
+        print(f"Error: File not found at {json_path}")
+        exit(1)
+    except UnicodeDecodeError as e:
+        print(f"Error: Encoding issue in {json_path}. Ensure the file is UTF-8 encoded.")
+        print(f"Details: {str(e)}")
+        exit(1)
+    except JSONDecodeError as e:
+        print(f"Error: Invalid JSON format in {json_path}")
+        print(f"Details: {str(e)}")
+        print(f"Line: {e.lineno}, Column: {e.colno}")
+        print(f"Content near error: {e.doc[max(0, e.pos-20):e.pos+20]}")
+        exit(1)
+    except Exception as e:
+        print(f"Unexpected error while reading {json_path}: {str(e)}")
+        exit(1)
+
+    # Initialize a dictionary to store the sums for each code dynamically
+    code_sums = {}
+
+    # Navigate each state and sum the values for each code in details
+    try:
+        for state_id, state_data in data['result']['states'].items():
+            for detail in state_data['details']:
+                code = detail['code']
+                value = detail['value']
+                # Initialize the code in code_sums if not present
+                if code not in code_sums:
+                    code_sums[code] = 0
+                code_sums[code] += value
+    except KeyError as e:
+        print(f"Error: Missing expected key in JSON structure: {str(e)}")
+        exit(1)
+
+    # Ensure all codes from code_sums exist in overview details
+    try:
+        overview_details = data['result']['overview']['details']
+        existing_codes = {detail['code'] for detail in overview_details}
+        
+        # Add missing codes to overview details
+        for code in code_sums:
+            if code not in existing_codes:
+                print(f"Adding missing code '{code}' to overview details")
+                overview_details.append({"code": code, "value": 0})
+        
+        # Update the overview details with the summed values
+        for detail in overview_details:
+            code = detail['code']
+            if code in code_sums:
+                detail['value'] = code_sums[code]
+            else:
+                print(f"Warning: Code '{code}' in overview not found in states")
+    except KeyError as e:
+        print(f"Error: Missing expected key in overview structure: {str(e)}")
+        exit(1)
+
+    # Convert the updated data to a JSON string with indentation
+    updated_json = json.dumps(data, indent=2)
+
+    # Print the updated JSON
+    print(updated_json)
+
+    # Save the updated JSON to a new file in the same directory
+    output_path = os.path.join(script_dir, "..", "pages", "community-country-view.json")
+    try:
+        with open(output_path, 'w', encoding='utf-8') as f:
+            json.dump(data, f, indent=2)
+        gcp_access_path = os.path.join(script_dir, '..', 'cloud-scripts', 'gcp_access.py')
+        spec = importlib.util.spec_from_file_location('gcp_access', gcp_access_path)
+        gcp_access = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(gcp_access)
+        folder_url = gcp_access.upload_file_to_gcs_and_get_directory(
+            bucket_name=os.environ.get("BUCKET_NAME"),
+            source_file_path=json_path,
+            destination_blob_name="sg-dashboard/community-country-view.json"
+        )
+        print(f"Updated JSON saved to {output_path}")
+    except Exception as e:
+        print(f"Error: Failed to write to {output_path}: {str(e)}")
+        exit(1)
+
+
+
+
+                
