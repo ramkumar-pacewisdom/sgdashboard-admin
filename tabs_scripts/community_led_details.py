@@ -260,6 +260,26 @@ def community_led_programs_sum_with_codes(excel_file):
         print(states_data)
         json_data["result"]["states"].update(states_data)
 
+        india_totals = {
+            "No. of community leaders engaged": 0,
+            "Community led improvements": 0,
+            "Challenges shared": 0,
+            "Solutions shared": 0
+        }
+
+        for state in states_data.values():
+            for detail in state["details"]:
+                india_totals[detail["code"]] += detail["value"]
+
+        json_data["result"]["overview"] = {
+            "label": "india",
+            "type": "category_1",
+            "details": [
+                {"code": k, "value": v} for k, v in india_totals.items()
+            ]
+        }
+
+
         # Write back to the file
         with open(json_path, 'w', encoding='utf-8') as json_file:
             json.dump(json_data, json_file, indent=2, ensure_ascii=False)
