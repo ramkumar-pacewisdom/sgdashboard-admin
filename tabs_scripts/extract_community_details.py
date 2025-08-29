@@ -60,6 +60,11 @@ def extract_community_details(excel_file):
 
         state_data = {}
 
+        gcp_access_path = os.path.join(script_dir, '..', 'cloud-scripts', 'gcp_access.py')
+        spec = importlib.util.spec_from_file_location('gcp_access', gcp_access_path)
+        gcp_access = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(gcp_access)
+
         # Read each row
         for row in sheet.iter_rows(min_row=2, values_only=True):
             state_name = str(row[column_indices["Name of the State"] - 1]).strip()
@@ -101,15 +106,55 @@ def extract_community_details(excel_file):
             }
 
             # Accumulate pie chart totals
+            pie_totals = {}
             for k in pie_keys:
                 val = row[column_indices[k] - 1] or 0
                 state_data[state_id]["pie_totals"][k] += val
+                pie_totals[k] = val
 
+            # --- NEW FEATURE: Create district-level files ---
+            district_folder = os.path.join(script_dir, "..", "districts", district_id)
+            os.makedirs(district_folder, exist_ok=True)
 
-        gcp_access_path = os.path.join(script_dir, '..', 'cloud-scripts', 'gcp_access.py')
-        spec = importlib.util.spec_from_file_location('gcp_access', gcp_access_path)
-        gcp_access = importlib.util.module_from_spec(spec)
-        spec.loader.exec_module(gcp_access)
+            # community-metrics.json
+            metrics_json = {
+                "metrics": [
+                    {
+                        "label": k,
+                        "value": row[column_indices[k] - 1] or 0,
+                        "identifier": idx
+                    }
+                    for idx, k in enumerate(map_keys, start=1)
+                ]
+            }
+            metrics_path = os.path.join(district_folder, "community-metrics.json")
+            with open(metrics_path, "w", encoding="utf-8") as f:
+                json.dump(metrics_json, f, indent=2, ensure_ascii=False)
+
+            # community-pie-chart.json
+            pie_json = {
+                "data": [
+                    {"name": k.strip(), "value": pie_totals[k]} for k in pie_keys
+                ]
+            }
+            pie_path = os.path.join(district_folder, "community-pie-chart.json")
+            with open(pie_path, "w", encoding="utf-8") as f:
+                json.dump(pie_json, f, indent=2, ensure_ascii=False)
+
+            # Upload both district files
+            for fname in ["community-metrics.json", "community-pie-chart.json"]:
+                local_path = os.path.join(district_folder, fname)
+                blob_path = f"sg-dashboard/districts/{district_id}/{fname}"
+                folder_url = gcp_access.upload_file_to_gcs_and_get_directory(
+                    bucket_name=os.environ.get("BUCKET_NAME"),
+                    source_file_path=local_path,
+                    destination_blob_name=blob_path
+                )
+                if folder_url:
+                    print(f"✅ Uploaded {fname} for district {district_name} ({district_id}) to {folder_url}")
+                else:
+                    print(f"❌ Failed to upload {fname} for district {district_name} ({district_id})")
+
 
         # Now write json files for each state
         for state_id, data in state_data.items():
