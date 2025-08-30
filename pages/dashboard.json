@@ -66,11 +66,6 @@
         "label": "Schools Driving Improvements",
         "value": "Schools Driving Improvements",
         "selected": false
-      },
-      {
-        "label": "Community-Led Improvements",
-        "value": "Community Led Improvements",
-        "selected": false
       }
     ],
     "legends": [
