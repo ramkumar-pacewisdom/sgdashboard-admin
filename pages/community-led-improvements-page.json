@@ -19,7 +19,7 @@
     "showDetails": true,
     "width": "100%",
     "position": "left",
-    "path": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/community-country-view.json",
+    "path": "community-country-view.json",
     "title": "Our Network",
     "selections": [
       {
