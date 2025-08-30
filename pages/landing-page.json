@@ -6,6 +6,9 @@
     "title": "Voices of Change testing GCP update",
     "slides": [
       {
+        "icon": "assets/icons/main_logo.svg",
+        "header": "Shikshagraha",
+        "subHeader": "",
         "description": "India has one of the world's largest education systems with 1 million public schools. Through the leadership of government, civil society, and market actors, Indian public schools are steadily improving. This dashboard tracks that journey of continuous improvements."
       }
     ],
