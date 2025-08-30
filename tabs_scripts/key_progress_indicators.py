@@ -114,8 +114,14 @@ def key_progress_indicators(excel_file):
                     'value': row[cleaned_headers.index(TABS_METADATA["HOME_PAGE"][2])] or '',
                     'icon': final_src or ''
                 }
+                # Convert value to float if it's numeric and multiply by 100 if label is 'NAS Grade 3'
+                if row_data['label'] == 'NAS Grade 3' and isinstance(row_data['value'], (int, float)):
+                    row_data['value'] = float(row_data['value']) * 100
+
+                # Convert float to int if it's a whole number
                 if isinstance(row_data['value'], float) and row_data['value'].is_integer():
                     row_data['value'] = int(row_data['value'])
+                
                 data.append(row_data)
             except Exception as e:
                 print(f"Error processing row {row_idx}: {str(e)}")
