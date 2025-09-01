@@ -225,6 +225,10 @@ def get_partners(excel_file):
         # Append all new data
         network_data['partners'] = allData
 
+        # ✅ Preserve existing impactData if already present
+        if 'impactData' not in network_data:
+            network_data['impactData'] = []
+
         # Save updated file
         with open(network_data_path, 'w', encoding='utf-8') as f:
             json.dump(network_data, f, indent=2, ensure_ascii=False)
