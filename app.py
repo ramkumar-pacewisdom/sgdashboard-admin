@@ -3,6 +3,7 @@ import pandas as pd
 from tabs_scripts.community_led_details import community_led_programs_sum_with_codes, pie_chart_community_led
 from tabs_scripts.goals import goals  # Needed if you're working with CSV or Excel
 from tabs_scripts.key_progress_indicators import key_progress_indicators
+from tabs_scripts.line_chart import extract_district_line_chart, extract_micro_improvements, extract_state_line_chart
 from tabs_scripts.network_map_data import get_network_map_data
 from tabs_scripts.partners import get_partners
 from tabs_scripts.extract_state_details import update_district_view_indicators
@@ -43,6 +44,7 @@ if uploaded_file is not None:
             community_led_programs_sum_with_codes(uploaded_file)
             generate_program_reports(uploaded_file)
             extract_community_details(uploaded_file)
+            extract_micro_improvements(uploaded_file)
             df = pd.read_excel(uploaded_file)
         elif uploaded_file.name.endswith('.txt'):
             df = pd.read_csv(uploaded_file, delimiter="	")

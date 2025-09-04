@@ -99,8 +99,20 @@
       ]
     },
     {
+      "type": "line-chart",
+      "width": "50%",
+      "position": "center",
+      "title": "Monthly Progress",
+      "data": [],
+      "styles": {
+        "section": "line-chart-section",
+        "title": "section-title"
+      },
+      "path": "/states/{code}/line-chart.json"
+    },
+    {
       "type": "pie-chart",
-      "width": "100%",
+      "width": "50%",
       "position": "center",
       "title": "Monthly Progress",
       "data": [],

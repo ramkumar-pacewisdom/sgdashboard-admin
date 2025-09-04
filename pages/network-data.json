@@ -1,738 +1,9 @@
 {
-  "impactData": [
-    {
-      "source": {
-        "partner_id": [
-          "ltts"
-        ],
-        "icon": "strategic",
-        "countryName": "India",
-        "coords": [
-          78.6677,
-          22.3511
-        ]
-      },
-      "target": {
-        "partner_id": [
-          "mantra4change"
-        ],
-        "icon": "momentum",
-        "stateName": "Karnataka",
-        "countryName": "India",
-        "coords": [
-          75.7224,
-          14.5204
-        ]
-      },
-      "lineType": "multi-dash",
-      "curvature": 0.3,
-      "color": "#9D6B99"
-    },
-    {
-      "source": {
-        "partner_id": [
-          "hdfc"
-        ],
-        "icon": "strategic",
-        "countryName": "India",
-        "coords": [
-          78.6677,
-          22.3511
-        ]
-      },
-      "target": {
-        "partner_id": [
-          "nagaed"
-        ],
-        "icon": "momentum",
-        "stateName": "Nagaland",
-        "countryName": "India",
-        "coords": [
-          94.5885,
-          26.1631
-        ]
-      },
-      "lineType": "multi-dash",
-      "curvature": 0.3,
-      "color": "#9D6B99"
-    },
-    {
-      "source": {
-        "partner_id": [
-          "hdfc"
-        ],
-        "icon": "strategic",
-        "countryName": "India",
-        "coords": [
-          78.6677,
-          22.3511
-        ]
-      },
-      "target": {
-        "partner_id": [
-          "neaid"
-        ],
-        "icon": "momentum",
-        "stateName": "Meghalaya",
-        "countryName": "India",
-        "coords": [
-          91.2999,
-          25.5379
-        ]
-      },
-      "lineType": "multi-dash",
-      "curvature": 0.3,
-      "color": "#9D6B99"
-    },
-    {
-      "source": {
-        "partner_id": [
-          "axis"
-        ],
-        "icon": "strategic",
-        "countryName": "India",
-        "coords": [
-          78.6677,
-          22.3511
-        ]
-      },
-      "target": {
-        "partner_id": [
-          "eduweave"
-        ],
-        "icon": "momentum",
-        "stateName": "Chhattisgarh",
-        "countryName": "India",
-        "coords": [
-          81.8406,
-          21.6637
-        ]
-      },
-      "lineType": "multi-dash",
-      "curvature": 0.3,
-      "color": "#9D6B99"
-    },
-    {
-      "source": {
-        "partner_id": [
-          "caring friends"
-        ],
-        "icon": "strategic",
-        "countryName": "India",
-        "coords": [
-          78.6677,
-          22.3511
-        ]
-      },
-      "target": {
-        "partner_id": [
-          "eduweave"
-        ],
-        "icon": "momentum",
-        "stateName": "Jammu and Kashmir",
-        "countryName": "India",
-        "coords": [
-          75.163,
-          33.6649
-        ]
-      },
-      "lineType": "multi-dash",
-      "curvature": 0.3,
-      "color": "#9D6B99"
-    },
-    {
-      "source": {
-        "partner_id": [
-          "motivation for excellence"
-        ],
-        "icon": "strategic",
-        "countryName": "India",
-        "coords": [
-          78.6677,
-          22.3511
-        ]
-      },
-      "target": {
-        "partner_id": [
-          "neaid"
-        ],
-        "icon": "momentum",
-        "stateName": "Assam",
-        "countryName": "India",
-        "coords": [
-          93.2551,
-          26.4074
-        ]
-      },
-      "lineType": "multi-dash",
-      "curvature": 0.3,
-      "color": "#9D6B99"
-    },
-    {
-      "source": {
-        "partner_id": [
-          "motivation for excellence"
-        ],
-        "icon": "strategic",
-        "countryName": "India",
-        "coords": [
-          78.6677,
-          22.3511
-        ]
-      },
-      "target": {
-        "partner_id": [
-          "alohomora"
-        ],
-        "icon": "momentum",
-        "stateName": "Haryana",
-        "countryName": "India",
-        "coords": [
-          76.0,
-          29.0
-        ]
-      },
-      "lineType": "multi-dash",
-      "curvature": 0.3,
-      "color": "#9D6B99"
-    },
-    {
-      "source": {
-        "partner_id": [
-          "motivation for excellence"
-        ],
-        "icon": "strategic",
-        "countryName": "India",
-        "coords": [
-          78.6677,
-          22.3511
-        ]
-      },
-      "target": {
-        "partner_id": [
-          "involve"
-        ],
-        "icon": "momentum",
-        "stateName": "Uttar Pradesh",
-        "countryName": "India",
-        "coords": [
-          80.8597,
-          27.1303
-        ]
-      },
-      "lineType": "multi-dash",
-      "curvature": 0.3,
-      "color": "#9D6B99"
-    },
-    {
-      "source": {
-        "partner_id": [
-          "motivation for excellence"
-        ],
-        "icon": "strategic",
-        "countryName": "India",
-        "coords": [
-          78.6677,
-          22.3511
-        ]
-      },
-      "target": {
-        "partner_id": [
-          "karunodaya"
-        ],
-        "icon": "momentum",
-        "stateName": "Bihar",
-        "countryName": "India",
-        "coords": [
-          85.9065,
-          25.6441
-        ]
-      },
-      "lineType": "multi-dash",
-      "curvature": 0.3,
-      "color": "#9D6B99"
-    },
-    {
-      "source": {
-        "partner_id": [
-          "motivation for excellence"
-        ],
-        "icon": "strategic",
-        "countryName": "India",
-        "coords": [
-          78.6677,
-          22.3511
-        ]
-      },
-      "target": {
-        "partner_id": [
-          "makkala jagriti"
-        ],
-        "icon": "momentum",
-        "stateName": "Karnataka",
-        "countryName": "India",
-        "coords": [
-          75.7224,
-          14.5204
-        ]
-      },
-      "lineType": "multi-dash",
-      "curvature": 0.3,
-      "color": "#9D6B99"
-    },
-    {
-      "source": {
-        "partner_id": [
-          "paypal"
-        ],
-        "icon": "strategic",
-        "countryName": "India",
-        "coords": [
-          78.6677,
-          22.3511
-        ]
-      },
-      "target": {
-        "partner_id": [
-          "bharat dekho"
-        ],
-        "icon": "momentum",
-        "stateName": "Telangana",
-        "countryName": "India",
-        "coords": [
-          79.1152,
-          17.8496
-        ]
-      },
-      "lineType": "multi-dash",
-      "curvature": 0.3,
-      "color": "#9D6B99"
-    },
-    {
-      "source": {
-        "partner_id": [
-          "amansa capital"
-        ],
-        "icon": "strategic",
-        "countryName": "Singapore",
-        "coords": [
-          103.8195,
-          1.3571
-        ]
-      },
-      "target": {
-        "partner_id": [
-          "mantra4change"
-        ],
-        "icon": "momentum",
-        "stateName": "Bihar",
-        "countryName": "India",
-        "coords": [
-          85.9065,
-          25.6441
-        ]
-      },
-      "lineType": "multi-dash",
-      "curvature": 0.3,
-      "color": "#9D6B99"
-    },
-    {
-      "source": {
-        "partner_id": [
-          "salesforce"
-        ],
-        "icon": "strategic",
-        "countryName": "India",
-        "coords": [
-          78.6677,
-          22.3511
-        ]
-      },
-      "target": {
-        "partner_id": [
-          "mantra4change"
-        ],
-        "icon": "momentum",
-        "stateName": "Karnataka",
-        "countryName": "India",
-        "coords": [
-          75.7224,
-          14.5204
-        ]
-      },
-      "lineType": "multi-dash",
-      "curvature": 0.3,
-      "color": "#9D6B99"
-    },
-    {
-      "source": {
-        "partner_id": [
-          "arpan foundation"
-        ],
-        "icon": "strategic",
-        "countryName": "United States",
-        "coords": [
-          -100.4459,
-          39.7837
-        ]
-      },
-      "target": {
-        "partner_id": [
-          "mantra4change"
-        ],
-        "icon": "momentum",
-        "stateName": "Bihar",
-        "countryName": "India",
-        "coords": [
-          85.9065,
-          25.6441
-        ]
-      },
-      "lineType": "multi-dash",
-      "curvature": 0.3,
-      "color": "#9D6B99"
-    },
-    {
-      "source": {
-        "partner_id": [
-          "rotary club of queens necklace mumbai"
-        ],
-        "icon": "strategic",
-        "countryName": "India",
-        "coords": [
-          78.6677,
-          22.3511
-        ]
-      },
-      "target": {
-        "partner_id": [
-          "mantra4change"
-        ],
-        "icon": "momentum",
-        "stateName": "Bihar",
-        "countryName": "India",
-        "coords": [
-          85.9065,
-          25.6441
-        ]
-      },
-      "lineType": "multi-dash",
-      "curvature": 0.3,
-      "color": "#9D6B99"
-    },
-    {
-      "source": {
-        "partner_id": [
-          "wells fargo"
-        ],
-        "icon": "strategic",
-        "countryName": "India",
-        "coords": [
-          78.6677,
-          22.3511
-        ]
-      },
-      "target": {
-        "partner_id": [
-          "mantra4change"
-        ],
-        "icon": "momentum",
-        "stateName": "Bihar",
-        "countryName": "India",
-        "coords": [
-          85.9065,
-          25.6441
-        ]
-      },
-      "lineType": "multi-dash",
-      "curvature": 0.3,
-      "color": "#9D6B99"
-    },
-    {
-      "source": {
-        "partner_id": [
-          "aws"
-        ],
-        "icon": "strategic",
-        "countryName": "India",
-        "coords": [
-          78.6677,
-          22.3511
-        ]
-      },
-      "target": {
-        "partner_id": [
-          "shikshalokam"
-        ],
-        "icon": "momentum",
-        "stateName": "Karnataka",
-        "countryName": "India",
-        "coords": [
-          75.7224,
-          14.5204
-        ]
-      },
-      "lineType": "multi-dash",
-      "curvature": 0.3,
-      "color": "#9D6B99"
-    },
-    {
-      "source": {
-        "partner_id": [
-          "axis"
-        ],
-        "icon": "strategic",
-        "countryName": "India",
-        "coords": [
-          78.6677,
-          22.3511
-        ]
-      },
-      "target": {
-        "partner_id": [
-          "odhisha rising"
-        ],
-        "icon": "momentum",
-        "stateName": "Odisha",
-        "countryName": "India",
-        "coords": [
-          84.6897,
-          20.5431
-        ]
-      },
-      "lineType": "multi-dash",
-      "curvature": 0.3,
-      "color": "#9D6B99"
-    },
-    {
-      "source": {
-        "partner_id": [
-          "axis"
-        ],
-        "icon": "strategic",
-        "countryName": "India",
-        "coords": [
-          78.6677,
-          22.3511
-        ]
-      },
-      "target": {
-        "partner_id": [
-          "prajayatna"
-        ],
-        "icon": "momentum",
-        "stateName": "Jharkhand",
-        "countryName": "India",
-        "coords": [
-          85.2557,
-          23.456
-        ]
-      },
-      "lineType": "multi-dash",
-      "curvature": 0.3,
-      "color": "#9D6B99"
-    },
-    {
-      "source": {
-        "partner_id": [
-          "motivation for excellence"
-        ],
-        "icon": "strategic",
-        "countryName": "India",
-        "coords": [
-          78.6677,
-          22.3511
-        ]
-      },
-      "target": {
-        "partner_id": [
-          "sanjhi sikhiya"
-        ],
-        "icon": "momentum",
-        "stateName": "Punjab",
-        "countryName": "India",
-        "coords": [
-          75.5005,
-          30.9293
-        ]
-      },
-      "lineType": "multi-dash",
-      "curvature": 0.3,
-      "color": "#9D6B99"
-    },
-    {
-      "source": {
-        "partner_id": [
-          "axis"
-        ],
-        "icon": "strategic",
-        "countryName": "India",
-        "coords": [
-          78.6677,
-          22.3511
-        ]
-      },
-      "target": {
-        "partner_id": [
-          "shiksharth"
-        ],
-        "icon": "momentum",
-        "stateName": "Chhattisgarh",
-        "countryName": "India",
-        "coords": [
-          81.8406,
-          21.6637
-        ]
-      },
-      "lineType": "multi-dash",
-      "curvature": 0.3,
-      "color": "#9D6B99"
-    },
-    {
-      "source": {
-        "partner_id": [
-          "motivation for excellence"
-        ],
-        "icon": "strategic",
-        "countryName": "India",
-        "coords": [
-          78.6677,
-          22.3511
-        ]
-      },
-      "target": {
-        "partner_id": [
-          "slam out loud"
-        ],
-        "icon": "momentum",
-        "stateName": "Punjab",
-        "countryName": "India",
-        "coords": [
-          75.5005,
-          30.9293
-        ]
-      },
-      "lineType": "multi-dash",
-      "curvature": 0.3,
-      "color": "#9D6B99"
-    },
-    {
-      "source": {
-        "partner_id": [
-          "caring friends"
-        ],
-        "icon": "strategic",
-        "countryName": "India",
-        "coords": [
-          78.6677,
-          22.3511
-        ]
-      },
-      "target": {
-        "partner_id": [
-          "vidhya vidhai"
-        ],
-        "icon": "momentum",
-        "stateName": "Tamil Nadu",
-        "countryName": "India",
-        "coords": [
-          78.3665,
-          10.9094
-        ]
-      },
-      "lineType": "multi-dash",
-      "curvature": 0.3,
-      "color": "#9D6B99"
-    },
-    {
-      "source": {
-        "partner_id": [
-          "paypal"
-        ],
-        "icon": "strategic",
-        "countryName": "India",
-        "coords": [
-          78.6677,
-          22.3511
-        ]
-      },
-      "target": {
-        "partner_id": [
-          "vidhya vidhai"
-        ],
-        "icon": "momentum",
-        "stateName": "Tamil Nadu",
-        "countryName": "India",
-        "coords": [
-          78.3665,
-          10.9094
-        ]
-      },
-      "lineType": "multi-dash",
-      "curvature": 0.3,
-      "color": "#9D6B99"
-    },
-    {
-      "source": {
-        "partner_id": [
-          "paypal"
-        ],
-        "icon": "strategic",
-        "countryName": "India",
-        "coords": [
-          78.6677,
-          22.3511
-        ]
-      },
-      "target": {
-        "partner_id": [
-          "bharat dekho"
-        ],
-        "icon": "momentum",
-        "stateName": "Telangana",
-        "countryName": "India",
-        "coords": [
-          79.1152,
-          17.8496
-        ]
-      },
-      "lineType": "multi-dash",
-      "curvature": 0.3,
-      "color": "#9D6B99"
-    },
-    {
-      "source": {
-        "partner_id": [
-          "c4ec"
-        ],
-        "icon": "strategic",
-        "countryName": "India",
-        "coords": [
-          78.6677,
-          22.3511
-        ]
-      },
-      "target": {
-        "partner_id": [
-          "shikshalokam"
-        ],
-        "icon": "momentum",
-        "stateName": "Karnataka",
-        "countryName": "India",
-        "coords": [
-          75.7224,
-          14.5204
-        ]
-      },
-      "lineType": "multi-dash",
-      "curvature": 0.3,
-      "color": "#9D6B99"
-    }
-  ],
+  "impactData": [],
   "partners": [
     {
       "id": "alohomora",
-      "src": "https://storage.googleapis.com/prod-sg-dashbaord/sg-dashboard/partners/alohomora.jpg",
+      "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/alohomora.jpg",
       "alt": "alohomora",
       "name": "Alohomora",
       "partnerState": "Haryana",
@@ -745,7 +16,7 @@
     },
     {
       "id": "alokit",
-      "src": "https://storage.googleapis.com/prod-sg-dashbaord/sg-dashboard/partners/alokit.jpg",
+      "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/alokit.jpg",
       "alt": "alokit",
       "name": "Alokit",
       "partnerState": "Telangana",
@@ -758,7 +29,7 @@
     },
     {
       "id": "eduweave",
-      "src": "https://storage.googleapis.com/prod-sg-dashbaord/sg-dashboard/partners/eduweave.jpg",
+      "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/eduweave.jpg",
       "alt": "eduweave",
       "name": "EduWeave",
       "partnerState": "Chhattisgarh",
@@ -771,7 +42,7 @@
     },
     {
       "id": "eduweave",
-      "src": "https://storage.googleapis.com/prod-sg-dashbaord/sg-dashboard/partners/eduweave.jpg",
+      "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/eduweave.jpg",
       "alt": "eduweave",
       "name": "EduWeave",
       "partnerState": "Jammu and Kashmir",
@@ -784,7 +55,7 @@
     },
     {
       "id": "ifet",
-      "src": "https://storage.googleapis.com/prod-sg-dashbaord/sg-dashboard/partners/ifet.jpg",
+      "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/ifet.jpg",
       "alt": "ifet",
       "name": "IFET",
       "partnerState": "Arunachal Pradesh",
@@ -797,7 +68,7 @@
     },
     {
       "id": "involve",
-      "src": "https://storage.googleapis.com/prod-sg-dashbaord/sg-dashboard/partners/involve.jpg",
+      "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/involve.jpg",
       "alt": "involve",
       "name": "Involve",
       "partnerState": "Uttar Pradesh",
@@ -810,7 +81,7 @@
     },
     {
       "id": "involve",
-      "src": "https://storage.googleapis.com/prod-sg-dashbaord/sg-dashboard/partners/involve.jpg",
+      "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/involve.jpg",
       "alt": "involve",
       "name": "Involve",
       "partnerState": "Bihar",
@@ -823,7 +94,7 @@
     },
     {
       "id": "involve",
-      "src": "https://storage.googleapis.com/prod-sg-dashbaord/sg-dashboard/partners/involve.jpg",
+      "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/involve.jpg",
       "alt": "involve",
       "name": "Involve",
       "partnerState": "Karnataka",
@@ -836,7 +107,7 @@
     },
     {
       "id": "karunodaya",
-      "src": "https://storage.googleapis.com/prod-sg-dashbaord/sg-dashboard/partners/karunodaya.jpg",
+      "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/karunodaya.jpg",
       "alt": "karunodaya",
       "name": "Karunodaya",
       "partnerState": "Bihar",
@@ -849,7 +120,7 @@
     },
     {
       "id": "makkala_jagriti",
-      "src": "https://storage.googleapis.com/prod-sg-dashbaord/sg-dashboard/partners/makkala_jagriti.jpg",
+      "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/makkala_jagriti.jpg",
       "alt": "makkala_jagriti",
       "name": "Makkala Jagriti",
       "partnerState": "Karnataka",
@@ -875,7 +146,7 @@
     },
     {
       "id": "mantra4change",
-      "src": "https://storage.googleapis.com/prod-sg-dashbaord/sg-dashboard/partners/mantra4change.jpg",
+      "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/mantra4change.jpg",
       "alt": "mantra4change",
       "name": "Mantra4Change",
       "partnerState": "Bihar",
@@ -888,7 +159,7 @@
     },
     {
       "id": "mantra4change",
-      "src": "https://storage.googleapis.com/prod-sg-dashbaord/sg-dashboard/partners/mantra4change.jpg",
+      "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/mantra4change.jpg",
       "alt": "mantra4change",
       "name": "Mantra4Change",
       "partnerState": "Uttar Pradesh",
@@ -901,7 +172,7 @@
     },
     {
       "id": "nagaed",
-      "src": "https://storage.googleapis.com/prod-sg-dashbaord/sg-dashboard/partners/nagaed.jpg",
+      "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/nagaed.jpg",
       "alt": "nagaed",
       "name": "NagaED",
       "partnerState": "Nagaland",
@@ -914,7 +185,7 @@
     },
     {
       "id": "neaid",
-      "src": "https://storage.googleapis.com/prod-sg-dashbaord/sg-dashboard/partners/neaid.jpg",
+      "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/neaid.jpg",
       "alt": "neaid",
       "name": "NEAID",
       "partnerState": "Assam",
@@ -927,7 +198,7 @@
     },
     {
       "id": "neaid",
-      "src": "https://storage.googleapis.com/prod-sg-dashbaord/sg-dashboard/partners/neaid.jpg",
+      "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/neaid.jpg",
       "alt": "neaid",
       "name": "NEAID",
       "partnerState": "Meghalaya",
@@ -940,7 +211,7 @@
     },
     {
       "id": "odhisha_rising",
-      "src": "https://storage.googleapis.com/prod-sg-dashbaord/sg-dashboard/partners/odhisha_rising.jpg",
+      "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/odhisha_rising.jpg",
       "alt": "odhisha_rising",
       "name": "Odhisha Rising",
       "partnerState": "Odisha",
@@ -953,7 +224,7 @@
     },
     {
       "id": "prajayatna",
-      "src": "https://storage.googleapis.com/prod-sg-dashbaord/sg-dashboard/partners/prajayatna.jpg",
+      "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/prajayatna.jpg",
       "alt": "prajayatna",
       "name": "Prajayatna",
       "partnerState": "Jharkhand",
@@ -966,7 +237,7 @@
     },
     {
       "id": "sanjhi_sikhiya",
-      "src": "https://storage.googleapis.com/prod-sg-dashbaord/sg-dashboard/partners/sanjhi_sikhiya.jpg",
+      "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/sanjhi_sikhiya.jpg",
       "alt": "sanjhi_sikhiya",
       "name": "Sanjhi Sikhiya",
       "partnerState": "Punjab",
@@ -979,7 +250,7 @@
     },
     {
       "id": "shiksharth",
-      "src": "https://storage.googleapis.com/prod-sg-dashbaord/sg-dashboard/partners/shiksharth.jpg",
+      "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/shiksharth.jpg",
       "alt": "shiksharth",
       "name": "Shiksharth",
       "partnerState": "Chhattisgarh",
@@ -992,7 +263,7 @@
     },
     {
       "id": "slam_out_loud",
-      "src": "https://storage.googleapis.com/prod-sg-dashbaord/sg-dashboard/partners/slam_out_loud.jpg",
+      "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/slam_out_loud.jpg",
       "alt": "slam_out_loud",
       "name": "Slam Out Loud",
       "partnerState": "Punjab",
@@ -1005,7 +276,7 @@
     },
     {
       "id": "vidhya_vidhai",
-      "src": "https://storage.googleapis.com/prod-sg-dashbaord/sg-dashboard/partners/vidhya_vidhai.jpg",
+      "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/vidhya_vidhai.jpg",
       "alt": "vidhya_vidhai",
       "name": "Vidhya Vidhai",
       "partnerState": "Tamil Nadu",
@@ -1018,12 +289,12 @@
     },
     {
       "id": "jyoti_mahila_samakhya",
-      "src": "https://storage.googleapis.com/prod-sg-dashbaord/sg-dashboard/partners/jyoti_mahila_samakhya.jpg",
+      "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/jyoti_mahila_samakhya.jpg",
       "alt": "jyoti_mahila_samakhya",
       "name": "Jyoti Mahila Samakhya",
       "partnerState": "Bihar",
       "category": "Momentum ",
-      "website": "No website available",
+      "website": "",
       "coordinates": [
         "",
         ""
@@ -1031,12 +302,12 @@
     },
     {
       "id": "srishti_mahila_samakhya",
-      "src": "https://storage.googleapis.com/prod-sg-dashbaord/sg-dashboard/partners/srishti_mahila_samakhya.jpg",
+      "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/srishti_mahila_samakhya.jpg",
       "alt": "srishti_mahila_samakhya",
       "name": "Srishti Mahila Samakhya",
       "partnerState": "Bihar",
       "category": "Momentum ",
-      "website": "No website available",
+      "website": "",
       "coordinates": [
         "",
         ""
@@ -1049,7 +320,7 @@
       "name": "Deepmala Sanstha",
       "partnerState": "Bihar",
       "category": "Momentum ",
-      "website": "No website available",
+      "website": "",
       "coordinates": [
         "",
         ""
@@ -1062,7 +333,7 @@
       "name": "Samriddhi Sanstha",
       "partnerState": "Bihar",
       "category": "Momentum ",
-      "website": "No website available",
+      "website": "",
       "coordinates": [
         "",
         ""
@@ -1075,7 +346,7 @@
       "name": "Hamari Drishti",
       "partnerState": "Bihar",
       "category": "Momentum ",
-      "website": "No website available",
+      "website": "",
       "coordinates": [
         "",
         ""
@@ -1088,7 +359,7 @@
       "name": "Pragati Ek Prayas",
       "partnerState": "Bihar",
       "category": "Momentum ",
-      "website": "No website available",
+      "website": "",
       "coordinates": [
         "",
         ""
@@ -1101,7 +372,7 @@
       "name": "Swadha Mahila Samakhya",
       "partnerState": "Bihar",
       "category": "Momentum ",
-      "website": "No website available",
+      "website": "",
       "coordinates": [
         "",
         ""
@@ -1114,7 +385,7 @@
       "name": "Sahyogi Sanstha",
       "partnerState": "Bihar",
       "category": "Momentum ",
-      "website": "No website available",
+      "website": "",
       "coordinates": [
         "",
         ""
@@ -1122,7 +393,7 @@
     },
     {
       "id": "bharat_dekho",
-      "src": "https://storage.googleapis.com/prod-sg-dashbaord/sg-dashboard/partners/bharat_dekho.jpg",
+      "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/bharat_dekho.jpg",
       "alt": "bharat_dekho",
       "name": "Bharat Dekho",
       "partnerState": "Telangana",
@@ -1148,7 +419,7 @@
     },
     {
       "id": "v_help",
-      "src": "https://storage.googleapis.com/prod-sg-dashbaord/sg-dashboard/partners/v_help.jpg",
+      "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/v_help.jpg",
       "alt": "v_help",
       "name": "V Help",
       "partnerState": "Karnataka",
@@ -1161,7 +432,7 @@
     },
     {
       "id": "initiative_for_people_empowerment_in_india_foundationipei",
-      "src": "https://storage.googleapis.com/prod-sg-dashbaord/sg-dashboard/partners/initiative_for_people_empowerment_in_india_foundationipei.jpg",
+      "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/initiative_for_people_empowerment_in_india_foundationipei.jpg",
       "alt": "initiative_for_people_empowerment_in_india_foundationipei",
       "name": "Initiative for People Empowerment in India Foundation(IPEI)",
       "partnerState": "Karnataka",
@@ -1187,7 +458,7 @@
     },
     {
       "id": "ltts",
-      "src": "https://storage.googleapis.com/prod-sg-dashbaord/sg-dashboard/partners/ltts.jpg",
+      "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/ltts.jpg",
       "alt": "ltts",
       "name": "LTTS",
       "partnerState": "Karnataka",
@@ -1200,7 +471,7 @@
     },
     {
       "id": "hdfc",
-      "src": "https://storage.googleapis.com/prod-sg-dashbaord/sg-dashboard/partners/hdfc.jpg",
+      "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/hdfc.jpg",
       "alt": "hdfc",
       "name": "HDFC",
       "partnerState": "Maharashtra",
@@ -1213,7 +484,7 @@
     },
     {
       "id": "axis",
-      "src": "https://storage.googleapis.com/prod-sg-dashbaord/sg-dashboard/partners/axis.jpg",
+      "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/axis.jpg",
       "alt": "axis",
       "name": "AXIS",
       "partnerState": "Maharashtra",
@@ -1239,7 +510,7 @@
     },
     {
       "id": "motivation_for_excellence",
-      "src": "https://storage.googleapis.com/prod-sg-dashbaord/sg-dashboard/partners/motivation_for_excellence.jpg",
+      "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/motivation_for_excellence.jpg",
       "alt": "motivation_for_excellence",
       "name": "Motivation for Excellence",
       "partnerState": "Maharashtra",
@@ -1252,7 +523,7 @@
     },
     {
       "id": "paypal",
-      "src": "https://storage.googleapis.com/prod-sg-dashbaord/sg-dashboard/partners/paypal.jpg",
+      "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/paypal.jpg",
       "alt": "paypal",
       "name": "PayPal",
       "partnerState": "Karnataka",
@@ -1265,7 +536,7 @@
     },
     {
       "id": "amansa_capital",
-      "src": "https://storage.googleapis.com/prod-sg-dashbaord/sg-dashboard/partners/amansa_capital.jpg",
+      "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/amansa_capital.jpg",
       "alt": "amansa_capital",
       "name": "Amansa Capital",
       "partnerState": "",
@@ -1278,7 +549,7 @@
     },
     {
       "id": "salesforce",
-      "src": "https://storage.googleapis.com/prod-sg-dashbaord/sg-dashboard/partners/salesforce.jpg",
+      "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/salesforce.jpg",
       "alt": "salesforce",
       "name": "Salesforce",
       "partnerState": "Karnataka",
@@ -1304,7 +575,7 @@
     },
     {
       "id": "aws",
-      "src": "https://storage.googleapis.com/prod-sg-dashbaord/sg-dashboard/partners/aws.jpg",
+      "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/aws.jpg",
       "alt": "aws",
       "name": "AWS",
       "partnerState": "Delhi",
@@ -1317,7 +588,7 @@
     },
     {
       "id": "rotary_club_of_queens_necklace_mumbai",
-      "src": "https://storage.googleapis.com/prod-sg-dashbaord/sg-dashboard/partners/rotary_club_of_queens_necklace_mumbai.jpg",
+      "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/rotary_club_of_queens_necklace_mumbai.jpg",
       "alt": "rotary_club_of_queens_necklace_mumbai",
       "name": "Rotary club of Queens necklace mumbai",
       "partnerState": "Maharashtra",
@@ -1330,7 +601,7 @@
     },
     {
       "id": "wells_fargo",
-      "src": "https://storage.googleapis.com/prod-sg-dashbaord/sg-dashboard/partners/wells_fargo.jpg",
+      "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/wells_fargo.jpg",
       "alt": "wells_fargo",
       "name": "Wells Fargo",
       "partnerState": "Karnataka",
@@ -1343,7 +614,7 @@
     },
     {
       "id": "c4ec",
-      "src": "https://storage.googleapis.com/prod-sg-dashbaord/sg-dashboard/partners/c4ec.jpg",
+      "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/c4ec.jpg",
       "alt": "c4ec",
       "name": "C4EC",
       "partnerState": "Karnataka",
@@ -1356,7 +627,7 @@
     },
     {
       "id": "shikshalokam",
-      "src": "https://storage.googleapis.com/prod-sg-dashbaord/sg-dashboard/partners/shikshalokam.jpg",
+      "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/shikshalokam.jpg",
       "alt": "shikshalokam",
       "name": "ShikshaLokam",
       "partnerState": "Karnataka",
@@ -1369,7 +640,7 @@
     },
     {
       "id": "tekdi_technology_pvt_limited",
-      "src": "https://storage.googleapis.com/prod-sg-dashbaord/sg-dashboard/partners/tekdi_technology_pvt_limited.jpg",
+      "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/tekdi_technology_pvt_limited.jpg",
       "alt": "tekdi_technology_pvt_limited",
       "name": "Tekdi technology pvt. limited",
       "partnerState": "Karnataka",
@@ -1382,7 +653,7 @@
     },
     {
       "id": "gritworks",
-      "src": "https://storage.googleapis.com/prod-sg-dashbaord/sg-dashboard/partners/gritworks.jpg",
+      "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/gritworks.jpg",
       "alt": "gritworks",
       "name": "GritWorks",
       "partnerState": "Karnataka",
@@ -1395,12 +666,12 @@
     },
     {
       "id": "colab",
-      "src": "https://storage.googleapis.com/prod-sg-dashbaord/sg-dashboard/partners/colab.jpg",
+      "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/colab.jpg",
       "alt": "colab",
       "name": "Colab",
       "partnerState": "Karnataka",
       "category": "Collaborators",
-      "website": "No website available",
+      "website": "",
       "coordinates": [
         "",
         ""
@@ -1408,7 +679,7 @@
     },
     {
       "id": "gnothi_seauton",
-      "src": "https://storage.googleapis.com/prod-sg-dashbaord/sg-dashboard/partners/gnothi_seauton.jpg",
+      "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/gnothi_seauton.jpg",
       "alt": "gnothi_seauton",
       "name": "Gnothi Seauton",
       "partnerState": "Delhi",
@@ -1421,7 +692,7 @@
     },
     {
       "id": "blavatnik_school_of_government",
-      "src": "https://storage.googleapis.com/prod-sg-dashbaord/sg-dashboard/partners/blavatnik_school_of_government.jpg",
+      "src": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/blavatnik_school_of_government.jpg",
       "alt": "blavatnik_school_of_government",
       "name": "Blavatnik School of Government",
       "partnerState": "",
