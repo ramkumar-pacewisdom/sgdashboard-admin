@@ -88,6 +88,10 @@ def get_network_map_data(excel_file):
                 source_state = row[idx['Source Partner State']]
                 source_country = row[idx['Source partner country']]
 
+                if not source_partner:
+                    print(f"⚠️ Skipping row {row_idx} due to missing source or target partner ID.")
+                    continue
+
                 source = {
                     "partner_id": [str(source_partner).lower()] if source_partner else [],
                     "icon": "strategic"
@@ -97,17 +101,22 @@ def get_network_map_data(excel_file):
                 if source_country:
                     source["countryName"] = source_country
 
-                source_coords = get_coordinates(source_state, source_country, [str(source_partner).lower()] if source_partner else [], partner_data)
-                if source_coords:
-                    source["coords"] = source_coords
-                else:
-                    print(f"⚠️ Skipping row {row_idx} due to missing source coords.")
-                    continue
+                # source_coords = get_coordinates(source_state, source_country, [str(source_partner).lower()] if source_partner else [], partner_data)
+                # if source_coords:
+                #     source["coords"] = source_coords
+                # else:
+                #     print(f"⚠️ Skipping row {row_idx} due to missing source coords.")
+                #     continue
 
                 # --- Target ---
                 target_partner = row[idx['Target Partner']]
                 target_state = row[idx['Target Partner state']]
                 target_country = row[idx['Target partner country']]
+
+
+                if not target_partner:
+                    print(f"⚠️ Skipping row {row_idx} due to missing source or target partner ID.")
+                    continue
 
                 target = {
                     "partner_id": [str(target_partner).lower()] if target_partner else [],
@@ -118,12 +127,12 @@ def get_network_map_data(excel_file):
                 if target_country:
                     target["countryName"] = target_country
 
-                target_coords = get_coordinates(target_state, target_country, target_partner, partner_data)
-                if target_coords:
-                    target["coords"] = target_coords
-                else:
-                    print(f"⚠️ Skipping row {row_idx} due to missing target coords.")
-                    continue
+                # target_coords = get_coordinates(target_state, target_country, target_partner, partner_data)
+                # if target_coords:
+                #     target["coords"] = target_coords
+                # else:
+                #     print(f"⚠️ Skipping row {row_idx} due to missing target coords.")
+                #     continue
 
                 impact_data.append({
                     "source": source,
