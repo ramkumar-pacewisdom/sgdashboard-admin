@@ -114,12 +114,13 @@ def get_partners(excel_file):
                     'src': final_src if final_src else '/assets/partners/default-partner.svg',
                     'alt': name_clean,
                     'name': str(raw_name).strip(),
-                    'partnerState': row[headers.index(expected_columns[2])] or '',
-                    'category': row[headers.index(expected_columns[3])] or '',
-                    'website': row[headers.index(expected_columns[4])] or '',
+                    'countryName':row[headers.index(expected_columns[2])] or '',
+                    'partnerState': row[headers.index(expected_columns[3])] or '',
+                    'category': row[headers.index(expected_columns[4])] or '',
+                    'website': row[headers.index(expected_columns[5])] or '',
                     'coordinates': [
-                        row[headers.index(expected_columns[5])] or '',
-                        row[headers.index(expected_columns[6])] or ''
+                        row[headers.index(expected_columns[6])] or '',
+                        row[headers.index(expected_columns[7])] or ''
                     ]
                 }
 
