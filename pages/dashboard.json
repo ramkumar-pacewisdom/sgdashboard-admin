@@ -95,6 +95,36 @@
     }
   },
   {
+    "type": "line-chart",
+    "width": "50%",
+    "position": "center",
+    "title": "Monthly Progress",
+    "data": [
+      {
+        "year": 2024,
+        "data": [
+          91080.0,
+          189714.0,
+          332696.0,
+          479319.0
+        ]
+      },
+      {
+        "year": 2025,
+        "data": [
+          91125.0,
+          713961.0,
+          887504.0,
+          0
+        ]
+      }
+    ],
+    "styles": {
+      "section": "line-chart-section",
+      "title": "section-title"
+    }
+  },
+  {
     "type": "pie-chart",
     "width": "50%",
     "position": "center",
@@ -158,35 +188,5 @@
         "value": 3044
       }
     ]
-  },
-  {
-    "type": "line-chart",
-    "width": "50%",
-    "position": "center",
-    "title": "Monthly Progress",
-    "data": [
-      {
-        "year": 2024,
-        "data": [
-          91080.0,
-          189714.0,
-          332696.0,
-          479319.0
-        ]
-      },
-      {
-        "year": 2025,
-        "data": [
-          91125.0,
-          713961.0,
-          887504.0,
-          0
-        ]
-      }
-    ],
-    "styles": {
-      "section": "line-chart-section",
-      "title": "section-title"
-    }
   }
 ]

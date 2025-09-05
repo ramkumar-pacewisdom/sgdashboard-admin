@@ -86,8 +86,9 @@
       "legends": {
         "category_1": {
           "label": "State with Community led Initiatives",
-          "color": "#5F1160",
-          "show_details": true
+          "color": "#ffffff",
+          "show_details": true,
+          "icon": "assets/icons/community_map_icon.svg"
         },
         "category_4": {
           "label": "Yet to start",

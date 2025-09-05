@@ -25,8 +25,9 @@
             "legends":{
               "category_1": {
                 "label": "Districts with Community led Initiatives",
-                "color": "#5F1160",
-                "show_details": true
+                "color": "#ffffff",
+                "show_details": true,
+                "icon": "assets/icons/community_map_icon.svg"
               },
               "category_2": {
                 "label": "Yet to start",

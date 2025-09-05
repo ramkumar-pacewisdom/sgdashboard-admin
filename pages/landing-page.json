@@ -80,7 +80,7 @@
       },
       {
         "label": "NAS Grade 3",
-        "value": 59,
+        "value": "59.0%",
         "icon": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/nas_grade_3.svg"
       }
     ],

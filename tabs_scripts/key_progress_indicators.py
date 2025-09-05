@@ -116,7 +116,7 @@ def key_progress_indicators(excel_file):
                 }
                 # Convert value to float if it's numeric and multiply by 100 if label is 'NAS Grade 3'
                 if row_data['label'] == 'NAS Grade 3' and isinstance(row_data['value'], (int, float)):
-                    row_data['value'] = float(row_data['value']) * 100
+                    row_data['value'] = f"{float(row_data['value']) * 100:.1f}%"
 
                 # Convert float to int if it's a whole number
                 if isinstance(row_data['value'], float) and row_data['value'].is_integer():
