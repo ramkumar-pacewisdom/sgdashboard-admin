@@ -85,7 +85,7 @@
     "meta": {
       "legends": {
         "category_1": {
-          "label": "State with Community led Initiatives",
+          "label": "Community led Initiatives",
           "color": "#ffffff",
           "show_details": true,
           "icon": "assets/icons/community_map_icon.svg"
