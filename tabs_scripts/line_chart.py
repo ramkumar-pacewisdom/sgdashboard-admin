@@ -12,28 +12,27 @@ def extract_micro_improvements(excel_file):
     # Define the path to the JSON file
     json_path = os.path.join(script_dir, "..", "pages", "dashboard.json")
 
-
     # Open the Excel file
     workbook = openpyxl.load_workbook(excel_file, data_only=True)
     try:
         sheet = workbook["Micro improvements progress"]
     except KeyError:
-        print("Error: Sheet 'Data on homepage' not found in the Excel file.")
+        print("Error: Sheet 'Micro improvements progress' not found in the Excel file.")
         print(f"Available sheets: {workbook.sheetnames}")
         return
 
-    print(workbook,sheet);
+    print(workbook, sheet)
 
     # Initialize dictionaries to store sums for each year
     sums_2024 = {'Q1': 0, 'Q2': 0, 'Q3': 0, 'Q4': 0}
     sums_2025 = {'Q1': 0, 'Q2': 0, 'Q3': 0, 'Q4': 0}
 
     # Iterate through rows, starting from row 2 to skip headers
-    for row in sheet.iter_rows(min_row=4, max_col=8, values_only=True):
-        print("function called inside",row);
-        year = row[2]  # Year column
-        q1, q2, q3, q4 = row[2:6]  # Q1, Q2, Q3, Q4 columns
-        print("data",year,q1,q2,q3,q4);
+    for row in sheet.iter_rows(min_row=2, max_col=7, values_only=True):
+        print("function called inside", row)
+        year = row[2]  # Year column (C)
+        q1, q2, q3, q4 = row[3:7]  # Q1, Q2, Q3, Q4 columns (D-G)
+        print("data", year, q1, q2, q3, q4)
         # Ensure values are numeric, treat None or empty as 0
         q1 = float(q1) if q1 else 0
         q2 = float(q2) if q2 else 0
@@ -51,19 +50,17 @@ def extract_micro_improvements(excel_file):
             sums_2025['Q3'] += q3
             sums_2025['Q4'] += q4
 
-    # Format the result as requested
-    result = [
-        {
-            "year": 2024,
-            "data": [sums_2024['Q1'], sums_2024['Q2'], sums_2024['Q3'], sums_2024['Q4']]
-        },
-        {
-            "year": 2025,
-            "data": [sums_2025['Q1'], sums_2025['Q2'], sums_2025['Q3'], sums_2025['Q4']]
-        }
-    ]
+    # Format the result as requested, excluding zero values
+    result = []
+    for year, sums in [(2024, sums_2024), (2025, sums_2025)]:
+        data = [value for value in [sums['Q1'], sums['Q2'], sums['Q3'], sums['Q4']] if value != 0]
+        if data:  # Include year only if there is non-zero data
+            result.append({
+                "year": year,
+                "data": data
+            })
     
-    print(result);
+    print(result)
 
     try:
         with open(json_path, 'r') as file:
@@ -88,7 +85,7 @@ def extract_micro_improvements(excel_file):
     except Exception as e:
         print(f"Error updating dashboard.json: {str(e)}")
         return json.dumps(result, indent=2)
-    
+
 def load_state_codes():
     """Load state and district codes from state_code_details.json."""
     script_dir = os.path.dirname(os.path.abspath(__file__))
@@ -112,10 +109,9 @@ def extract_district_line_chart(excel_file):
         try:
             sheet = workbook["Micro improvements progress"]
         except KeyError:
-            print("Error: Sheet 'Data on homepage' not found in the Excel file.")
+            print("Error: Sheet 'Micro improvements progress' not found in the Excel file.")
             print(f"Available sheets: {workbook.sheetnames}")
             return
-
 
         # Initialize district-level containers for line chart data
         district_files_map = {}
@@ -190,27 +186,20 @@ def extract_district_line_chart(excel_file):
             dist_dir = os.path.join(script_dir, "..", "districts", str(dist_id))
             os.makedirs(dist_dir, exist_ok=True)
 
-            # Format line chart data as requested
-            line_chart_data = [
-                {
-                    "year": 2024,
-                    "data": [
-                        dist_data["line_chart"][2024]['Q1'],
-                        dist_data["line_chart"][2024]['Q2'],
-                        dist_data["line_chart"][2024]['Q3'],
-                        dist_data["line_chart"][2024]['Q4']
-                    ]
-                },
-                {
-                    "year": 2025,
-                    "data": [
-                        dist_data["line_chart"][2025]['Q1'],
-                        dist_data["line_chart"][2025]['Q2'],
-                        dist_data["line_chart"][2025]['Q3'],
-                        dist_data["line_chart"][2025]['Q4']
-                    ]
-                }
-            ]
+            # Format line chart data as requested, excluding zero values
+            line_chart_data = []
+            for year in [2024, 2025]:
+                data = [value for value in [
+                    dist_data["line_chart"][year]['Q1'],
+                    dist_data["line_chart"][year]['Q2'],
+                    dist_data["line_chart"][year]['Q3'],
+                    dist_data["line_chart"][year]['Q4']
+                ] if value != 0]
+                if data:  # Include year only if there is non-zero data
+                    line_chart_data.append({
+                        "year": year,
+                        "data": data
+                    })
 
             # Save line-chart.json
             line_chart_path = os.path.join(dist_dir, "line-chart.json")
@@ -219,14 +208,12 @@ def extract_district_line_chart(excel_file):
 
             print(f"✅ Generated line-chart.json for district {dist_id} ({dist_data['district_name']})")
 
-        # Upload district line-chart.json files to GCP
-        gcp_access_path = os.path.join(script_dir, '..', 'cloud-scripts', 'gcp_access.py')
-        spec = importlib.util.spec_from_file_location('gcp_access', gcp_access_path)
-        gcp_access = importlib.util.module_from_spec(spec)
-        spec.loader.exec_module(gcp_access)
+            # Upload district line-chart.json files to GCP
+            gcp_access_path = os.path.join(script_dir, '..', 'cloud-scripts', 'gcp_access.py')
+            spec = importlib.util.spec_from_file_location('gcp_access', gcp_access_path)
+            gcp_access = importlib.util.module_from_spec(spec)
+            spec.loader.exec_module(gcp_access)
 
-        for dist_id in district_files_map.keys():
-            dist_dir = os.path.join(script_dir, "..", "districts", str(dist_id))
             file_path = os.path.join(dist_dir, "line-chart.json")
             folder_url = gcp_access.upload_file_to_gcs_and_get_directory(
                 bucket_name=os.environ.get("BUCKET_NAME"),
@@ -241,20 +228,11 @@ def extract_district_line_chart(excel_file):
     except Exception as e:
         print(f"❌ Error: {str(e)}")
 
-if __name__ == "__main__":
-    import sys
-    if len(sys.argv) < 2:
-        print("Usage: python extract_district_line_chart.py <excel_file>")
-    else:
-        extract_district_line_chart(sys.argv[1])
-
-
 def load_state_codes():
     """Load state codes from state_code_details.json."""
     try:
         script_dir = os.path.dirname(os.path.abspath(__file__))
         state_codes_file = os.path.join(script_dir, "..", "pages", "state_code_details.json")
-        # Assume state_code_generator is not needed unless explicitly required
         if not os.path.exists(state_codes_file):
             print("❌ state_code_details.json not found.")
             return None
@@ -297,7 +275,7 @@ def extract_state_line_chart(excel_file):
         try:
             sheet = workbook["Micro improvements progress"]
         except KeyError:
-            print("Error: Sheet 'Data on homepage' not found in the Excel file.")
+            print("Error: Sheet 'Micro improvements progress' not found in the Excel file.")
             print(f"Available sheets: {workbook.sheetnames}")
             return
 
@@ -367,28 +345,22 @@ def extract_state_line_chart(excel_file):
         # Save & upload line-chart.json for each state
         for state_id, state_data in state_line_chart_map.items():
             line_chart_data = {
-                "data": [
-                    {
-                        "year": 2024,
-                        "data": [
-                            state_data["line_chart"][2024]['Q1'],
-                            state_data["line_chart"][2024]['Q2'],
-                            state_data["line_chart"][2024]['Q3'],
-                            state_data["line_chart"][2024]['Q4']
-                        ]
-                    },
-                    {
-                        "year": 2025,
-                        "data": [
-                            state_data["line_chart"][2025]['Q1'],
-                            state_data["line_chart"][2025]['Q2'],
-                            state_data["line_chart"][2025]['Q3'],
-                            state_data["line_chart"][2025]['Q4']
-                        ]
-                    }
-                ]
+                "data": []
             }
-            save_and_upload_state_file(script_dir, state_id, "line-chart.json", line_chart_data, gcp_access)
+            for year in [2024, 2025]:
+                data = [value for value in [
+                    state_data["line_chart"][year]['Q1'],
+                    state_data["line_chart"][year]['Q2'],
+                    state_data["line_chart"][year]['Q3'],
+                    state_data["line_chart"][year]['Q4']
+                ] if value != 0]
+                if data:  # Include year only if there is non-zero data
+                    line_chart_data["data"].append({
+                        "year": year,
+                        "data": data
+                    })
+            if line_chart_data["data"]:  # Save only if there is data
+                save_and_upload_state_file(script_dir, state_id, "line-chart.json", line_chart_data, gcp_access)
 
         print("✅ All line-chart.json files generated & uploaded successfully.")
         extract_district_line_chart(excel_file)
@@ -399,6 +371,6 @@ def extract_state_line_chart(excel_file):
 if __name__ == "__main__":
     import sys
     if len(sys.argv) < 2:
-        print("Usage: python extract_state_line_chart.py <excel_file>")
+        print("Usage: python extract_line_charts.py <excel_file>")
     else:
         extract_state_line_chart(sys.argv[1])

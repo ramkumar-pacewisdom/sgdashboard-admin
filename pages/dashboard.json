@@ -5,7 +5,7 @@
     "position": "left",
     "header": "Leadership Enabling Continuous Improvements",
     "subHeader": "",
-    "description": "Change begins when leadership is unlocked beyond government offices and school corridors—in village meetings and community spaces. This improvement journey is driven by leaders across government, civil society, and market sectors. Shikshagraha is fueled by such leadership.",
+    "description": "Change begins when leadership is unlocked beyond government offices and school corridors\u2014in village meetings and community spaces. This improvement journey is driven by leaders across government, civil society, and market sectors. Shikshagraha is fueled by such leadership.",
     "styles": {
       "section": "dashboard-main-section",
       "title": "dashboard-main-title",
@@ -103,19 +103,17 @@
       {
         "year": 2024,
         "data": [
-          91080.0,
-          189714.0,
-          332696.0,
-          479319.0
+          199564.0,
+          349816.0,
+          503439.0,
+          602868.0
         ]
       },
       {
         "year": 2025,
         "data": [
-          91125.0,
-          713961.0,
-          887504.0,
-          0
+          738551.0,
+          920085.0
         ]
       }
     ],

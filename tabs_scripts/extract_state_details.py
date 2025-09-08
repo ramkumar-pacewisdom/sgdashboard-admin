@@ -8,7 +8,6 @@ import importlib.util
 try:
     from state_code_generator import state_code_generator
 except ImportError:
-
     import importlib.util
     import os
     script_dir = os.path.dirname(os.path.abspath(__file__))
@@ -36,7 +35,6 @@ def load_state_codes(excel_file):
     except Exception:
         return None
 
-
 def save_and_upload_state_file(script_dir, state_id, filename, data, gcp_access):
     """Save JSON to /states/{id}/filename and upload to GCS."""
     states_dir = os.path.join(script_dir, "..", "states", str(state_id))
@@ -54,7 +52,6 @@ def save_and_upload_state_file(script_dir, state_id, filename, data, gcp_access)
     )
     print(f"Uploaded {filename} for state {state_id}: {folder_url}")
 
-
 def update_district_view_indicators(excel_file):
     try:
         state_codes = load_state_codes(excel_file)
@@ -64,7 +61,7 @@ def update_district_view_indicators(excel_file):
         script_dir = os.path.dirname(os.path.abspath(__file__))
         json_file_path = os.path.join(script_dir, "..", "pages", "district-view-indicators.json")
 
-        workbook = openpyxl.load_workbook(excel_file, data_only=True)
+        workbook = openpyxl.load_workbook(excel_file, data_only=False)  # data_only=False to get formatted values
 
         # --- STEP 1: Extract special indicators from HOME_PAGE tab ---
         try:
@@ -85,13 +82,19 @@ def update_district_view_indicators(excel_file):
         for row in home_page_sheet.iter_rows(min_row=2):
             indicator_name = str(row[home_col_indices["Indicator"] - 1].value or "").strip()
             if indicator_name.lower() in special_keys_lower:
-                data_val = row[home_col_indices["Data"] - 1].value
-                # Keep % values as-is
-                if isinstance(data_val, str) and "%" in data_val:
-                    processed_val = data_val.strip()
+                data_cell = row[home_col_indices["Data"] - 1]
+                if indicator_name.lower() == "nas grade 3":
+                    # Get the formatted value for NAS Grade 3
+                    data_val = data_cell.internal_value if data_cell.internal_value else ''
+                    if data_cell.number_format and '%' in data_cell.number_format:
+                        data_val = f"{data_cell.value * 100:.0f}%"
+                    else:
+                        data_val = str(data_val)
                 else:
-                    processed_val = data_val
-                special_indicators_map[indicator_name] = processed_val
+                    data_val = data_cell.value
+                    if isinstance(data_val, str) and "%" in data_val:
+                        data_val = data_val.strip()
+                special_indicators_map[indicator_name] = data_val
 
         # --- STEP 2: Process STATE_DETAILS tab ---
         try:

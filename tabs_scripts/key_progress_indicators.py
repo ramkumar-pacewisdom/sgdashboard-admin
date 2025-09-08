@@ -7,7 +7,6 @@ import requests
 
 from constants import PAGE_METADATA,TABS_METADATA
 
-
 def convert_drive_link_to_direct_url(link):
     if not isinstance(link, str):
         return ''
@@ -18,7 +17,6 @@ def convert_drive_link_to_direct_url(link):
         file_id = match.group(1)
         return f"https://drive.google.com/uc?export=view&id={file_id}"
     return link.strip()
-
 
 def download_image(file_id, save_path):
     url = f"https://drive.google.com/uc?export=download&id={file_id}"
@@ -36,7 +34,6 @@ def download_image(file_id, save_path):
         print(f"❌ Exception downloading image: {e}")
         return False
 
-
 def key_progress_indicators(excel_file):
     try:
         # Get the directory of the current script
@@ -47,16 +44,14 @@ def key_progress_indicators(excel_file):
         images_dir = os.path.join(script_dir, "temp_downloads")
         os.makedirs(images_dir, exist_ok=True)
 
-
         # Open the Excel file
-        workbook = openpyxl.load_workbook(excel_file, data_only=True)
+        workbook = openpyxl.load_workbook(excel_file, data_only=False)  # data_only=False to get formatted values
         try:
             sheet = workbook[PAGE_METADATA["HOME_PAGE"]]
         except KeyError:
             print("Error: Sheet 'Data on homepage' not found in the Excel file.")
             print(f"Available sheets: {workbook.sheetnames}")
             return
-
 
         # Get headers
         headers = [cell.value for cell in sheet[1]]
@@ -69,13 +64,13 @@ def key_progress_indicators(excel_file):
 
         # Extract data rows
         data = []
-        for row_idx, row in enumerate(sheet.iter_rows(min_row=2, values_only=True), start=2):
+        for row_idx, row in enumerate(sheet.iter_rows(min_row=2), start=2):  # Use cell objects, not values_only
             try:
-                raw_name = row[cleaned_headers.index(TABS_METADATA["HOME_PAGE"][0])]
+                raw_name = row[cleaned_headers.index(TABS_METADATA["HOME_PAGE"][0])].value
                 if not raw_name or not str(raw_name).strip():
                     continue
 
-                raw_src = row[cleaned_headers.index(TABS_METADATA["HOME_PAGE"][3])] or ''
+                raw_src = row[cleaned_headers.index(TABS_METADATA["HOME_PAGE"][3])].value or ''
                 logo_url = convert_drive_link_to_direct_url(raw_src)
 
                 file_match = re.search(r"id=([a-zA-Z0-9_-]+)", logo_url)
@@ -90,7 +85,6 @@ def key_progress_indicators(excel_file):
 
                 if file_id:
                     if download_image(file_id, local_path):
-
                          gcp_access_path = os.path.join(script_dir, '..', 'cloud-scripts', 'gcp_access.py')
                          spec = importlib.util.spec_from_file_location('gcp_access', gcp_access_path)
                          gcp_access = importlib.util.module_from_spec(spec)
@@ -109,24 +103,29 @@ def key_progress_indicators(excel_file):
                          else:
                             print("Failed to upload file to GCS. Check logs for details.")
 
+                # Get the formatted value for the 'value' column
+                value_cell = row[cleaned_headers.index(TABS_METADATA["HOME_PAGE"][2])]
                 row_data = {
-                    'label': row[cleaned_headers.index(TABS_METADATA["HOME_PAGE"][0])] or '',
-                    'value': row[cleaned_headers.index(TABS_METADATA["HOME_PAGE"][2])] or '',
+                    'label': raw_name or '',
+                    'value': value_cell.value or '',  # Start with raw value
                     'icon': final_src or ''
                 }
-                # Convert value to float if it's numeric and multiply by 100 if label is 'NAS Grade 3'
-                if row_data['label'] == 'NAS Grade 3' and isinstance(row_data['value'], (int, float)):
-                    row_data['value'] = f"{float(row_data['value']) * 100:.1f}%"
-
-                # Convert float to int if it's a whole number
-                if isinstance(row_data['value'], float) and row_data['value'].is_integer():
+                # For 'NAS Grade 3', get the formatted text (e.g., "59%")
+                if row_data['label'] == 'NAS Grade 3':
+                    row_data['value'] = value_cell.internal_value if value_cell.internal_value else ''
+                    if value_cell.number_format and '%' in value_cell.number_format:
+                        # If the cell is formatted as percentage, get the display value
+                        row_data['value'] = f"{value_cell.value * 100:.0f}%"
+                    else:
+                        row_data['value'] = str(row_data['value'])
+                # Convert float to int if it's a whole number for other labels
+                elif isinstance(row_data['value'], float) and row_data['value'].is_integer():
                     row_data['value'] = int(row_data['value'])
                 
                 data.append(row_data)
             except Exception as e:
                 print(f"Error processing row {row_idx}: {str(e)}")
                 continue
-
 
         # Read the existing JSON file
         with open(json_path, 'r', encoding='utf-8') as json_file:
@@ -156,7 +155,6 @@ def key_progress_indicators(excel_file):
         if not found:
             json_data.append({'type': 'data-indicators', 'indicators': data})
 
-
         # Write back to the file
         with open(json_path, 'w', encoding='utf-8') as json_file:
             json.dump(json_data, json_file, indent=2, ensure_ascii=False)
@@ -169,12 +167,6 @@ def key_progress_indicators(excel_file):
 
         private_key_path = os.path.join(script_dir, "..", "private-key.json")
 
-        # folder_url = gcp_access.upload_file_to_gcs_and_get_directory(
-        #     bucket_name="dev-sg-dashboard",
-        #     source_file_path=json_path,
-        #     destination_blob_name="sg-dashboard/landing-page.json",
-        #     private_key_path=private_key_path
-        # )
         folder_url = gcp_access.upload_file_to_gcs_and_get_directory(
             bucket_name=os.environ.get("BUCKET_NAME"),
             source_file_path=json_path,
@@ -186,8 +178,5 @@ def key_progress_indicators(excel_file):
         else:
             print("Failed to upload file to GCS. Check logs for details.")
 
-
     except Exception as e:
         print(f"Error: {str(e)}")
-
-

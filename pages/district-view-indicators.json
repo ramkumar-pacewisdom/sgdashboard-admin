@@ -276,7 +276,7 @@
         "type": "category_1",
         "details": [
           {
-            "value": 2801,
+            "value": "=2774+27",
             "code": "Micro Improvements initiated"
           },
           {
@@ -398,7 +398,7 @@
       "details": [
         {
           "code": "Micro Improvements initiated",
-          "value": 763265
+          "value": 760464
         },
         {
           "code": "Districts driving improvements",
@@ -418,7 +418,7 @@
         },
         {
           "code": "NAS Grade 3",
-          "value": 0.59
+          "value": "59%"
         }
       ]
     },
