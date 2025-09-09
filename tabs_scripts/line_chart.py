@@ -263,7 +263,7 @@ def save_and_upload_state_file(script_dir, state_id, filename, data, gcp_access)
         print(f"❌ Failed to upload {filename} for state {state_id}")
 
 def extract_state_line_chart(excel_file):
-    """Extract data from 'Micro improvements progress' sheet and generate line-chart.json for each state."""
+    """Extract data from 'Micro improvements progress' sheet and generate line-chart.json for each state, excluding district data."""
     try:
         # Load state codes
         state_codes = load_state_codes()
@@ -286,6 +286,7 @@ def extract_state_line_chart(excel_file):
         row_num = 2
         while True:
             state_name = sheet.cell(row=row_num, column=1).value
+            district_name = sheet.cell(row=row_num, column=2).value
             year = sheet.cell(row=row_num, column=3).value
             q1 = sheet.cell(row=row_num, column=4).value
             q2 = sheet.cell(row=row_num, column=5).value
@@ -294,6 +295,11 @@ def extract_state_line_chart(excel_file):
 
             if not state_name:
                 break
+
+            # Skip rows with district data
+            if district_name:
+                row_num += 1
+                continue
 
             state_name = str(state_name).strip() if state_name else ""
             if state_name not in state_codes:

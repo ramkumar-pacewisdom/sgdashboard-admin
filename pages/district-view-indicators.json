@@ -276,7 +276,7 @@
         "type": "category_1",
         "details": [
           {
-            "value": "=2774+27",
+            "value": 2801,
             "code": "Micro Improvements initiated"
           },
           {
@@ -398,7 +398,7 @@
       "details": [
         {
           "code": "Micro Improvements initiated",
-          "value": 760464
+          "value": 763265
         },
         {
           "code": "Districts driving improvements",
