@@ -117,7 +117,7 @@ def key_progress_indicators(excel_file):
                         # If the cell is formatted as percentage, get the display value
                         row_data['value'] = f"{value_cell.value * 100:.0f}%"
                     else:
-                        row_data['value'] = str(row_data['value'])
+                        row_data['value'] = str(int(row_data['value']))
                 # Convert float to int if it's a whole number for other labels
                 elif isinstance(row_data['value'], float) and row_data['value'].is_integer():
                     row_data['value'] = int(row_data['value'])
