@@ -32,7 +32,7 @@ if uploaded_file is not None:
         if uploaded_file.name.endswith('.csv'):
             df = pd.read_csv(uploaded_file)
         elif uploaded_file.name.endswith('.xlsx'):
-            key_progress_indicators(uploaded_file)
+            # key_progress_indicators(uploaded_file) 
             # get_partners(uploaded_file)
             # get_network_map_data(uploaded_file)
             # update_district_view_indicators(uploaded_file)
@@ -44,7 +44,7 @@ if uploaded_file is not None:
             # community_led_programs_sum_with_codes(uploaded_file)
             # generate_program_reports(uploaded_file)
             # extract_community_details(uploaded_file)
-            # extract_micro_improvements(uploaded_file)
+            extract_micro_improvements(uploaded_file)
             df = pd.read_excel(uploaded_file)
         elif uploaded_file.name.endswith('.txt'):
             df = pd.read_csv(uploaded_file, delimiter="	")

@@ -30,9 +30,19 @@ def extract_micro_improvements(excel_file):
     # Iterate through rows, starting from row 2 to skip headers
     for row in sheet.iter_rows(min_row=2, max_col=7, values_only=True):
         print("function called inside", row)
+        district_name = row[1]  # District column (B)
         year = row[2]  # Year column (C)
         q1, q2, q3, q4 = row[3:7]  # Q1, Q2, Q3, Q4 columns (D-G)
         print("data", year, q1, q2, q3, q4)
+
+        # Skip rows with district data
+        if district_name:
+            continue
+
+        # Skip rows where Q1, Q2, Q3, and Q4 are all empty
+        if not any([q1, q2, q3, q4]):
+            continue
+
         # Ensure values are numeric, treat None or empty as 0
         q1 = float(q1) if q1 else 0
         q2 = float(q2) if q2 else 0

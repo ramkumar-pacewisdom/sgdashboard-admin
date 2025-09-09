@@ -114,10 +114,11 @@ def key_progress_indicators(excel_file):
                 if row_data['label'] == 'NAS Grade 3':
                     row_data['value'] = value_cell.internal_value if value_cell.internal_value else ''
                     if value_cell.number_format and '%' in value_cell.number_format:
-                        # If the cell is formatted as percentage, get the display value
-                        row_data['value'] = f"{value_cell.value * 100:.0f}%"
+                        # If the cell is formatted as percentage, get the display value as an integer
+                        row_data['value'] = f"{int(value_cell.value * 100)}%"
                     else:
-                        row_data['value'] = str(row_data['value'])
+                        # Ensure whole numbers are stored as integers
+                        row_data['value'] = str(int(float(row_data['value']))) if row_data['value'] else ''
                 # Convert float to int if it's a whole number for other labels
                 elif isinstance(row_data['value'], float) and row_data['value'].is_integer():
                     row_data['value'] = int(row_data['value'])
