@@ -79,7 +79,7 @@
       },
       {
         "label": "NAS Grade 3",
-        "value": "59.0",
+        "value": "59",
         "icon": "https://storage.googleapis.com/prod-sg-dashbaord/sg-dashboard/partners/nas_grade_3.svg"
       }
     ],
@@ -100,17 +100,17 @@
     ],
     "selections": [
       {
-        "label": "Micro Improvement Initiated",
+        "label": "Micro improvement initiated",
         "value": "Micro Improvements Initiated",
         "selected": true
       },
       {
-        "label": "Leaders Driving Improvements",
+        "label": "Leaders driving improvements",
         "value": "Leaders Driving Improvements",
         "selected": false
       },
       {
-        "label": "Schools Driving Improvements",
+        "label": "Schools driving improvements",
         "value": "Schools Driving Improvements",
         "selected": false
       }
@@ -561,7 +561,7 @@
         "name": "LTTS",
         "countryName": "India",
         "partnerState": "Karnataka",
-        "category": "Stategic",
+        "category": "Strategic",
         "website": "https://www.ltts.com/",
         "coordinates": [
           13.088507,
@@ -575,7 +575,7 @@
         "name": "HDFC",
         "countryName": "India",
         "partnerState": "Maharashtra",
-        "category": "Stategic",
+        "category": "Strategic",
         "website": "https://www.hdfcbank.com/",
         "coordinates": [
           17.5537,
@@ -589,7 +589,7 @@
         "name": "AXIS",
         "countryName": "India",
         "partnerState": "Maharashtra",
-        "category": "Stategic",
+        "category": "Strategic",
         "website": "https://www.axisbank.com/",
         "coordinates": [
           20.872927,
@@ -603,7 +603,7 @@
         "name": "Caring Friends",
         "countryName": "India",
         "partnerState": "Maharashtra",
-        "category": "Stategic",
+        "category": "Strategic",
         "website": "No website available",
         "coordinates": [
           18.055784,
@@ -617,7 +617,7 @@
         "name": "Motivation for Excellence",
         "countryName": "India",
         "partnerState": "Maharashtra",
-        "category": "Stategic",
+        "category": "Strategic",
         "website": "https://motivationforexcellence.org/",
         "coordinates": [
           19.0080120149813,
@@ -631,7 +631,7 @@
         "name": "PayPal",
         "countryName": "India",
         "partnerState": "Karnataka",
-        "category": "Stategic",
+        "category": "Strategic",
         "website": "https://www.paypal.com/in/home",
         "coordinates": [
           13.38795,
@@ -645,7 +645,7 @@
         "name": "Amansa Capital",
         "countryName": "Singapore",
         "partnerState": "",
-        "category": "Stategic",
+        "category": "Strategic",
         "website": "https://www.amansacapital.com/#/",
         "coordinates": [
           1.29416142943106,
@@ -659,7 +659,7 @@
         "name": "Salesforce",
         "countryName": "India",
         "partnerState": "Karnataka",
-        "category": "Stategic",
+        "category": "Strategic",
         "website": "https://www.salesforce.com/in/",
         "coordinates": [
           13.644319,
@@ -673,7 +673,7 @@
         "name": "Arpan Foundation",
         "countryName": "United States of America (USA)",
         "partnerState": "",
-        "category": "Stategic",
+        "category": "Strategic",
         "website": "",
         "coordinates": [
           38.748728,
@@ -687,7 +687,7 @@
         "name": "AWS",
         "countryName": "India",
         "partnerState": "Delhi",
-        "category": "Stategic",
+        "category": "Strategic",
         "website": "https://aws.amazon.com/",
         "coordinates": [
           28.494644,
@@ -701,7 +701,7 @@
         "name": "Rotary club of Queens necklace mumbai",
         "countryName": "India",
         "partnerState": "Maharashtra",
-        "category": "Stategic",
+        "category": "Strategic",
         "website": "https://www.rotaryqueensnecklace.org/",
         "coordinates": [
           20.132024,
@@ -715,7 +715,7 @@
         "name": "Wells Fargo",
         "countryName": "India",
         "partnerState": "Karnataka",
-        "category": "Stategic",
+        "category": "Strategic",
         "website": "https://www.wellsfargo.com/",
         "coordinates": [
           15.091682,
@@ -729,7 +729,7 @@
         "name": "C4EC",
         "countryName": "India",
         "partnerState": "Karnataka",
-        "category": "Stategic",
+        "category": "Strategic",
         "website": "https://centreforexponentialchange.org/",
         "coordinates": [
           12.679865,
@@ -743,7 +743,7 @@
         "name": "ShikshaLokam",
         "countryName": "India",
         "partnerState": "Karnataka",
-        "category": "Stategic",
+        "category": "Strategic",
         "website": "https://shikshalokam.org/",
         "coordinates": [
           15.277561,
