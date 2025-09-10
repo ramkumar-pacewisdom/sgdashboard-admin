@@ -26,6 +26,8 @@ def extract_micro_improvements(excel_file):
     # Initialize dictionaries to store sums for each year
     sums_2024 = {'Q1': 0, 'Q2': 0, 'Q3': 0, 'Q4': 0}
     sums_2025 = {'Q1': 0, 'Q2': 0, 'Q3': 0, 'Q4': 0}
+    valid_quarters_2024 = {'Q1': False, 'Q2': False, 'Q3': False, 'Q4': False}
+    valid_quarters_2025 = {'Q1': False, 'Q2': False, 'Q3': False, 'Q4': False}
 
     # Iterate through rows, starting from row 2 to skip headers
     for row in sheet.iter_rows(min_row=2, max_col=7, values_only=True):
@@ -39,32 +41,46 @@ def extract_micro_improvements(excel_file):
         if district_name:
             continue
 
-        # Skip rows where Q1, Q2, Q3, and Q4 are all empty
-        if not any([q1, q2, q3, q4]):
+        # Skip rows where Q1, Q2, Q3, and Q4 are all None or empty
+        if not any(x is not None for x in [q1, q2, q3, q4]):
             continue
 
-        # Ensure values are numeric, treat None or empty as 0
-        q1 = float(q1) if q1 else 0
-        q2 = float(q2) if q2 else 0
-        q3 = float(q3) if q3 else 0
-        q4 = float(q4) if q4 else 0
-        
+        # Add values to sums only if they are not None
         if year == 2024:
-            sums_2024['Q1'] += q1
-            sums_2024['Q2'] += q2
-            sums_2024['Q3'] += q3
-            sums_2024['Q4'] += q4
+            if q1 is not None:
+                sums_2024['Q1'] += float(q1)
+                valid_quarters_2024['Q1'] = True
+            if q2 is not None:
+                sums_2024['Q2'] += float(q2)
+                valid_quarters_2024['Q2'] = True
+            if q3 is not None:
+                sums_2024['Q3'] += float(q3)
+                valid_quarters_2024['Q3'] = True
+            if q4 is not None:
+                sums_2024['Q4'] += float(q4)
+                valid_quarters_2024['Q4'] = True
         elif year == 2025:
-            sums_2025['Q1'] += q1
-            sums_2025['Q2'] += q2
-            sums_2025['Q3'] += q3
-            sums_2025['Q4'] += q4
+            if q1 is not None:
+                sums_2025['Q1'] += float(q1)
+                valid_quarters_2025['Q1'] = True
+            if q2 is not None:
+                sums_2025['Q2'] += float(q2)
+                valid_quarters_2025['Q2'] = True
+            if q3 is not None:
+                sums_2025['Q3'] += float(q3)
+                valid_quarters_2025['Q3'] = True
+            if q4 is not None:
+                sums_2025['Q4'] += float(q4)
+                valid_quarters_2025['Q4'] = True
 
-    # Format the result as requested, excluding zero values
+    # Format the result, including only quarters with valid (non-None) data
     result = []
-    for year, sums in [(2024, sums_2024), (2025, sums_2025)]:
-        data = [value for value in [sums['Q1'], sums['Q2'], sums['Q3'], sums['Q4']] if value != 0]
-        if data:  # Include year only if there is non-zero data
+    for year, sums, valid_quarters in [(2024, sums_2024, valid_quarters_2024), (2025, sums_2025, valid_quarters_2025)]:
+        data = []
+        for q in ['Q1', 'Q2', 'Q3', 'Q4']:
+            if valid_quarters[q]:
+                data.append(sums[q])
+        if data:  # Include year only if there is valid data
             result.append({
                 "year": year,
                 "data": data
@@ -163,28 +179,38 @@ def extract_district_line_chart(excel_file):
                 district_files_map[district_id] = {
                     "district_name": district_name,
                     "line_chart": {
-                        2024: {'Q1': 0, 'Q2': 0, 'Q3': 0, 'Q4': 0},
-                        2025: {'Q1': 0, 'Q2': 0, 'Q3': 0, 'Q4': 0}
+                        2024: {'Q1': 0, 'Q2': 0, 'Q3': 0, 'Q4': 0, 'valid_Q1': False, 'valid_Q2': False, 'valid_Q3': False, 'valid_Q4': False},
+                        2025: {'Q1': 0, 'Q2': 0, 'Q3': 0, 'Q4': 0, 'valid_Q1': False, 'valid_Q2': False, 'valid_Q3': False, 'valid_Q4': False}
                     }
                 }
 
-            # Ensure values are numeric, treat None or empty as 0
-            q1 = float(q1) if q1 else 0
-            q2 = float(q2) if q2 else 0
-            q3 = float(q3) if q3 else 0
-            q4 = float(q4) if q4 else 0
-
-            # Add values to the corresponding year
+            # Add values to sums only if they are not None
             if year == 2024:
-                district_files_map[district_id]["line_chart"][2024]['Q1'] += q1
-                district_files_map[district_id]["line_chart"][2024]['Q2'] += q2
-                district_files_map[district_id]["line_chart"][2024]['Q3'] += q3
-                district_files_map[district_id]["line_chart"][2024]['Q4'] += q4
+                if q1 is not None:
+                    district_files_map[district_id]["line_chart"][2024]['Q1'] += float(q1)
+                    district_files_map[district_id]["line_chart"][2024]['valid_Q1'] = True
+                if q2 is not None:
+                    district_files_map[district_id]["line_chart"][2024]['Q2'] += float(q2)
+                    district_files_map[district_id]["line_chart"][2024]['valid_Q2'] = True
+                if q3 is not None:
+                    district_files_map[district_id]["line_chart"][2024]['Q3'] += float(q3)
+                    district_files_map[district_id]["line_chart"][2024]['valid_Q3'] = True
+                if q4 is not None:
+                    district_files_map[district_id]["line_chart"][2024]['Q4'] += float(q4)
+                    district_files_map[district_id]["line_chart"][2024]['valid_Q4'] = True
             elif year == 2025:
-                district_files_map[district_id]["line_chart"][2025]['Q1'] += q1
-                district_files_map[district_id]["line_chart"][2025]['Q2'] += q2
-                district_files_map[district_id]["line_chart"][2025]['Q3'] += q3
-                district_files_map[district_id]["line_chart"][2025]['Q4'] += q4
+                if q1 is not None:
+                    district_files_map[district_id]["line_chart"][2025]['Q1'] += float(q1)
+                    district_files_map[district_id]["line_chart"][2025]['valid_Q1'] = True
+                if q2 is not None:
+                    district_files_map[district_id]["line_chart"][2025]['Q2'] += float(q2)
+                    district_files_map[district_id]["line_chart"][2025]['valid_Q2'] = True
+                if q3 is not None:
+                    district_files_map[district_id]["line_chart"][2025]['Q3'] += float(q3)
+                    district_files_map[district_id]["line_chart"][2025]['valid_Q3'] = True
+                if q4 is not None:
+                    district_files_map[district_id]["line_chart"][2025]['Q4'] += float(q4)
+                    district_files_map[district_id]["line_chart"][2025]['valid_Q4'] = True
 
             row_num += 1
 
@@ -196,16 +222,14 @@ def extract_district_line_chart(excel_file):
             dist_dir = os.path.join(script_dir, "..", "districts", str(dist_id))
             os.makedirs(dist_dir, exist_ok=True)
 
-            # Format line chart data as requested, excluding zero values
+            # Format line chart data, including only quarters with valid data
             line_chart_data = []
             for year in [2024, 2025]:
-                data = [value for value in [
-                    dist_data["line_chart"][year]['Q1'],
-                    dist_data["line_chart"][year]['Q2'],
-                    dist_data["line_chart"][year]['Q3'],
-                    dist_data["line_chart"][year]['Q4']
-                ] if value != 0]
-                if data:  # Include year only if there is non-zero data
+                data = []
+                for q in ['Q1', 'Q2', 'Q3', 'Q4']:
+                    if dist_data["line_chart"][year][f'valid_{q}']:
+                        data.append(dist_data["line_chart"][year][q])
+                if data:  # Include year only if there is valid data
                     line_chart_data.append({
                         "year": year,
                         "data": data
@@ -324,28 +348,38 @@ def extract_state_line_chart(excel_file):
                 state_line_chart_map[state_id] = {
                     "state_name": state_name,
                     "line_chart": {
-                        2024: {'Q1': 0, 'Q2': 0, 'Q3': 0, 'Q4': 0},
-                        2025: {'Q1': 0, 'Q2': 0, 'Q3': 0, 'Q4': 0}
+                        2024: {'Q1': 0, 'Q2': 0, 'Q3': 0, 'Q4': 0, 'valid_Q1': False, 'valid_Q2': False, 'valid_Q3': False, 'valid_Q4': False},
+                        2025: {'Q1': 0, 'Q2': 0, 'Q3': 0, 'Q4': 0, 'valid_Q1': False, 'valid_Q2': False, 'valid_Q3': False, 'valid_Q4': False}
                     }
                 }
 
-            # Ensure values are numeric, treat None or empty as 0
-            q1 = float(q1) if q1 else 0
-            q2 = float(q2) if q2 else 0
-            q3 = float(q3) if q3 else 0
-            q4 = float(q4) if q4 else 0
-
-            # Add values to the corresponding year
+            # Add values to sums only if they are not None
             if year == 2024:
-                state_line_chart_map[state_id]["line_chart"][2024]['Q1'] += q1
-                state_line_chart_map[state_id]["line_chart"][2024]['Q2'] += q2
-                state_line_chart_map[state_id]["line_chart"][2024]['Q3'] += q3
-                state_line_chart_map[state_id]["line_chart"][2024]['Q4'] += q4
+                if q1 is not None:
+                    state_line_chart_map[state_id]["line_chart"][2024]['Q1'] += float(q1)
+                    state_line_chart_map[state_id]["line_chart"][2024]['valid_Q1'] = True
+                if q2 is not None:
+                    state_line_chart_map[state_id]["line_chart"][2024]['Q2'] += float(q2)
+                    state_line_chart_map[state_id]["line_chart"][2024]['valid_Q2'] = True
+                if q3 is not None:
+                    state_line_chart_map[state_id]["line_chart"][2024]['Q3'] += float(q3)
+                    state_line_chart_map[state_id]["line_chart"][2024]['valid_Q3'] = True
+                if q4 is not None:
+                    state_line_chart_map[state_id]["line_chart"][2024]['Q4'] += float(q4)
+                    state_line_chart_map[state_id]["line_chart"][2024]['valid_Q4'] = True
             elif year == 2025:
-                state_line_chart_map[state_id]["line_chart"][2025]['Q1'] += q1
-                state_line_chart_map[state_id]["line_chart"][2025]['Q2'] += q2
-                state_line_chart_map[state_id]["line_chart"][2025]['Q3'] += q3
-                state_line_chart_map[state_id]["line_chart"][2025]['Q4'] += q4
+                if q1 is not None:
+                    state_line_chart_map[state_id]["line_chart"][2025]['Q1'] += float(q1)
+                    state_line_chart_map[state_id]["line_chart"][2025]['valid_Q1'] = True
+                if q2 is not None:
+                    state_line_chart_map[state_id]["line_chart"][2025]['Q2'] += float(q2)
+                    state_line_chart_map[state_id]["line_chart"][2025]['valid_Q2'] = True
+                if q3 is not None:
+                    state_line_chart_map[state_id]["line_chart"][2025]['Q3'] += float(q3)
+                    state_line_chart_map[state_id]["line_chart"][2025]['valid_Q3'] = True
+                if q4 is not None:
+                    state_line_chart_map[state_id]["line_chart"][2025]['Q4'] += float(q4)
+                    state_line_chart_map[state_id]["line_chart"][2025]['valid_Q4'] = True
 
             row_num += 1
 
@@ -364,13 +398,11 @@ def extract_state_line_chart(excel_file):
                 "data": []
             }
             for year in [2024, 2025]:
-                data = [value for value in [
-                    state_data["line_chart"][year]['Q1'],
-                    state_data["line_chart"][year]['Q2'],
-                    state_data["line_chart"][year]['Q3'],
-                    state_data["line_chart"][year]['Q4']
-                ] if value != 0]
-                if data:  # Include year only if there is non-zero data
+                data = []
+                for q in ['Q1', 'Q2', 'Q3', 'Q4']:
+                    if state_data["line_chart"][year][f'valid_{q}']:
+                        data.append(state_data["line_chart"][year][q])
+                if data:  # Include year only if there is valid data
                     line_chart_data["data"].append({
                         "year": year,
                         "data": data

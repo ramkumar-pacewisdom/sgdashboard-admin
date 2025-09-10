@@ -84,12 +84,12 @@ def update_district_view_indicators(excel_file):
             if indicator_name.lower() in special_keys_lower:
                 data_cell = row[home_col_indices["Data"] - 1]
                 if indicator_name.lower() == "nas grade 3":
-                    # Get the formatted value for NAS Grade 3
+                    # Get the value for NAS Grade 3 and convert to integer string
                     data_val = data_cell.internal_value if data_cell.internal_value else ''
-                    if data_cell.number_format and '%' in data_cell.number_format:
-                        data_val = f"{data_cell.value * 100:.0f}%"
+                    if isinstance(data_val, (int, float)):
+                        data_val = str(int(data_val))  # Convert to integer and then to string
                     else:
-                        data_val = str(data_val)
+                        data_val = str(data_val)  # Fallback to string if not a number
                 else:
                     data_val = data_cell.value
                     if isinstance(data_val, str) and "%" in data_val:
