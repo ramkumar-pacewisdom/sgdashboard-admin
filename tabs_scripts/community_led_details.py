@@ -194,11 +194,11 @@ def community_led_programs_sum_with_codes(excel_file):
                         "Community led improvements": 0,
                         "Challenges shared": 0,
                         "Solutions shared": 0,
-                        "Districts Activated": set()  # Use a set to store unique district names
+                        "Districts activated": set()  # Use a set to store unique district names
                     }
 
                 # Add district to the set
-                state_sums[state_name]["Districts Activated"].add(district_name)
+                state_sums[state_name]["Districts activated"].add(district_name)
 
                 # Sum values for specified columns
                 for col_name in expected_community_columns[2:]:  # Skip State Name and District
@@ -219,8 +219,8 @@ def community_led_programs_sum_with_codes(excel_file):
                 "type": "category_1",
                 "details": [
                     {"code": col_name, "value": int(val) if isinstance(val, float) and val.is_integer() else val}
-                    for col_name, val in sums.items() if col_name != "Districts Activated"  # Exclude Districts Activated temporarily
-                ] + [{"code": "Districts Activated", "value": len(sums["Districts Activated"])}]  # Add district count
+                    for col_name, val in sums.items() if col_name != "Districts activated"  # Exclude Districts Activated temporarily
+                ] + [{"code": "Districts activated", "value": len(sums["Districts activated"])}]  # Add district count
             }
             for state, sums in state_sums.items()
         }
