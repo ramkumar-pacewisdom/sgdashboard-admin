@@ -53,17 +53,17 @@
     ],
     "selections": [
       {
-        "label": "Micro Improvement Initiated",
+        "label": "Micro Improvement initiated",
         "value": "Micro Improvement Initiated",
         "selected": true
       },
       {
-        "label": "Leaders Driving Improvements",
+        "label": "Leaders driving improvements",
         "value": "Leaders Driving Improvements",
         "selected": false
       },
       {
-        "label": "Schools Driving Improvements",
+        "label": "Schools driving improvements",
         "value": "Schools Driving Improvements",
         "selected": false
       }
