@@ -24,7 +24,7 @@
             "selections":[],
             "legends":{
               "category_1": {
-                "label": "Districts with Community led Initiatives",
+                "label": "Districts with Community led initiatives",
                 "color": "#ffffff",
                 "show_details": true,
                 "icon": "assets/icons/community_map_icon.svg"
