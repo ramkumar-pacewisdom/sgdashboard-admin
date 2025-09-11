@@ -85,7 +85,7 @@
     "meta": {
       "legends": {
         "category_1": {
-          "label": "Community led Initiatives",
+          "label": "Community led initiatives",
           "color": "#ffffff",
           "show_details": true,
           "icon": "assets/icons/community_map_icon.svg"
