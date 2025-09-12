@@ -58,6 +58,15 @@ def extract_community_details(excel_file):
             "Community Engagement"
         ]
 
+        DISPLAY_NAMES = {
+            "Infrastructure and resources": "Infrastructure and Resources",
+            "School structure and practices": "School Structure and Practices",
+            "Leadership": "Leadership",
+            "Pedagogy": "Pedagogy",
+            "Assessment and Evaluation": "Assessment and Evaluation",
+            "Community Engagement": "Community Engagement"
+        }
+
         state_data = {}
 
         gcp_access_path = os.path.join(script_dir, '..', 'cloud-scripts', 'gcp_access.py')
@@ -134,7 +143,8 @@ def extract_community_details(excel_file):
             # community-pie-chart.json
             pie_json = {
                 "data": [
-                    {"name": k.strip(), "value": pie_totals[k]} for k in pie_keys
+                     {"name": DISPLAY_NAMES.get(k.strip(), k.strip()), "value": pie_totals[k]} 
+                     for k in pie_keys
                 ]
             }
             pie_path = os.path.join(district_folder, "community-pie-chart.json")
@@ -178,10 +188,15 @@ def extract_community_details(excel_file):
                 json.dump(map_json, f, indent=2, ensure_ascii=False)
 
             # Build community-pie-chart.json
+            # pie_json = {
+            #     "data": [{"name": k.strip(), "value": v} for k, v in data["pie_totals"].items()]
+            # }
             pie_json = {
-                "data": [{"name": k.strip(), "value": v} for k, v in data["pie_totals"].items()]
+                "data": [
+                    {"name": DISPLAY_NAMES.get(k.strip(), k.strip()), "value": v}
+                    for k, v in data["pie_totals"].items()
+                ]
             }
-
             pie_path = os.path.join(state_folder, "community-pie-chart.json")
             with open(pie_path, "w", encoding="utf-8") as f:
                 json.dump(pie_json, f, indent=2, ensure_ascii=False)
