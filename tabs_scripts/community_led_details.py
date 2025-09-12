@@ -36,7 +36,7 @@ def pie_chart_community_led(excel_file):
 
         DISPLAY_NAMES = {
             "Infrastructure and resources": "Infrastructure and Resources",
-            "School structure and practices": "School Structure and Practices",
+            "School structure and practices": "School structure and Practices",
             "Leadership": "Leadership",
             "Pedagogy": "Pedagogy",
             "Assessment and Evaluation": "Assessment and Evaluation",
