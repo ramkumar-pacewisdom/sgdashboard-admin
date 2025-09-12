@@ -48,6 +48,13 @@ def extract_community_details(excel_file):
             "Solutions shared"
         ]
 
+        MAP_DISPLAY_NAMES = {
+            "No. of community leaders engaged": "Community Leaders Engaged",
+            "Community led improvements": "Community led improvements",
+            "Challenges shared": "Challenges shared",
+            "Solutions shared": "Solutions shared"
+        }
+
         # These 6 go into community-pie-chart.json
         pie_keys = [
             "Infrastructure and resources",
@@ -129,7 +136,7 @@ def extract_community_details(excel_file):
             metrics_json = {
                 "metrics": [
                     {
-                        "label": k,
+                        "label": MAP_DISPLAY_NAMES.get(k, k),
                         "value": row[column_indices[k] - 1] or 0,
                         "identifier": idx
                     }
@@ -178,7 +185,7 @@ def extract_community_details(excel_file):
                     "overview": {
                         "label": data["state_name"],
                         "type": "category_2",
-                        "details": [{"value": v, "code": k} for k, v in data["overview_totals"].items()]
+                        "details": [{"value": v, "code": MAP_DISPLAY_NAMES.get(k, k)} for k, v in data["overview_totals"].items()]
                     }
                 }
             }
