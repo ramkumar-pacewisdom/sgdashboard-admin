@@ -33,6 +33,16 @@ def pie_chart_community_led(excel_file):
             "Assessment and Evaluation",
             "Community Engagement"
         ]
+
+        DISPLAY_NAMES = {
+            "Infrastructure and resources": "Infrastructure and Resources",
+            "School structure and practices": "School Structure and Practices",
+            "Leadership": "Leadership",
+            "Pedagogy": "Pedagogy",
+            "Assessment and Evaluation": "Assessment and Evaluation",
+            "Community Engagement": "Community Engagement"
+        }
+
         if not all(col in cleaned_headers for col in expected_columns):
             print(f"Error: Excel file must contain columns: {expected_columns}")
             print(f"Found: {cleaned_headers}")
@@ -55,7 +65,7 @@ def pie_chart_community_led(excel_file):
             if isinstance(col_sum, float) and col_sum.is_integer():
                 col_sum = int(col_sum)
             data.append({
-                'name': col_name,
+                'name': DISPLAY_NAMES.get(col_name.strip(), col_name.strip()),
                 'value': col_sum
             })
 
