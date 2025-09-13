@@ -13,6 +13,11 @@ def load_state_codes():
     with open(state_codes_file, "r", encoding="utf-8") as f:
         return json.load(f)
 
+import os
+import json
+import openpyxl
+import importlib.util
+
 def extract_community_details(excel_file):
     try:
         script_dir = os.path.dirname(os.path.abspath(__file__))
@@ -28,7 +33,6 @@ def extract_community_details(excel_file):
             print(f"❌ Sheet not found: {PAGE_METADATA['COMMUNITY_LED_PROGRAMS']}")
             return
 
-        # expected_headers = TABS_METADATA["COMMUNITY_LEAD_PROGRAMS"]
         expected_headers = ["Name of the State","Name of the District","No. of community leaders engaged","Community led improvements","Challenges shared","Solutions shared","Infrastructure and resources","School structure and practices","Leadership","Pedagogy","Assessment and Evaluation","Community Engagement","Districts initiated"]
         column_indices = {}
         for cell in sheet[1]:
@@ -40,7 +44,6 @@ def extract_community_details(excel_file):
             print(f"❌ Missing required columns: {missing_columns}")
             return
 
-        # These 4 go into community-map.json
         map_keys = [
             "No. of community leaders engaged",
             "Community led improvements",
@@ -48,7 +51,6 @@ def extract_community_details(excel_file):
             "Solutions shared"
         ]
 
-        # These 6 go into community-pie-chart.json
         pie_keys = [
             "Infrastructure and resources",
             "School structure and practices",
@@ -65,7 +67,6 @@ def extract_community_details(excel_file):
         gcp_access = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(gcp_access)
 
-        # Read each row
         for row in sheet.iter_rows(min_row=2, values_only=True):
             state_name = str(row[column_indices["Name of the State"] - 1]).strip()
             district_name = str(row[column_indices["Name of the District"] - 1]).strip()
@@ -74,11 +75,9 @@ def extract_community_details(excel_file):
                 continue
 
             if state_name not in state_codes:
-                # print(f"⚠️ Skipping unknown state: {state_name}")
                 continue
 
             state_id = state_codes[state_name]["id"]
-            # print(f"STATE ID {state_id}==========STATE CODES {state_codes}")
             district_id = state_codes[state_name].get(district_name)
             if not district_id:
                 print(f"⚠️ Skipping unknown district {district_name} under state {state_name}")
@@ -92,7 +91,6 @@ def extract_community_details(excel_file):
                     "pie_totals": {k: 0 for k in pie_keys}
                 }
 
-            # Build district details
             details = []
             for k in map_keys:
                 val = row[column_indices[k] - 1] or 0
@@ -105,18 +103,15 @@ def extract_community_details(excel_file):
                 "details": details
             }
 
-            # Accumulate pie chart totals
             pie_totals = {}
             for k in pie_keys:
                 val = row[column_indices[k] - 1] or 0
                 state_data[state_id]["pie_totals"][k] += val
                 pie_totals[k] = val
 
-            # --- NEW FEATURE: Create district-level files ---
             district_folder = os.path.join(script_dir, "..", "districts", district_id)
             os.makedirs(district_folder, exist_ok=True)
 
-            # community-metrics.json
             metrics_json = {
                 "metrics": [
                     {
@@ -131,7 +126,6 @@ def extract_community_details(excel_file):
             with open(metrics_path, "w", encoding="utf-8") as f:
                 json.dump(metrics_json, f, indent=2, ensure_ascii=False)
 
-            # community-pie-chart.json
             pie_json = {
                 "data": [
                     {"name": k.strip(), "value": pie_totals[k]} for k in pie_keys
@@ -141,7 +135,6 @@ def extract_community_details(excel_file):
             with open(pie_path, "w", encoding="utf-8") as f:
                 json.dump(pie_json, f, indent=2, ensure_ascii=False)
 
-            # Upload both district files
             for fname in ["community-metrics.json", "community-pie-chart.json"]:
                 local_path = os.path.join(district_folder, fname)
                 blob_path = f"sg-dashboard/districts/{district_id}/{fname}"
@@ -155,20 +148,19 @@ def extract_community_details(excel_file):
                 else:
                     print(f"❌ Failed to upload {fname} for district {district_name} ({district_id})")
 
-
-        # Now write json files for each state
         for state_id, data in state_data.items():
             state_folder = os.path.join(script_dir, "..", "states", state_id)
             os.makedirs(state_folder, exist_ok=True)
 
-            # Build community-map.json
             map_json = {
                 "result": {
                     "districts": data["districts"],
                     "overview": {
                         "label": data["state_name"],
                         "type": "category_2",
-                        "details": [{"value": v, "code": k} for k, v in data["overview_totals"].items()]
+                        "details": [
+                            {"value": v, "code": k} for k, v in data["overview_totals"].items()
+                        ] + [{"value": len(data["districts"]), "code": "Districts Activated"}]
                     }
                 }
             }
@@ -177,7 +169,6 @@ def extract_community_details(excel_file):
             with open(map_path, "w", encoding="utf-8") as f:
                 json.dump(map_json, f, indent=2, ensure_ascii=False)
 
-            # Build community-pie-chart.json
             pie_json = {
                 "data": [{"name": k.strip(), "value": v} for k, v in data["pie_totals"].items()]
             }
@@ -186,11 +177,9 @@ def extract_community_details(excel_file):
             with open(pie_path, "w", encoding="utf-8") as f:
                 json.dump(pie_json, f, indent=2, ensure_ascii=False)
 
-            # Upload both files to GCS
             for fname in ["community-map.json", "community-pie-chart.json"]:
                 local_path = os.path.join(state_folder, fname)
                 blob_path = f"sg-dashboard/states/{state_id}/{fname}"
-
                 folder_url = gcp_access.upload_file_to_gcs_and_get_directory(
                     bucket_name=os.environ.get("BUCKET_NAME"),
                     source_file_path=local_path,
@@ -201,7 +190,6 @@ def extract_community_details(excel_file):
                 else:
                     print(f"❌ Failed to upload {fname} for state {data['state_name']}")
 
-        # Finally, upload community-details-page.json
         state_details_path = os.path.join(script_dir, "..", "pages", "community-details-page.json")
         folder_url = gcp_access.upload_file_to_gcs_and_get_directory(
             bucket_name=os.environ.get("BUCKET_NAME"),
@@ -216,8 +204,7 @@ def extract_community_details(excel_file):
 
     except Exception as e:
         print(f"❌ Error: {str(e)}")
-
-
+        
 if __name__ == "__main__":
     import sys
     if len(sys.argv) < 2:

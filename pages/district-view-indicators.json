@@ -426,17 +426,29 @@
       "legends": {
         "category_1": {
           "label": "State and District led programs",
-          "color": "#5F1160",
+          "color": {
+            "Micro Improvements Initiated": "#5F1160",
+            "Leaders Driving Improvements": "#d01f43",
+            "Schools Driving Improvements": "#be1c6d"
+          },
           "show_details": true
         },
         "category_2": {
           "label": "State led programs",
-          "color": "#954696",
+          "color": {
+            "Micro Improvements Initiated": "#954696",
+            "Leaders Driving Improvements": "#eea4b4",
+            "Schools Driving Improvements": "#f47cb8"
+          },
           "show_details": true
         },
         "category_3": {
           "label": "District led programs",
-          "color": "#B485B4",
+          "color": {
+            "Micro Improvements Initiated": "#B485B4",
+            "Leaders Driving Improvements": "#e47990",
+            "Schools Driving Improvements": "#ed2489"
+          },
           "show_details": true
         },
         "category_4": {
