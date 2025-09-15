@@ -51,6 +51,14 @@ def extract_community_details(excel_file):
             "Solutions shared"
         ]
 
+        MAP_DISPLAY_NAMES = {
+            "No. of community leaders engaged": "Community Leaders Engaged",
+            "Community led improvements": "Community led improvements",
+            "Challenges shared": "Challenges shared",
+            "Solutions shared": "Solutions shared"
+        }
+
+        # These 6 go into community-pie-chart.json
         pie_keys = [
             "Infrastructure and resources",
             "School structure and practices",
@@ -59,6 +67,15 @@ def extract_community_details(excel_file):
             "Assessment and Evaluation",
             "Community Engagement"
         ]
+
+        DISPLAY_NAMES = {
+            "Infrastructure and resources": "Infrastructure and Resources",
+            "School structure and practices": "School Structure and Practices",
+            "Leadership": "Leadership",
+            "Pedagogy": "Pedagogy",
+            "Assessment and Evaluation": "Assessment and Evaluation",
+            "Community Engagement": "Community Engagement"
+        }
 
         state_data = {}
 
@@ -115,7 +132,7 @@ def extract_community_details(excel_file):
             metrics_json = {
                 "metrics": [
                     {
-                        "label": k,
+                        "label": MAP_DISPLAY_NAMES.get(k, k),
                         "value": row[column_indices[k] - 1] or 0,
                         "identifier": idx
                     }
@@ -128,7 +145,8 @@ def extract_community_details(excel_file):
 
             pie_json = {
                 "data": [
-                    {"name": k.strip(), "value": pie_totals[k]} for k in pie_keys
+                     {"name": DISPLAY_NAMES.get(k.strip(), k.strip()), "value": pie_totals[k]} 
+                     for k in pie_keys
                 ]
             }
             pie_path = os.path.join(district_folder, "community-pie-chart.json")
@@ -158,9 +176,7 @@ def extract_community_details(excel_file):
                     "overview": {
                         "label": data["state_name"],
                         "type": "category_2",
-                        "details": [
-                            {"value": v, "code": k} for k, v in data["overview_totals"].items()
-                        ] + [{"value": len(data["districts"]), "code": "Districts Activated"}]
+                        "details": [{"value": v, "code": MAP_DISPLAY_NAMES.get(k, k)} for k, v in data["overview_totals"].items()] + [{"value": len(data["districts"]), "code": "Districts activated"}]
                     }
                 }
             }
@@ -169,10 +185,16 @@ def extract_community_details(excel_file):
             with open(map_path, "w", encoding="utf-8") as f:
                 json.dump(map_json, f, indent=2, ensure_ascii=False)
 
+            # Build community-pie-chart.json
+            # pie_json = {
+            #     "data": [{"name": k.strip(), "value": v} for k, v in data["pie_totals"].items()]
+            # }
             pie_json = {
-                "data": [{"name": k.strip(), "value": v} for k, v in data["pie_totals"].items()]
+                "data": [
+                    {"name": DISPLAY_NAMES.get(k.strip(), k.strip()), "value": v}
+                    for k, v in data["pie_totals"].items()
+                ]
             }
-
             pie_path = os.path.join(state_folder, "community-pie-chart.json")
             with open(pie_path, "w", encoding="utf-8") as f:
                 json.dump(pie_json, f, indent=2, ensure_ascii=False)
@@ -204,7 +226,7 @@ def extract_community_details(excel_file):
 
     except Exception as e:
         print(f"❌ Error: {str(e)}")
-        
+
 if __name__ == "__main__":
     import sys
     if len(sys.argv) < 2:

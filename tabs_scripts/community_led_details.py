@@ -33,6 +33,16 @@ def pie_chart_community_led(excel_file):
             "Assessment and Evaluation",
             "Community Engagement"
         ]
+
+        DISPLAY_NAMES = {
+            "Infrastructure and resources": "Infrastructure and Resources",
+            "School structure and practices": "School Structure and Practices",
+            "Leadership": "Leadership",
+            "Pedagogy": "Pedagogy",
+            "Assessment and Evaluation": "Assessment and Evaluation",
+            "Community Engagement": "Community Engagement"
+        }
+
         if not all(col in cleaned_headers for col in expected_columns):
             print(f"Error: Excel file must contain columns: {expected_columns}")
             print(f"Found: {cleaned_headers}")
@@ -55,7 +65,7 @@ def pie_chart_community_led(excel_file):
             if isinstance(col_sum, float) and col_sum.is_integer():
                 col_sum = int(col_sum)
             data.append({
-                'name': col_name,
+                'name': DISPLAY_NAMES.get(col_name.strip(), col_name.strip()),
                 'value': col_sum
             })
 
@@ -194,11 +204,11 @@ def community_led_programs_sum_with_codes(excel_file):
                         "Community led improvements": 0,
                         "Challenges shared": 0,
                         "Solutions shared": 0,
-                        "Districts Activated": set()  # Use a set to store unique district names
+                        "Districts activated": set()  # Use a set to store unique district names
                     }
 
                 # Add district to the set
-                state_sums[state_name]["Districts Activated"].add(district_name)
+                state_sums[state_name]["Districts activated"].add(district_name)
 
                 # Sum values for specified columns
                 for col_name in expected_community_columns[2:]:  # Skip State Name and District
@@ -219,8 +229,8 @@ def community_led_programs_sum_with_codes(excel_file):
                 "type": "category_1",
                 "details": [
                     {"code": col_name, "value": int(val) if isinstance(val, float) and val.is_integer() else val}
-                    for col_name, val in sums.items() if col_name != "Districts Activated"  # Exclude Districts Activated temporarily
-                ] + [{"code": "Districts Activated", "value": len(sums["Districts Activated"])}]  # Add district count
+                    for col_name, val in sums.items() if col_name != "Districts activated"  # Exclude Districts Activated temporarily
+                ] + [{"code": "Districts activated", "value": len(sums["Districts activated"])}]  # Add district count
             }
             for state, sums in state_sums.items()
         }

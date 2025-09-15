@@ -5,7 +5,7 @@
       "width": "100%",
       "data": [
         {
-          "label": "State led program",
+          "label": "State led Program",
           "value": "",
           "description": "Programs co-created and implemented by department of school education in the state in collaboration with civil society organisations",
           "linkText": "*Click to learn more about the state programs",
@@ -80,7 +80,7 @@
           "show_details": true
         },
         "category_4": {
-          "label": "Community led Initiatives",
+          "label": "Community led initiatives",
           "color": "#ffffff",
           "show_details": true,
           "icon": "assets/icons/community_map_icon.svg"

@@ -23,7 +23,7 @@
             "value": 5442
           },
           {
-            "code": "Districts Activated",
+            "code": "Districts activated",
             "value": 8
           }
         ]
@@ -50,7 +50,7 @@
             "value": 757
           },
           {
-            "code": "Districts Activated",
+            "code": "Districts activated",
             "value": 2
           }
         ]
@@ -77,7 +77,7 @@
           "value": 6199
         },
         {
-          "code": "Districts Activated",
+          "code": "Districts activated",
           "value": 10
         }
       ]
@@ -85,7 +85,7 @@
     "meta": {
       "legends": {
         "category_1": {
-          "label": "Community led Initiatives",
+          "label": "Community led initiatives",
           "color": "#ffffff",
           "show_details": true,
           "icon": "assets/icons/community_map_icon.svg"
