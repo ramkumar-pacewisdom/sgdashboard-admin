@@ -26,12 +26,12 @@ def pie_chart_community_led(excel_file):
         headers = [cell.value for cell in sheet[1]]
         cleaned_headers = [str(cell).strip() if cell is not None else '' for cell in headers]
         expected_columns = [
+            "Community Engagement",
             "Infrastructure and resources",
             "School structure and practices",
             "Leadership",
             "Pedagogy",
             "Assessment and Evaluation",
-            "Community Engagement"
         ]
 
         DISPLAY_NAMES = {

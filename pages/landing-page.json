@@ -43,6 +43,16 @@
     "title": "Key Progress Indicators",
     "indicators": [
       {
+        "label": "Micro Improvements initiated\n\n",
+        "value": 763265,
+        "icon": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/micro_improvements_initiated.svg"
+      },
+      {
+        "label": "Leaders driving \nimprovements\n",
+        "value": 359508,
+        "icon": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/leaders_driving_improvements.svg"
+      },
+      {
         "label": "Schools driving improvements",
         "value": 117527,
         "icon": "https://storage.googleapis.com/dev-sg-dashboard/sg-dashboard/partners/schools_driving_improvements.svg"
